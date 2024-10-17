@@ -4,11 +4,13 @@ import { Box, Button, DropdownMenu, Flex } from "@radix-ui/themes";
 import { useTheme } from "next-themes";
 import React, {
   ForwardRefRenderFunction,
+  PropsWithChildren,
   useEffect,
   useRef,
   useState,
 } from "react";
 import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
+import { Link } from "./components";
 
 const Navbar = () => {
   const [display, setDisplay] = useState("hidden");
@@ -21,20 +23,24 @@ const Navbar = () => {
   }, []);
 
   return (
-    <>
-      <Box className="relative bg-rd-400 py-5 sm:px-5 px-3 flex z-20 justify-between h-24">
-        <Box className="flex gap-32 ">
-          <Box>
+    
+    
+      <Flex justify='between' className="fixed w-full bg-red-400 py-5 sm:px-5 px-3  z-40 mb-3 overflow-hidden ">
+        
+          <Box className="relative">
             <MyName ref={canvas} />
-          </Box>
-          <Box>
+        </Box>
+        
+          <NavLink display={display} ref={ref} />
+          
+          <Flex className="sm:gap-3  gap-10 relative">
             <ThemeToggle />
             <Menu display={display} setDisplay={setDisplay} element={element} />
-            <NavLink display={display} ref={ref} />
-          </Box>
-        </Box>
-      </Box>
-    </>
+          </Flex>
+        
+      </Flex>
+      
+    
   );
 };
 
@@ -42,8 +48,10 @@ interface Display {
   display: string;
 }
 
-const MyNameForwardRef: ForwardRefRenderFunction<HTMLCanvasElement> = ({}, ref) => {
-
+const MyNameForwardRef: ForwardRefRenderFunction<HTMLCanvasElement> = (
+  {},
+  ref
+) => {
   return (
     <Box>
       <canvas
@@ -56,6 +64,14 @@ const MyNameForwardRef: ForwardRefRenderFunction<HTMLCanvasElement> = ({}, ref) 
   );
 };
 
+const ListItem = ({ children }: PropsWithChildren) => {
+  return (
+    <li>
+      <Link href="#">{children}</Link>
+    </li>
+  );
+};
+
 const MyName = React.forwardRef(MyNameForwardRef);
 
 const NavLinkForwardRef: ForwardRefRenderFunction<HTMLDivElement, Display> = (
@@ -65,28 +81,12 @@ const NavLinkForwardRef: ForwardRefRenderFunction<HTMLDivElement, Display> = (
   return (
     <Box ref={ref}>
       <ul
-        className={`absolute bg-black md:bg-inherit flex mx-auto gap-y-5 flex-col top-16 left-0 w-full   ${display} lg:flex lg:flex-row lg:gap-20 lg:static`}
+        className={`fixed bg-black md:bg-inherit flex mx-auto gap-y-5 flex-col top-20 left-0 w-full text-center    ${display} lg:flex lg:flex-row lg:gap-20 lg:static`}
       >
-        <li>
-          <a href="#" className="active mx-">
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="#" className="align">
-            About
-          </a>
-        </li>
-        <li>
-          <a href="#" className="text-center">
-            Services
-          </a>
-        </li>
-        <li>
-          <a href="#" className="">
-            Contact
-          </a>
-        </li>
+        <ListItem>Home</ListItem>
+        <ListItem>About</ListItem>
+        <ListItem>Services</ListItem>
+        <ListItem>Contact</ListItem>
       </ul>
     </Box>
   );
