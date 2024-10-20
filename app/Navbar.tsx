@@ -23,25 +23,17 @@ const Navbar = () => {
   }, []);
 
   return (
-    
-    
-      <Flex justify='between' className="fixed w-full bg-rd-400 py-5 sm:px-5 px-3  z-40 mb-3 overflow-hidden ">
-        
-          <Box className="relative">
+    <Flex justify='between' className="fixed w-full bg-rd-400 py-5 sm:px-5 px-3  z-40 mb-3 overflow-hidden ">
+        <Box className="relative">
             <MyName ref={canvas} />
         </Box>
-        
-          <NavLink display={display} ref={ref} />
-          
+        <NavLink display={display} ref={ref} />
           <Flex className="gap-2  md:gap-10 relative">
             <ThemeToggle />
             <Menu display={display} setDisplay={setDisplay} element={element} />
           </Flex>
-        
-      </Flex>
-      
-    
-  );
+        </Flex>
+       );
 };
 
 interface Display {
