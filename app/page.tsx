@@ -4,7 +4,7 @@
 import { Box } from "@radix-ui/themes";
 import useAnimatingWords from "./hooks/useAnimatingWords";
 
-const skills: string[] = ['MERN fullstack develeper', 'Next.js developer', 'Mobile app developer with react native']
+const skills: string[] = ['MERN fullstack develeper', 'Next.js developer for super fast application', 'Mobile app developer with React Native and Expo']
 
 export default function Home() {
   const { wordletters, letterCount, wordy } = useAnimatingWords(skills)
@@ -25,7 +25,7 @@ export default function Home() {
         <div className="relative  w-40 h-32 bg-cyan-900 px-3">
           
           <div className="left-0 text-center  absolute w-full bg-yellow-400">nna</div></div>
-        {wordletters.map((s, a) => <span  style={{color: colors, fontWeight: 'bolder', fontSize: '2.5rem'}} key={a} className={` font-boldbg-${colors}-300`}>{s}</span>)}
+        {wordletters.map((s, a) => <span  style={{color: colors, fontWeight: 'bold', fontSize: '2rem'}} key={a} className={` font-boldbg-${colors}-300`}>{s}</span>)}
         
   </>
   
