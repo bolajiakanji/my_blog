@@ -10,10 +10,16 @@ const array: string[] = ['1bkmfgfdvdgvgvdcdgdvg', '2jdhdgfgd df d ddgddg', '3uyg
 
 export default function Home() {
 
-    
+  const pro = useRef(0)
+  
+  const [me, setme] = useState<string>(array[pro.current])
+  const [you, setyou] = useState < string[]>([]) 
+  const [yo, setyo] = useState < string[]>([]) 
+  const [cot, setcot] = useState <number>(1) 
+ 
   useEffect(()=>{
     let reset: NodeJS.Timeout
-    const rem = setInerval(() => {
+    const rem = setInterval(() => {
       if (cot > me.split('').length) {
         clearInterval(rem)
         pro.current++
