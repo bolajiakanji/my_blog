@@ -23,17 +23,20 @@ const Navbar = () => {
   }, []);
 
   return (
-    <Flex justify='between' className="fixed w-full bg-rd-400 py-5 sm:px-5 px-3  z-40 mb-3 overflow-hidden ">
-        <Box className="relative">
-            <MyName ref={canvas} />
-        </Box>
-        <NavLink display={display} ref={ref} />
-          <Flex className="gap-2  md:gap-10 relative">
-            <ThemeToggle />
-            <Menu display={display} setDisplay={setDisplay} element={element} />
-          </Flex>
-        </Flex>
-       );
+    <Flex
+      justify="between"
+      className="fixed w-full bg-inherit py-5 sm:px-5 px-3  z-40 mb-3 overflow-hidden "
+    >
+      <Box className="relative">
+        <MyName ref={canvas} />
+      </Box>
+      <NavLink display={display} ref={ref} />
+      <Flex className="gap-2  md:gap-10 relative">
+        <ThemeToggle />
+        <Menu display={display} setDisplay={setDisplay} element={element} />
+      </Flex>
+    </Flex>
+  );
 };
 
 interface Display {
@@ -73,7 +76,8 @@ const NavLinkForwardRef: ForwardRefRenderFunction<HTMLDivElement, Display> = (
   return (
     <Box ref={ref}>
       <ul
-        className={`fixed bg-black md:bg-inherit flex mx-auto gap-y-5 flex-col top-20 left-0 w-full text-center    ${display} md:flex md:flex-row md:gap-14 lg:gap-20 md:static`}
+        className={`fixed bg-black md:bg-inherit flex mx-auto gap-y-5 flex-col top-20 left-0 w-full text-center 
+          ${display} md:flex md:flex-row md:gap-14 lg:gap-20 md:static`}
       >
         <ListItem>Home</ListItem>
         <ListItem>About</ListItem>
@@ -90,7 +94,6 @@ const ThemeToggle = () => {
   const { setTheme } = useTheme();
 
   return (
-    
     <DropdownMenu.Root>
       <DropdownMenu.Trigger className="z-40">
         <Button variant="solid">
@@ -120,8 +123,8 @@ interface MenuProps extends Display {
 }
 
 const Menu = ({ display, setDisplay, element }: MenuProps) => {
-  const close_1 = display === 'flex' ? { translate: '-0px 8px'} : {}
-  const close_3 = display === 'flex' ? { translate: "1px -7px"} : {}
+  const close_1 = display === "flex" ? { translate: "-0px 8px" } : {};
+  const close_3 = display === "flex" ? { translate: "1px -7px" } : {};
   const eventHandler = (e: MouseEvent) => {
     if (!element) return;
     const node = e.target as Node;
@@ -145,27 +148,29 @@ const Menu = ({ display, setDisplay, element }: MenuProps) => {
   return (
     <Button
       variant="outline"
-      
       onClick={(e) => handleOnclick(e)}
       className="   md:hidden flex flex-col gap-1 p-1 "
     >
-      
-      <Box as="span" style={close_1}
+      <Box
+        as="span"
+        style={close_1}
         className={`w-7 h-1 dark:bg-white bg-black light:bg-black cursor-pointer transition-all duration-500 ${
-          display === "flex" && "-rotate-45 "} `}
+          display === "flex" && "-rotate-45 "
+        } `}
       ></Box>
-      <Box as="span"
+      <Box
+        as="span"
         className={`w-7 h-1 dark:bg-white bg-black light:bg-black cursor-pointer transition-all duration-500 ${
           display === "flex" && "opacity-0"
         } `}
       ></Box>
-      <Box as="span" style={close_3}
+      <Box
+        as="span"
+        style={close_3}
         className={`w-7 h-1 dark:bg-white bg-black light:bg-black cursor-pointer transition-all duration-500 ${
           display === "flex" && " rotate-45 "
         } `}
-        >
-          </Box>
-      
+      ></Box>
     </Button>
   );
 };
