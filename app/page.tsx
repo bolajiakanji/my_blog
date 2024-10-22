@@ -1,17 +1,18 @@
 'use client'
 
 
-import { Box } from "@radix-ui/themes";
+import { Box, Text } from "@radix-ui/themes";
 import useAnimatingWords from "./hooks/useAnimatingWords";
+import MyName from "./components/MyName";
 
-const skills: string[] = ['MERN fullstack develeper', 'Next.js developer for super fast application', 'Mobile app developer with React Native and Expo']
+const skills: string[] = ['A MERN fullstack developer', 'Next.js developer', 'Mobile app developer']
 
 export default function Home() {
-  const { wordletters, letterCount, wordy } = useAnimatingWords(skills)
+  const { wordletters, wordy } = useAnimatingWords(skills)
 
   const color: {[key: number]: string}[] = [
-    { 0: '#E93D82',
-     1: 'cyan',
+    { 0: 'yellow',
+     1: '#3DD68C',
      2: '#0090FF'}
   
   ]
@@ -19,15 +20,24 @@ export default function Home() {
  console.log(colors)
   
   
-    return (
-    <>
-    <div>hello world. my name is bolaji.not showing pageok r</div>
-        <div className="relative  w-40 h-32 bg-cyan-900 px-3">
-          
-          <div className="left-0 text-center  absolute w-full bg-yellow-400">nna</div></div>
-        {wordletters.map((s, a) => <span  style={{color: colors, fontWeight: 'bold', fontSize: '2rem'}} key={a} className={` font-boldbg-${colors}-300`}>{s}</span>)}
+  return (
+      
+      <Box style={{ zIndex: '1000' }} className="mt-20 md:mt-24">
+        <Box className="flex gap-2 ">
+          <Text style={{fontSize:'18px'}}>Hello! my name is</Text> 
+          <Text color="yellow" style={{fontSize:'18px', fontWeight: 'bolder'}}>BOLAJI</Text>
+      </Box>
+      <Box className="h-14 mt-2">
+    
+        {wordletters.map((letter, a) =>
+          <Text style={{
+            color: colors, fontWeight: 'bold', fontSize: '2rem', textAlign: 'center',
+            
+          }} key={a} className=' leading-9 '>{letter}</Text>)}
+        </Box>
+      <Text as='p' className="mt-5 md:mt-0">Based in Nigeria</Text>
         
-  </>
+  </Box>
   
   );
 }

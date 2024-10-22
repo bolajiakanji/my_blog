@@ -11,16 +11,13 @@ import React, {
 } from "react";
 import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
 import { Link } from "./components";
+import MyName from "./components/MyName";
 
 const Navbar = () => {
   const [display, setDisplay] = useState("hidden");
   const ref = useRef<HTMLDivElement>(null);
   const element = ref.current;
-  const canvas = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    createCanvas(canvas.current);
-  }, []);
+  
 
   return (
     <Flex
@@ -28,7 +25,7 @@ const Navbar = () => {
       className="fixed w-full bg-inherit py-5 sm:px-5 px-3  z-40 mb-3 overflow-hidden "
     >
       <Box className="relative">
-        <MyName ref={canvas} />
+        <MyName  />
       </Box>
       <NavLink display={display} ref={ref} />
       <Flex className="gap-2  md:gap-10 relative">
@@ -43,21 +40,6 @@ interface Display {
   display: string;
 }
 
-const MyNameForwardRef: ForwardRefRenderFunction<HTMLCanvasElement> = (
-  {},
-  ref
-) => {
-  return (
-    <Box>
-      <canvas
-        ref={ref}
-        width="100%"
-        height="40"
-        style={{ border: "none", zIndex: 30 }}
-      />
-    </Box>
-  );
-};
 
 const ListItem = ({ children }: PropsWithChildren) => {
   return (
@@ -67,7 +49,6 @@ const ListItem = ({ children }: PropsWithChildren) => {
   );
 };
 
-const MyName = React.forwardRef(MyNameForwardRef);
 
 const NavLinkForwardRef: ForwardRefRenderFunction<HTMLDivElement, Display> = (
   { display },
@@ -175,16 +156,5 @@ const Menu = ({ display, setDisplay, element }: MenuProps) => {
   );
 };
 
-const createCanvas = (element: HTMLCanvasElement | null) => {
-  const ctx = element?.getContext("2d");
-  if (!ctx) return;
-  var grd = ctx.createLinearGradient(0, 0, 100, 0);
-  grd.addColorStop(0, "#E93D82");
-  grd.addColorStop(0.5, "#3DD68C");
-  grd.addColorStop(1, "#0090FF");
-  ctx.font = "  2.5rem Arials";
-  ctx.strokeStyle = grd;
-  ctx.strokeText("Bolaji", 0, 30);
-};
 
 export default Navbar;

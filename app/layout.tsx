@@ -49,16 +49,38 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-          <Theme accentColor="crimson" panelBackground="solid"
+          <Theme accentColor="yellow" panelBackground="solid"
           
           >
+            <div style={{ width: '100%', height: '100vh' }}>
+              <div style={{
+                width: '100%', borderEndStartRadius:
+                  '50%', borderEndEndRadius: '50%',
+                height: '20vh', zIndex:'9', 
+              }} className="dark:bg-black">
+
+              </div>
+              <div className="dark:bg-black" style={{ position: 'absolute', height: '25vh', zIndex: '5',width:'100%',bottom:'0',left: '0'}}></div>
+
+              <div style={{
+                position: 'absolute', top: '0', left: '0', height: '100vh',zIndex: '6',width: '100%'
+    
+               }}>
+                <div className="dark:bg-bg_color" style={{ marginBottom: '0px', marginTop:'45vh', width: '50%', zIndex:"4", borderBottomLeftRadius:'50%', borderBottomRightRadius: '50%', height:'40vh'}}></div>
+                <div className="dark:bg-black" style={{width:'55%',position:"absolute" , bottom: '0',right:'0',  float:'right', height:'35vh', borderTopLeftRadius:'50%', borderTopRightRadius:'50%'}} ></div>
+              </div>
+              <div>
+                <div style={{ position: 'absolute', left: '0', top: '0',zIndex:'12',fontSize: '1.rem'}} className="">
               <Navbar />
             <Container>
               
-      <main className="p-5">{children}</main>
+      <main className="px-6 md:px-8">{children}</main>
                 
               
-            </Container>
+                  </Container>
+                  </div>
+                </div>
+              </div>
               </Theme>
               </ThemeProvider>
 
