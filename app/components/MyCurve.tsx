@@ -33,7 +33,7 @@ const createCanvas = (element: HTMLCanvasElement | null) => {
     ctx.bezierCurveTo(300, 120, 600,0,  1000,0 );
     ctx.lineWidth=2
     
-    ctx.strokeStyle = 'yellow'
+    ctx.strokeStyle = 'crimson'
     ctx.clip()
     ctx.stroke()
     ctx.restore()

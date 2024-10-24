@@ -43,8 +43,8 @@ interface Display {
 
 const ListItem = ({ children }: PropsWithChildren) => {
   return (
-    <li>
-      <Link href="#">{children}</Link>
+    <li className="font-semibold">
+      <Link href="#" >{children}</Link>
     </li>
   );
 };
@@ -57,7 +57,7 @@ const NavLinkForwardRef: ForwardRefRenderFunction<HTMLDivElement, Display> = (
   return (
     <Box ref={ref}>
       <ul
-        className={`fixed bg-black md:bg-inherit flex mx-auto gap-y-5 flex-col top-20 left-0 w-full text-center 
+        className={`text-xl fixed bg-black md:bg-inherit flex mx-auto gap-y-5 flex-col top-20 left-0 w-full text-center 
           ${display} md:flex md:flex-row md:gap-14 lg:gap-20 md:static`}
       >
         <ListItem>Home</ListItem>

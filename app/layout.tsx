@@ -4,21 +4,23 @@ import type { Metadata } from "next";
 import "./globals.css";
 import './token.css'
 import localFont from "next/font/local";
+import { Roboto } from 'next/font/google'
 import { ThemeProvider } from "./ThemeProvider";
 import Navbar from "./Navbar";
 
 
 import { Theme, Container, Flex, Box } from "@radix-ui/themes";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const roboto = Roboto({
+  subsets: ['latin'],
+  variable: '--font-roboto',
+  weight: ['400', '500']
+})
+
+const poppins = localFont({
+  src: "./fonts/poppins-regular-webfont.woff2",
+  variable: "--font-poppins",
+  
 });
 
 export const metadata: Metadata = {
@@ -40,7 +42,7 @@ export default function RootLayout({
     <html lang="en" className="dark" suppressHydrationWarning >
       
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={poppins.variable}
       >
         <ThemeProvider
           attribute="class"
@@ -49,7 +51,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-          <Theme accentColor="yellow" panelBackground="solid"
+          <Theme accentColor="crimson" panelBackground="solid"
           
           >
             <div style={{ width: '100%', height: '100vh' }}>
@@ -70,11 +72,13 @@ export default function RootLayout({
                 <div className="dark:bg-black" style={{width:'55%',position:"absolute" , bottom: '0',right:'0',  float:'right', height:'35vh', borderTopLeftRadius:'50%', borderTopRightRadius:'50%'}} ></div>
               </div>
               <div>
-                <div style={{ position: 'absolute', left: '0', top: '0',zIndex:'12',fontSize: '1.rem'}} className="">
+                <div style={{ position: 'absolute', left: '0', top: '0',zIndex:'12',fontSize: '1.rem'}} className="w-full">
               <Navbar />
             <Container>
+               {/* px-6 md:px-8 */}
               
-      <main className="px-6 md:px-8">{children}</main>
+                    <main className="
+      ">{children}</main>
                 
               
                   </Container>

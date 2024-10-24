@@ -10,3 +10,7 @@
     --color-background: #010314;
   }
 /* .dark, .dark-theme */
+
+.radix-themes {
+  --default-font-family: var(--font-poppins)
+}

@@ -28,7 +28,7 @@ const createCanvas = (element: HTMLCanvasElement | null) => {
     const ctx = element?.getContext("2d");
     if (!ctx) return;
     var grd = ctx.createLinearGradient(0, 0, 100, 0);
-    grd.addColorStop(0, "yellow");
+    grd.addColorStop(0, "crimson");
     grd.addColorStop(0.5, "#3DD68C");
     grd.addColorStop(1, "#0090FF");
     ctx.font = "  2.5rem Arials";
