@@ -11,10 +11,16 @@ const config: Config = {
 	  extend: {
 		  width: {
 			wid: '33.3%'	
-			},
+		  },
+		  boxShadow: {
+			  'bs': '1px 4px 40px 30px rgb(1, 3, 20, 0.85) ',
+			  'whi':'1px 2px 20px 10px rgb(255, 255, 255, 0.85)  '
+		  },
 		  colors: {
-				bg_color: '#010314',
-			  id_bg: 'rgb(0, 0, 0, 0.83 )',
+			  id_bg: 'rgb(1, 3, 20, 0.8 )',
+			  id_bgw: 'rgb(255, 255, 255, 0.7 )',
+			  bg_color: '#010314',
+			  accentColor:'#e93d82',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

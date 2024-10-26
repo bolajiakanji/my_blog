@@ -7,9 +7,9 @@ import Image from "next/image";
 import background from "./public/images/IMG_20241025_084608_312-removebg-preview_5-removebg-preview (2).png";
 
 const skills: string[] = [
-  "A MERN fullstack developer",
-  "Next.js developer",
-  "Mobile app developer",
+  "MERN FULLSTACK DEVELOPER",
+  "NEXT.JS DEVELOPER",
+  "MOBILE APP DEVELOPER",
 ];
 
 export default function Home() {
@@ -44,17 +44,17 @@ const MyImage = () => {
         
         
         
-        className="object-contain ms-0 "
         style={{
           borderRadius: "50%",
-          marginTop: "60px",
-          borderBottom: "6px solid crimson",
-          margin: '30px auto',
+          
+          margin: '0px auto',
+          marginTop: "65px",
           height: '35vh',
           width: '80%'
-
+          
         }}
-      />
+        className="object-contain ms-0 border-b-8  border-purple-800 "
+        />
     </div>
   );
 };
@@ -69,9 +69,9 @@ const MyDescription = ({
   return (
     <div>
       <Box
-        style={{ zIndex: "50" }}
-        className="bg-id_bg md:bg-inherit h-32 mt-20 md:mt-24 
-    md:absolute md:top-44 md:left-0 w-full z-50"
+        style={{ zIndex: "50", top: '225px',  }}
+        className="dark:bg-id_bg md:bg-inherit h-25 mt-0 md:mt-24 
+    absolute  left-0 w-full z-50 dark:shadow-bs bg-id_bgw shadow-whi "
       >
         <Box className="my-0 ">
           <Text
@@ -88,11 +88,12 @@ const MyDescription = ({
               style={{ fontWeight: "bolder" }}
               className="ms-2 text-xl"
             >
-              BOLAJI
+               ABD'GOFFAR BOLAJI LUKMAN
             </Text>
           </Text>
         </Box>
 
+        <Text as="p" className="mx-2 text-center"> A proffesional</Text> 
         <Text
           as="p"
           style={{
@@ -103,11 +104,12 @@ const MyDescription = ({
 
             whiteSpace: "normal",
             height: "30px",
+            fontSize: '20px'
           }}
-          className="text-xl md:text-3xl my-1"
+          className="text-2xl md:text-3xl  transition-all duration-1000"
           dangerouslySetInnerHTML={{ __html: `${wordletters.join("")}` }}
         ></Text>
-        <Text as="p" className="text-center md:mt-2">
+        <Text as="p" className="text-center md:mt-2 ">
           Based in Nigeria
         </Text>
       </Box>
@@ -124,7 +126,7 @@ const DescriptionDetails = () => {
 const ToolsInBag = () => {
   return (
     <>
-      <div>jskjfhgvsgieieooro</div>
+      <div></div>
     
     </>
    )
