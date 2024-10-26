@@ -22,7 +22,8 @@ const Navbar = () => {
   return (
     <Flex
       justify="between"
-      className="fixed w-full bg-inherit py-5 sm:px-5 px-3  z-40 mb-3 overflow-hidden "
+      className="fixed w-full bg-inherit py-5 sm:px-5 px-3 mb-3 overflow-hidden "
+      style={{zIndex: '20'}}
     >
       <Box className="relative">
         <MyName  />
@@ -43,7 +44,7 @@ interface Display {
 
 const ListItem = ({ children }: PropsWithChildren) => {
   return (
-    <li className="font-semibold">
+    <li className="font-bold">
       <Link href="#" >{children}</Link>
     </li>
   );
@@ -57,7 +58,8 @@ const NavLinkForwardRef: ForwardRefRenderFunction<HTMLDivElement, Display> = (
   return (
     <Box ref={ref}>
       <ul
-        className={`text-xl fixed bg-black md:bg-inherit flex mx-auto gap-y-5 flex-col top-20 left-0 w-full text-center 
+        className={`text-xl fixed bg-black md:bg-inherit flex mx-auto gap-y-5 flex-col top-20 
+          left-0 w-full text-center 
           ${display} md:flex md:flex-row md:gap-14 lg:gap-20 md:static`}
       >
         <ListItem>Home</ListItem>
@@ -135,7 +137,8 @@ const Menu = ({ display, setDisplay, element }: MenuProps) => {
       <Box
         as="span"
         style={close_1}
-        className={`w-7 h-1 dark:bg-white bg-black light:bg-black cursor-pointer transition-all duration-500 ${
+        className={`w-7 h-1 dark:bg-white bg-black light:bg-black 
+          cursor-pointer transition-all duration-500 ${
           display === "flex" && "-rotate-45 "
         } `}
       ></Box>

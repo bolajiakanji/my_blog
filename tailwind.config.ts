@@ -8,9 +8,13 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-  	extend: {
+	  extend: {
+		  width: {
+			wid: '33.3%'	
+			},
 		  colors: {
 				bg_color: '#010314',
+			  id_bg: 'rgb(0, 0, 0, 0.83 )',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

@@ -72,16 +72,18 @@ export default function RootLayout({
                 <div className="dark:bg-black" style={{width:'55%',position:"absolute" , bottom: '0',right:'0',  float:'right', height:'35vh', borderTopLeftRadius:'50%', borderTopRightRadius:'50%'}} ></div>
               </div>
               <div>
-                <div style={{ position: 'absolute', left: '0', top: '0',zIndex:'12',fontSize: '1.rem'}} className="w-full">
-              <Navbar />
-            <Container>
-               {/* px-6 md:px-8 */}
+                <div style={{ position: 'absolute', left: '0', top: '0',zIndex:'12',fontSize: '1.rem'}} className="w-full bg-orange-500 ">
+                  <div className="relative">
+                    <Navbar />
+            <Container style={{width: '100%'}} className="bg-purple-800
+      ">
               
-                    <main className="
-      ">{children}</main>
+                    <main  >{children}</main>
                 
               
-                  </Container>
+                    </Container>
+                    </div>
+
                   </div>
                 </div>
               </div>
@@ -93,3 +95,4 @@ export default function RootLayout({
     </html>
   );
 }
+{/* px-6 md:px-8 */}
