@@ -22,21 +22,25 @@ export default function Home() {
   console.log(colors);
 
   return (
-    <Box className="ms-0  z-50 absolute w-full left-0"  style={{ zIndex: "15",  }}>
-      <Box className="md:flex ">
-      <MyImage />
-      <MyDescription colors={colors} wordletters={wordletters} />
-      <Box>
+    <Box className="mt-5  z-50 absolute  w-full left-0"  style={{ zIndex: "15",  }}>
+      <Box className="md:flex  md:justify-center mx-3   ">
+        <Box className="  ">
+          <MyImage />
+          </Box>
+        <Box className="   " >
+          <MyDescription colors={colors} wordletters={wordletters} />
+        </Box>
+    </Box>
+      <Box className=" ">
         <DescriptionDetails />
         <ToolsInBag />
         </Box>
         </Box>
-    </Box>
   );
 }
 const MyImage = () => {
   return (
-    <div style={{}} className="   z-50">
+    <div style={{   }} className="mx-auto   z-50 w-width_image md:w-full ">
       <Image
         src={background}
         alt=""
@@ -47,13 +51,14 @@ const MyImage = () => {
         style={{
           borderRadius: "50%",
           
-          margin: '0px auto',
-          marginTop: "65px",
-          height: '35vh',
-          width: '80%'
+          width: '100%',
+          marginTop: "50px",
+          
+          
+          
           
         }}
-        className="object-contain ms-0 border-b-8  border-purple-800 "
+        className="object-cover  border-b-8    border-purple-800 "
         />
     </div>
   );
@@ -67,33 +72,33 @@ const MyDescription = ({
   wordletters: string[];
 }) => {
   return (
-    <div>
+    
       <Box
-        style={{ zIndex: "50", top: '225px',  }}
-        className="dark:bg-id_bg md:bg-inherit h-25 mt-0 md:mt-24 
-    absolute  left-0 w-full z-50 dark:shadow-bs bg-id_bgw shadow-whi "
+        style={{ zIndex: "50", top: '39vh',  }}
+        className="dark:bg-id_bg  h-25 mt-0 md:mt-32 md-mx-0
+    absolute md:static left-0 w-full z-50 dark:shadow-bs bg-id_bgw shadow-whi md:w-full   "
       >
-        <Box className="my-0 ">
+        
           <Text
-            className="text-l md:text-xl"
+            className="text-l md:text-xl text-justify"
             style={{
               textAlign: "center",
               display: "block",
-              verticalAlign: "top",
+              verticalAlign: "",
             }}
           >
             Hello! my name is
             <Text
               color="crimson"
               style={{ fontWeight: "bolder" }}
-              className="ms-2 text-xl"
+              className="ms-2 text-xl md:text-2xl "
             >
                ABD'GOFFAR BOLAJI LUKMAN
             </Text>
           </Text>
-        </Box>
+        
 
-        <Text as="p" className="mx-2 text-center"> A proffesional</Text> 
+        <Text as="p" className="mx-2 text-center md:my-3"> A proffesional</Text> 
         <Text
           as="p"
           style={{
@@ -104,29 +109,29 @@ const MyDescription = ({
 
             whiteSpace: "normal",
             height: "30px",
-            fontSize: '20px'
+            
           }}
-          className="text-2xl md:text-3xl  transition-all duration-1000"
+          className="text-xl md:text-2xl lg:text-3xl  transition-all duration-1000"
           dangerouslySetInnerHTML={{ __html: `${wordletters.join("")}` }}
         ></Text>
-        <Text as="p" className="text-center md:mt-2 ">
+        <Text as="p" className="text-center md:mt-3 ">
           Based in Nigeria
         </Text>
       </Box>
-      <div className="w-1/4"></div>
-    </div>
+      
+    
   );
 };
 const DescriptionDetails = () => {
   return (
-     <></>
+     <>dfghgdfjhgfdfgjjhtd</>
    )
 }
  
 const ToolsInBag = () => {
   return (
     <>
-      <div></div>
+      <div>fhgjfgjhjkffghgjkjhfggjhk</div>
     
     </>
    )

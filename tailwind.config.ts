@@ -10,7 +10,8 @@ const config: Config = {
   theme: {
 	  extend: {
 		  width: {
-			wid: '33.3%'	
+			  wid: '33.3%',
+			  width_image: '215px'
 		  },
 		  boxShadow: {
 			  'bs': '1px 4px 40px 30px rgb(1, 3, 20, 0.85) ',
