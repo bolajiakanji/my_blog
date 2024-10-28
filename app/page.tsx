@@ -1,16 +1,23 @@
 "use client";
 
-import { Box, Text, Flex } from "@radix-ui/themes";
+import { Box, Text, Flex, Button } from "@radix-ui/themes";
 import useAnimatingWords from "./hooks/useAnimatingWords";
 import MyName from "./components/MyName";
 import Image from "next/image";
 import background from "./public/images/IMG_20241025_084608_312-removebg-preview_5-removebg-preview (2).png";
+import ExpandableText from "./components/ExpandableText";
 
 const skills: string[] = [
   "MERN FULLSTACK DEVELOPER",
   "NEXT.JS DEVELOPER",
   "MOBILE APP DEVELOPER",
 ];
+
+const description = `I'm skilled in buiding fast, scalable, maintainabland
+optimised full - fledged web applications with an advanced
+        seamless functionalities. I also develop super-fast
+        and search engine friendly application
+        with NEXT.js like web application you're on.`
 
 export default function Home() {
   const { wordletters, wordy } = useAnimatingWords(skills);
@@ -31,7 +38,7 @@ export default function Home() {
           <MyDescription colors={colors} wordletters={wordletters} />
         </Box>
     </Box>
-      <Box className=" ">
+      <Box className=" mt-28 md:absolute top-40 md:w-5/12  left-1/2  ">
         <DescriptionDetails />
         <ToolsInBag />
         </Box>
@@ -52,7 +59,7 @@ const MyImage = () => {
           borderRadius: "50%",
           
           width: '100%',
-          marginTop: "50px",
+          marginTop: "40px",
           
           
           
@@ -74,13 +81,13 @@ const MyDescription = ({
   return (
     
       <Box
-        style={{ zIndex: "50", top: '39vh',  }}
-        className="dark:bg-id_bg  h-25 mt-0 md:mt-32 md-mx-0
+        style={{ zIndex: "50", top: '37vh',  }}
+        className="dark:bg-id_bg  h-20 mt-0 md:mt-32 md-mx-0
     absolute md:static left-0 w-full z-50 dark:shadow-bs bg-id_bgw shadow-whi md:w-full   "
       >
         
           <Text
-            className="text-l md:text-xl text-justify"
+            className=" md:text-xl text-justify mx-2"
             style={{
               textAlign: "center",
               display: "block",
@@ -98,7 +105,7 @@ const MyDescription = ({
           </Text>
         
 
-        <Text as="p" className="mx-2 text-center md:my-3"> A proffesional</Text> 
+        <Text as="p" className="mx-2 text-center mt-2 md:my-3  md:text-lg"> A proffesional</Text> 
         <Text
           as="p"
           style={{
@@ -114,9 +121,10 @@ const MyDescription = ({
           className="text-xl md:text-2xl lg:text-3xl  transition-all duration-1000"
           dangerouslySetInnerHTML={{ __html: `${wordletters.join("")}` }}
         ></Text>
-        <Text as="p" className="text-center md:mt-3 ">
+        <Text as="p" className="text-center mt-2 md:mt-3 ">
           Based in Nigeria
-        </Text>
+      </Text>
+      
       </Box>
       
     
@@ -124,7 +132,24 @@ const MyDescription = ({
 };
 const DescriptionDetails = () => {
   return (
-     <>dfghgdfjhgfdfgjjhtd</>
+    <>
+    <Text as="p" className="mx-5 "><ExpandableText description={description}></ExpandableText></Text>
+      
+      <Box className="flex justify-start my-2 gap-5 mx-5"> 
+        <Button variant='solid'className="">View my project</Button>
+        <Button variant='solid' color="purple">View tools </Button>
+
+      </Box>
+      <Box className=" my-3 w-full flex justify-center">
+        
+        <Button color="green" >Hire me </Button>
+        </Box>
+        <Box className="flex justify-center mt-10 animate-bounce h-16 ">
+        <Box className="h-1 w-5  rotate-45 translate-x-2" style={{ backgroundColor: 'crimson'}}></Box>
+        <Box className="h-1 w-5  -rotate-45 bg-green-600 "></Box>
+</Box>
+
+      </>
    )
 }
  

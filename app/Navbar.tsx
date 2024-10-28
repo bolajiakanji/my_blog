@@ -22,8 +22,8 @@ const Navbar = () => {
   return (
     <Flex
       justify="between"
-      className="fixed w-full bg-inherit py-5 sm:px-5 px-3 mb-3 overflow-hidden "
-      style={{zIndex: '20'}}
+      className="fixed w-full bg-black py-5 sm:px-5 px-3 mb-3 overflow-hidden "
+      style={{zIndex: '500'}}
     >
       <Box className="relative">
         <MyName  />
