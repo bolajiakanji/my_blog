@@ -17,7 +17,7 @@ const ExpandableText = ({ description }: Props) => {
     description.length <= limit
       ? description
       : !expanded
-      ? description.slice(0, 100) + " ..."
+      ? description.slice(0, 90) + " ..."
       : description;
 
   let btn = !expanded ? "Read more" : "Show less";
