@@ -17,7 +17,7 @@ const description = `I'm skilled in buiding fast, scalable, and
 optimised full-fledged web applications with an advanced
         seamless functionalities. I also develop super-fast
         and search engine friendly application
-        with NEXT.js like web application you're on.`
+        with NEXT.js like web application you're on.`;
 
 export default function Home() {
   const { wordletters, wordy } = useAnimatingWords(skills);
@@ -29,44 +29,43 @@ export default function Home() {
   console.log(colors);
 
   return (
-    <Box className="mt-5  z-50 absolute  w-full left-0"  style={{ zIndex: "15",  }}>
-      <Box className="md:flex  md:justify-center mx-3   ">
-        <Box className="  ">
+    <Box
+      className="mt-5  z-50 absolute  w-full left-0"
+      style={{ zIndex: "15" }}
+    >
+      <Box className="flex  flex-col md:flex-row  justify-center   md:mx-12 md:gap-8  ">
+        <Box className="md:w-md_w  lg:w-2/5  ">
           <MyImage />
+        </Box>
+        <Box className="md:w-l_w lg:w-3/5    ">
+          <Box className="md:mb-20">
+            <MyDescription colors={colors} wordletters={wordletters} />
           </Box>
-        <Box className="   " >
-          <MyDescription colors={colors} wordletters={wordletters} />
+
+          <Box className="md:mt-28 lg:mt-10 mt-4.5rem sm:mt-28  " >
+            <DescriptionDetails />
+          </Box>
         </Box>
+      </Box>
     </Box>
-      <Box className="  md:absolute top-40 md:w-5/12  left-1/2  " style={{ marginTop: '5rem'}}>
-        <DescriptionDetails />
-        
-        </Box>
-        </Box>
   );
 }
 const MyImage = () => {
   return (
-    <div style={{   }} className="mx-auto   z-50 w-width_image md:w-full ">
+    <div style={{}} className="mx-auto   z-50 w-width_image md:w-full ">
       <Image
         src={background}
         alt=""
         //height={50}
-        
-        
-        
+
         style={{
           borderRadius: "50%",
-          
-          width: '100%',
+
+          width: "100%",
           marginTop: "40px",
-          
-          
-          
-          
         }}
-        className="object-cover  border-b-8    border-purple-800 "
-        />
+        className="object-cover  border-b-8    border-purple-800 md: lg:h-he md:h-96 "
+      />
     </div>
   );
 };
@@ -79,77 +78,87 @@ const MyDescription = ({
   wordletters: string[];
 }) => {
   return (
-    
-      <Box
-        style={{ zIndex: "50", top: '36vh',  }}
-        className="dark:bg-id_bg  h-20 mt-0 md:mt-32 md-mx-0
-    absolute md:static left-0 w-full z-50 dark:shadow-bs bg-id_bgw shadow-whi md:w-full   "
+    <Box
+      style={{ zIndex: "50", top: "36vh" }}
+      className="dark:bg-id_bg  h-12 sm:mt-6   md:mt-24 lg:mt-36 md-mx-0 
+    absolute md:static left-0 w-full z-50 dark:shadow-bs bg-id_bgw shadow-whi md:w-full    "
+    >
+      <Text
+        className=" md:text-xl text-justify mx-4 md:mx-0"
+        style={{
+          textAlign: "center",
+          display: "block",
+          verticalAlign: "",
+        }}
       >
-        
-          <Text
-            className=" md:text-xl text-justify mx-2"
-            style={{
-              textAlign: "center",
-              display: "block",
-              verticalAlign: "",
-            }}
-          >
-            Hello! my name is
-            <Text
-              color="crimson"
-              style={{ fontWeight: "bolder" }}
-              className="ms-2 text-lg md:text-2xl "
-            >
-               ABD'GOFFAR BOLAJI LUKMAN
-            </Text>
-          </Text>
-        
-
-        <Text as="p" className="mx-2 text-center mt-1 md:my-3  md:text-lg"> A proffesional</Text> 
+        Hello! my name is
         <Text
-          as="p"
-          style={{
-            color: colors,
-            fontWeight: "bold",
-
-            textAlign: "center",
-
-            whiteSpace: "normal",
-            height: "25px",
-            
-          }}
-          className="text-lg md:text-2xl lg:text-3xl  transition-all duration-1000"
-          dangerouslySetInnerHTML={{ __html: `${wordletters.join("")}` }}
-        ></Text>
-        <Text as="p" className="text-center mt-0 md:mt-3 ">
-          Based in Nigeria
+          color="crimson"
+          style={{ fontWeight: "bolder" }}
+          className="ms-2 text-lg md:text-2xl "
+        >
+          ABD'GOFFAR BOLAJI LUKMAN
+        </Text>
       </Text>
-      
-      </Box>
-      
-    
+
+      <Text as="p" className="mx-2 text-center mt-1 md:mt-4  md:text-lg">
+        {" "}
+        A proffesional
+      </Text>
+      <Text
+        as="p"
+        style={{
+          color: colors,
+          fontWeight: "bold",
+
+          textAlign: "center",
+
+          whiteSpace: "normal",
+          height: "25px",
+        }}
+        className="text-xl md:text-2xl   transition-all duration-1000"
+        dangerouslySetInnerHTML={{ __html: `${wordletters.join("")}` }}
+      ></Text>
+    </Box>
   );
 };
 const DescriptionDetails = () => {
   return (
     <>
-    <Text as="p" className="mx-5 "><ExpandableText description={description}></ExpandableText></Text>
-      
-      <Box className="flex justify-start my-2 gap-5 mx-5"> 
-        <Button variant='solid'className="">View my project</Button>
-        <Button variant='surface' color="purple">View tools </Button>
-
+      <Box className="mx-5 mb-3 md:mb-6 ">
+        <Text className="hidden sm:block md:hidden lg:block">{description}</Text>
+        <Box className="sm:hidden md:block lg:hidden">
+          <ExpandableText description={description}></ExpandableText>
+          </Box>
       </Box>
-      <Box className=" my-3 w-full flex justify-center">
-        
-        <Button color="green" variant="outline">Hire me </Button>
-        </Box>
-        <Box className="flex justify-center mt-5 animate-bounce h-5 ">
-        <Box className="h-1 w-4  rotate-45 translate-x-2" style={{ backgroundColor: 'crimson'}}></Box>
-        <Box className="h-1 w-4  -rotate-45 bg-green-600 "></Box>
-</Box>
 
-      </>
-   )
-}
- 
+      <div className=" w-76 overflow-hidden mx-auto">
+        <Box className="   flex justify-between ">
+          <Box className=" ms-5 ">
+            <Button variant="outline" className="">
+              View my project
+            </Button>
+          </Box>
+          <Box className="me-14">
+            <Button variant="surface" color="purple">
+              View tools{" "}
+            </Button>
+          </Box>
+        </Box>
+      </div>
+
+      <Box className=" my-3 md:my:5 flex justify-center">
+        <Button color="green" variant="solid">
+          Hire me{" "}
+        </Button>
+      </Box>
+      <Box className="flex justify-center mt-7 md:mt-20 animate-bounce h-5 md:h-12 ">
+        <Box
+          className="h-1 w-4  rotate-45 translate-x-2"
+          style={{ backgroundColor: "crimson" }}
+        ></Box>
+        <Box className="h-1 w-4  -rotate-45 bg-green-600 "></Box>
+      </Box>
+    </>
+  );
+};

@@ -9,9 +9,20 @@ const config: Config = {
   ],
   theme: {
 	  extend: {
+		  screens: {
+			mmd: '680px'  
+		  }, 
 		  width: {
 			  wid: '33.3%',
-			  width_image: '215px'
+			  width_image: '215px',
+			  md_w: '45%',
+			  l_w: '55%'
+		  },
+		  margin: {
+			  '4.5rem': '4.5rem'
+		  },
+		  height: {
+			 he: '30rem' 
 		  },
 		  boxShadow: {
 			  'bs': '1px 4px 40px 30px rgb(1, 3, 20, 0.85) ',

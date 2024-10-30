@@ -54,29 +54,30 @@ export default function RootLayout({
           <Theme accentColor="crimson" panelBackground="solid"
           
           >
+            <div className="relative left-0 top-0">
             <div style={{ width: '100%', height: '100vh' }}>
               <div style={{
                 width: '100%', borderEndStartRadius:
                   '50%', borderEndEndRadius: '50%',
                 height: '20vh', zIndex:'9', 
-              }} className="dark:bg-black">
+              }} className="dark:bg-black fixed">
 
               </div>
-              <div className="dark:bg-black" style={{ position: 'absolute', height: '25vh', zIndex: '5',width:'100%',bottom:'0',left: '0'}}></div>
+              <div className="dark:bg-black" style={{ position: 'fixed', height: '25vh', zIndex: '5',width:'100%',bottom:'0',left: '0'}}></div>
 
               <div style={{
-                position: 'absolute', top: '0', left: '0', height: '100vh',zIndex: '6',width: '100%'
+                position: 'fixed', top: '0', left: '0', height: '100vh',zIndex: '6',width: '100%'
     
-               }}>
-                <div className="dark:bg-bg_color" style={{ marginBottom: '0px', marginTop:'45vh', width: '50%', zIndex:"4", borderBottomLeftRadius:'50%', borderBottomRightRadius: '50%', height:'40vh'}}></div>
-                <div className="dark:bg-black" style={{width:'55%',position:"absolute" , bottom: '0',right:'0',  float:'right', height:'35vh', borderTopLeftRadius:'50%', borderTopRightRadius:'50%'}} ></div>
+               }} >
+                <div className="dark:bg-bg_color fixed" style={{ marginBottom: '0px', marginTop:'45vh', width: '50%', zIndex:"4", borderBottomLeftRadius:'50%', borderBottomRightRadius: '50%', height:'40vh'}}></div>
+                <div className="dark:bg-black " style={{width:'55%',position:"fixed" , bottom: '0',right:'0',  float:'right', height:'35vh', borderTopLeftRadius:'50%', borderTopRightRadius:'50%'}} ></div>
               </div>
               <div>
-                <div style={{ position: 'absolute', left: '0', top: '0',zIndex:'12',fontSize: '1.rem'}} className="w-full bg-orange-500 ">
+                <div style={{ position: 'absolute', left: '0', top: '0',zIndex:'12',fontSize: '1.rem', backgroundColor: '#010314',  }} className="w-full ">
                   <div className="relative">
                     <Navbar />
-            <Container style={{width: '100%'}} className="bg-purple-800
-      ">
+            <Container style={{width: '100%'}} 
+      >
               
                     <main  >{children}</main>
                 
@@ -86,6 +87,7 @@ export default function RootLayout({
 
                   </div>
                 </div>
+              </div>
               </div>
               </Theme>
               </ThemeProvider>

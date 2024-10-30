@@ -10,8 +10,9 @@ import React, {
   useState,
 } from "react";
 import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
-import { Link } from "./components";
+import { Link, } from "./components";
 import MyName from "./components/MyName";
+import NextLink from 'next/link'
 
 const Navbar = () => {
   const [display, setDisplay] = useState("hidden");
@@ -22,7 +23,7 @@ const Navbar = () => {
   return (
     <Flex
       justify="between"
-      className="fixed w-full bg-black py-5 sm:px-5 px-3 mb-3 overflow-hidden "
+      className="fixed w-full py-3 sm:px-5 px-3 mb-4 overflow-hidden bg-white dark:bg-black "
       style={{zIndex: '500'}}
     >
       <Box className="relative">
@@ -45,7 +46,7 @@ interface Display {
 const ListItem = ({ children }: PropsWithChildren) => {
   return (
     <li className="font-bold">
-      <Link href="#" >{children}</Link>
+      <NextLink href="#" >{children}</NextLink>
     </li>
   );
 };
@@ -58,7 +59,7 @@ const NavLinkForwardRef: ForwardRefRenderFunction<HTMLDivElement, Display> = (
   return (
     <Box ref={ref}>
       <ul
-        className={`text-xl fixed bg-black md:bg-inherit flex mx-auto gap-y-5 flex-col top-20 
+        className={`text-lg fixed bg-gray-300 dark:bg-black md:bg-inherit  flex mx-auto gap-y-5 flex-col top-16 px-4 
           left-0 w-full text-center 
           ${display} md:flex md:flex-row md:gap-14 lg:gap-20 md:static`}
       >
