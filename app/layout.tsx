@@ -3,6 +3,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import './token.css'
+
+
 import localFont from "next/font/local";
 import { Roboto } from 'next/font/google'
 import { ThemeProvider } from "./ThemeProvider";
@@ -40,6 +42,7 @@ export default function RootLayout({
  
   return (
     <html lang="en" className="dark" suppressHydrationWarning >
+      
       
       <body
         className={poppins.variable}

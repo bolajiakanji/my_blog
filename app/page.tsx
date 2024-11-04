@@ -88,7 +88,7 @@ const MyDescription = ({
         style={{
           textAlign: "center",
           display: "block",
-          verticalAlign: "",
+          
         }}
       >
         Hello! my name is
@@ -125,8 +125,8 @@ const MyDescription = ({
 const DescriptionDetails = () => {
   return (
     <>
-      <Box className="mx-5 mb-3 md:mb-6 ">
-        <Text className="hidden sm:block md:hidden lg:block">{description}</Text>
+      <Box className="mx-5 mb-3 md:mb-6 " style={{ }}>
+        <Text className="hidden sm:block md:hidden lg:block lg:leading-8 space-x-3 lg:tracking-widest ">{description}</Text>
         <Box className="sm:hidden md:block lg:hidden">
           <ExpandableText description={description}></ExpandableText>
           </Box>
@@ -152,7 +152,7 @@ const DescriptionDetails = () => {
           Hire me{" "}
         </Button>
       </Box>
-      <Box className="flex justify-center mt-7 md:mt-20 animate-bounce h-5 md:h-12 ">
+      <Box className="flex justify-center mt-7 md:mt-20 animate-bounce h-5 md:h-9 ">
         <Box
           className="h-1 w-4  rotate-45 translate-x-2"
           style={{ backgroundColor: "crimson" }}
@@ -162,3 +162,4 @@ const DescriptionDetails = () => {
     </>
   );
 };
+

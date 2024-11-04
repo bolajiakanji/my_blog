@@ -28,7 +28,7 @@ const ExpandableText = ({ description }: Props) => {
       {description.length >= limit && (
         <Text
           onClick={() => setExpanded(!expanded)}
-          color="crimson"
+          color="yellow"
           
           
         >
