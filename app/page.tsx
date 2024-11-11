@@ -13,11 +13,12 @@ const skills: string[] = [
   "MOBILE APP DEVELOPER",
 ];
 
-const description = `I'm skilled in buiding fast, scalable, and
-optimised full-fledged web applications with an advanced
-        seamless functionalities. I also develop super-fast
-        and search engine friendly application
-        with NEXT.js like web application you're on.`;
+const description = `I'm skilled in buid
+
+ing fast, scalable, and
+optimised full-fledged web applications with an advancedseamless functionalities. I also develop super-fastand search engine friendly application with NEXT.js like web application you're on.`;
+
+const kb = 'jfjd\nhdjksyujksshdks'
 
 export default function Home() {
   const { wordletters, wordy } = useAnimatingWords(skills);
@@ -126,7 +127,7 @@ const DescriptionDetails = () => {
   return (
     <>
       <Box className="mx-5 mb-3 md:mb-6 " style={{ }}>
-        <Text className="hidden sm:block md:hidden lg:block lg:leading-8 space-x-3 lg:tracking-widest ">{description}</Text>
+        <Text as="p" style={{ whiteSpace: 'pre-wrap'}} className="hidden sm:block md:hidden lg:block lg:leading-8 space-x-3 lg:tracking-widest ">{description}</Text>
         <Box className="sm:hidden md:block lg:hidden">
           <ExpandableText description={description}></ExpandableText>
           </Box>

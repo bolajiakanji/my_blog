@@ -24,9 +24,12 @@ const ExpandableText = ({ description }: Props) => {
 
   return (
     <>
-      <Text as='span' style={{ whiteSpace: 'pre-wrap'}}>{renderText}</Text>
+      <Text as='p' size='3' color="gray" style={{ whiteSpace: 'pre-wrap'}}>{renderText}</Text>
       {description.length >= limit && (
         <Text
+          as="p"
+          size='2'
+          
           onClick={() => setExpanded(!expanded)}
           color="yellow"
           
