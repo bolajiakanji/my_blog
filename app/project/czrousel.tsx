@@ -7,6 +7,7 @@ import { Carousel } from "react-responsive-carousel";
 import Image, { StaticImageData } from "next/image";
 import { truncatePropDef } from "@radix-ui/themes/src/props/truncate.prop.js";
 import { CldImage } from 'next-cloudinary'
+import { Box } from "@radix-ui/themes";
 
 
 
@@ -62,7 +63,7 @@ type ImageCarouselProps = {
 // export default ImageCarousel
 
 
-export default function SimpleSlider({ images }: ImageCarouselProps) {
+export default function SimpleSlider({ tools }: {tools: string[]}) {
   var settings = {
     dots: true,
     infinite: true,
@@ -79,74 +80,13 @@ export default function SimpleSlider({ images }: ImageCarouselProps) {
     
   };
   return (
-    <Slider {...settings} className="h-72  ">
-      <div className="bg-yellow-500 ">
-      <Image
-                  src={ images[0]}
-       alt='jh'
-        
-            
-          style={{
-             objectFit: "cover",
-                width: '100%',
-                height: '18rem'
-                
-             }}
-           />
-      </div>
-      <div>
-        <h3 className="text-center bg-lime-700 h-72">2</h3>
-      </div>
-      <div>
-      <Image
-                  src={ images[1]}
-       alt='ju'
-        
-            
-          style={{
-             objectFit: "cover",
-                width: '100%',
-                height:'18rem'
-                
-             }}
-           />
-
-      </div>
-      <div>
-      <CldImage
-     width="960"
-     height="600"
-     src="https://res.cloudinary.com/dlutiw9i4/image/upload/v1730347305/IMG-20241018-WA0206_iyyeye.jpg"
-     sizes="100vw"
-                  alt="Description of my image"
-                  style={{
-                    objectFit: "cover",
-                       width: '100%',
-                       height:'18rem'
-                       
-                    }}
-       
-         ></CldImage>
-      </div>
-      <div>
-      <CldImage
-     width="960"
-     height="300"
-     src="https://res.cloudinary.com/dlutiw9i4/image/upload/v1730347045/IMG-20241030-WA0193_xxdout.jpg"
-     sizes="100vw"
-                  alt="Description of my image"
-                  style={{
-                    objectFit: "cover",
-                       width: '100%',
-                       height:'18rem'
-                       
-                    }}
-       
-         ></CldImage>
-      </div>
-      <div>
-        <h3 className="text-center">6</h3>
-      </div>
-    </Slider>
+    <Slider {...settings} className="h-72 w-full ">
+      {tools.map((tool) => (
+        <Box className="w-full" >
+          <span className="h-2 w-2 " style={{borderRadius: '50%'}}></span>
+          <span>{tool}</span>
+        </Box>
+      ))}
+         </Slider>
   );
 }

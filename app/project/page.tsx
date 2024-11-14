@@ -6,15 +6,22 @@ import pro , { Project } from './projects'
 import { CldImage, CldVideoPlayer } from 'next-cloudinary'
 import ExpandableText from './ExpandableText'
 import 'next-cloudinary/dist/cld-video-player.css'
+import Slider from 'react-slick';
+import SimpleSlider from './czrousel'
 
+
+interface Modal extends Project {
+  visible: boolean
+}
 
 const MyProject = () => {
-    const [projects, setProject] = useState<Project[]>(pro)
+  const [projects, setProject] = useState<Project[]>(pro)
+  
     
     return (
       <Box className='mt-20   z-50 absolute left-0 w-full'>
         <Box className='relative'>
-            <Box className='relative w-64  z-20 mx-auto'>
+            <Box className='relative w-64  z-10 mx-auto'>
                 <CldVideoPlayer
                 width='1620'
                 height='1080'
@@ -22,7 +29,6 @@ const MyProject = () => {
             
                 
             >
-
             </CldVideoPlayer> 
                 </Box>
 
@@ -38,7 +44,7 @@ const MyProject = () => {
       >
           {projects.map((project) => (
               
-             <div className=' overflow-hidden ' > 
+             <div className=' overflow-hidden 'key={project.no} > 
               <Card className='p-0 mx-auto 'style={{width:'100%',maxWidth:'420px', }}>
                   <CldImage
      
@@ -46,7 +52,7 @@ const MyProject = () => {
      
                       alt="Description of my image"
                       width='300'
-                      height='400'
+                  height='400'
                   style={{
                     objectFit: "cover",
                        
@@ -55,14 +61,19 @@ const MyProject = () => {
                       borderRadius: '10px',
 
                     width: '100%',
-                      height: '150px'
+                    height: '150px',
+                    
+                    
+                      
                        
                        
                     }}
        
                 ></CldImage>
                 
-                  <Heading as='h3' size='6'>{project.title}</Heading>
+                <Heading as='h3' size='6'>{project.title}</Heading>
+                <SimpleSlider tools={project.tools} />
+
                   <ExpandableText description={project.description}></ExpandableText>
                   <Flex>
                       <Box>
@@ -78,10 +89,7 @@ const MyProject = () => {
               
           ))}
         </Grid>
-          <Box className='absolute z-30 bg-slate-600 h-screen w-full top-0 left-0'>
-            
-
-        </Box>
+          
         </Box>
         </Box>
 

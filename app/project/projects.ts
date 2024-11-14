@@ -8,6 +8,7 @@ export interface Project {
     title: string;
     description: string;
     videoUrl?: string;
+    tools: string[]
 
 }
 
@@ -20,7 +21,11 @@ const projects: Project[] = [
         sourceCode: '',
         link: '',
         title: 'my game hub',
-        description: 'this is a game discovery app'
+        description: 'this is a game discovery app',
+        tools: [
+            'react native',
+            'expo'
+        ]
     },
     {
         no: 2,
@@ -29,7 +34,12 @@ const projects: Project[] = [
         sourceCode: '',
         link: '',
         title: '',
-        description: ''
+        description: '',
+        tools: [
+            'React',
+            'Chakra ui'
+        ]
+
     },
     {
         no: 3,
@@ -38,7 +48,12 @@ const projects: Project[] = [
         sourceCode: '',
         link: '',
         title: '',
-        description: ''
+        description: '',
+        tools: [
+            'express.js, node, ',
+            'expo'
+        ]
+
 
     },
     {
@@ -48,34 +63,54 @@ const projects: Project[] = [
         sourceCode: '',
         link: '',
         title: '',
-        description: ''
+        description: '',
+        tools: [
+            'react native',
+            'expo'
+        ]
+
     },
     {
-        no: 1,
+        no: 5,
         category: ['nextjs'],
         imageUrls: [''],
         sourceCode: '',
         link: '',
         title: '',
-        description: ''
+        description: '',
+        tools: [
+            'react native',
+            'expo'
+        ]
+
     },
     {
-        no: 1,
+        no: 6,
         category: ['frontend'],
         imageUrls: [''],
         sourceCode: '',
         link: '',
         title: '',
-        description: ''
+        description: '',
+        tools: [
+            'react native',
+            'expo'
+        ]
+
     },
     {
-        no: 1,
+        no: 7,
         category: ['nextjs'],
         imageUrls: [''],
         sourceCode: '',
         link: '',
         title: '',
-        description: ''
+        description: '',
+        tools: [
+            'react native',
+            'expo'
+        ]
+
 },
 ]
 
