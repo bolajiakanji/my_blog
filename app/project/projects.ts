@@ -1,7 +1,7 @@
 
 export interface Project {
     no: number;
-    category: string[];
+    category: string[] | string;
     imageUrls: string[];
     sourceCode: string;
     link: string;
@@ -16,12 +16,12 @@ export interface Project {
 const projects: Project[] = [
     {
         no: 1,
-        category: ['mobile-app'],
+        category: 'mobile-app',
         imageUrls: [''],
         sourceCode: '',
         link: '',
         title: 'my game hub',
-        description: 'this is a game discovery app',
+        description: 'this is a game discovery app ok',
         tools: [
             'react native',
             'expo'
@@ -50,7 +50,7 @@ const projects: Project[] = [
         title: '',
         description: '',
         tools: [
-            'express.js, node, ',
+            'express.js', 'node', 
             'expo'
         ]
 

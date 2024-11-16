@@ -4,10 +4,11 @@
 import React, { useEffect, useState } from 'react'
 import pro, { Project } from '../projects'
 
-import { Card, Text, Heading } from '@radix-ui/themes';
+import { Card, Text, Heading, Badge } from '@radix-ui/themes';
 
 import { CldImage } from 'next-cloudinary';
 import ExpandableText from '../ExpandableText';
+import SimpleSlider from '../czrousel';
 
 interface Props {
     params: { no: string };
@@ -24,7 +25,7 @@ useEffect(() => {
             
             
             setModal(x)
-            console.log(x)
+            
     }
     }
 }, [])
@@ -57,7 +58,10 @@ src="https://res.cloudinary.com/dlutiw9i4/image/upload/v1730347305/IMG-20241018-
 
   ></CldImage> 
   
-    <Heading>{modal.title} </Heading>
+          <Heading>{modal.title} </Heading>
+          {modal.tools?.map((tool) => (
+              <Badge className='me-2'> {tool}</Badge>
+          ))}
     
 <ExpandableText description={modal.description}></ExpandableText>
 

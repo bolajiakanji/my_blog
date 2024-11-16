@@ -1,13 +1,14 @@
 'use client'
 
-import { Box, Card, Flex, Grid, Heading } from '@radix-ui/themes'
+import { Badge, Box, Card, Flex, Grid, Heading } from '@radix-ui/themes'
 import React, { useState } from 'react'
 import pro , { Project } from './projects'
 import { CldImage, CldVideoPlayer } from 'next-cloudinary'
 import ExpandableText from './ExpandableText'
 import 'next-cloudinary/dist/cld-video-player.css'
-import Slider from 'react-slick';
+
 import SimpleSlider from './czrousel'
+import Link from 'next/link'
 
 
 interface Modal extends Project {
@@ -21,6 +22,30 @@ const MyProject = () => {
     return (
       <Box className='mt-20   z-50 absolute left-0 w-full'>
         <Box className='relative'>
+        <CldImage
+     
+     src="../public/images/IMG-20241024-WA0019.jpg"
+     
+                      alt="Description of my image"
+                      width='300'
+                  height='400'
+                  style={{
+                    objectFit: "cover",
+                       
+                      
+                      overflow: 'hidden',
+                      borderRadius: '10px',
+
+                    width: '100%',
+                    height: '150px',
+                    
+                    
+                      
+                       
+                       
+                    }}
+       
+                ></CldImage>
             <Box className='relative w-64  z-10 mx-auto'>
                 <CldVideoPlayer
                 width='1620'
@@ -42,9 +67,10 @@ const MyProject = () => {
       className=" p-2  mx-0  w-full "
       style={{  display: 'grid',  }}
       >
-          {projects.map((project) => (
-              
-             <div className=' overflow-hidden 'key={project.no} > 
+            {projects.map((project, index) => {
+              if (project.category === 'mobile-app') {
+                return (
+                  <Link href={`/project/${index + 1}`} className=' overflow-hidden ' key={project.no} > 
               <Card className='p-0 mx-auto 'style={{width:'100%',maxWidth:'420px', }}>
                   <CldImage
      
@@ -72,7 +98,10 @@ const MyProject = () => {
                 ></CldImage>
                 
                 <Heading as='h3' size='6'>{project.title}</Heading>
-                <SimpleSlider tools={project.tools} />
+                {project.tools?.map((tool) => (
+              <Badge className='me-2'> {tool}</Badge>
+          ))}
+    
 
                   <ExpandableText description={project.description}></ExpandableText>
                   <Flex>
@@ -84,10 +113,60 @@ const MyProject = () => {
                   
               </Card>   
               
-                  </div>
+                  </Link>
+                
+              )
+            }
+              
+            return (
+              
+              <Link href={`/project/${index + 1}`} className=' overflow-hidden ' key={project.no} > 
+              <Card className='p-0 mx-auto 'style={{width:'100%',maxWidth:'420px', }}>
+                  <CldImage
+     
+     src="https://res.cloudinary.com/dlutiw9i4/image/upload/v1730347305/IMG-20241018-WA0206_iyyeye.jpg"
+     
+                      alt="Description of my image"
+                      width='300'
+                  height='400'
+                  style={{
+                    objectFit: "cover",
+                       
+                      
+                      overflow: 'hidden',
+                      borderRadius: '10px',
+
+                    width: '100%',
+                    height: '150px',
+                    
+                    
+                      
+                       
+                       
+                    }}
+       
+                ></CldImage>
+                
+                <Heading as='h3' size='6'>{project.title}</Heading>
+                {project.tools?.map((tool) => (
+              <Badge className='me-2'> {tool}</Badge>
+          ))}
+    
+
+                  <ExpandableText description={project.description}></ExpandableText>
+                  <Flex>
+                      <Box>
+                          
+                      </Box>
+                      <Box></Box>
+                  </Flex>
+                  
+              </Card>   
+              
+                  </Link>
                   
               
-          ))}
+                ) } )}
         </Grid>
           
         </Box>
