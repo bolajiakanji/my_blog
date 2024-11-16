@@ -6,9 +6,11 @@ import pro , { Project } from './projects'
 import { CldImage, CldVideoPlayer } from 'next-cloudinary'
 import ExpandableText from './ExpandableText'
 import 'next-cloudinary/dist/cld-video-player.css'
+import Image from 'next/image'
 
 import SimpleSlider from './czrousel'
 import Link from 'next/link'
+import sty from "../public/images/IMG-20241024-WA0019.jpg"
 
 
 interface Modal extends Project {
@@ -22,40 +24,7 @@ const MyProject = () => {
     return (
       <Box className='mt-20   z-50 absolute left-0 w-full'>
         <Box className='relative'>
-        <CldImage
-     
-     src="../public/images/IMG-20241024-WA0019.jpg"
-     
-                      alt="Description of my image"
-                      width='300'
-                  height='400'
-                  style={{
-                    objectFit: "cover",
-                       
-                      
-                      overflow: 'hidden',
-                      borderRadius: '10px',
-
-                    width: '100%',
-                    height: '150px',
-                    
-                    
-                      
-                       
-                       
-                    }}
-       
-                ></CldImage>
-            <Box className='relative w-64  z-10 mx-auto'>
-                <CldVideoPlayer
-                width='1620'
-                height='1080'
-                src='https://res.cloudinary.com/dlutiw9i4/video/upload/v1731143057/VID-20241103-WA0066_k4pxhx.mp4JK'
-            
-                
-            >
-            </CldVideoPlayer> 
-                </Box>
+        
 
             <Grid 
                 
@@ -71,31 +40,9 @@ const MyProject = () => {
               if (project.category === 'mobile-app') {
                 return (
                   <Link href={`/project/${index + 1}`} className=' overflow-hidden ' key={project.no} > 
-              <Card className='p-0 mx-auto 'style={{width:'100%',maxWidth:'420px', }}>
-                  <CldImage
-     
-     src="https://res.cloudinary.com/dlutiw9i4/image/upload/v1730347305/IMG-20241018-WA0206_iyyeye.jpg"
-     
-                      alt="Description of my image"
-                      width='300'
-                  height='400'
-                  style={{
-                    objectFit: "cover",
-                       
-                      
-                      overflow: 'hidden',
-                      borderRadius: '10px',
-
-                    width: '100%',
-                    height: '150px',
-                    
-                    
-                      
-                       
-                       
-                    }}
-       
-                ></CldImage>
+                    <Card className='p-0 mx-auto ' style={{ width: '100%', maxWidth: '420px', }}>
+                      <SimpleSlider tools={project.imageUrls} />
+                  
                 
                 <Heading as='h3' size='6'>{project.title}</Heading>
                 {project.tools?.map((tool) => (

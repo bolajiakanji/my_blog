@@ -6,9 +6,11 @@ import pro, { Project } from '../projects'
 
 import { Card, Text, Heading, Badge } from '@radix-ui/themes';
 
-import { CldImage } from 'next-cloudinary';
+import { CldImage, CldVideoPlayer } from 'next-cloudinary';
 import ExpandableText from '../ExpandableText';
 import SimpleSlider from '../czrousel';
+import 'next-cloudinary/dist/cld-video-player.css'
+
 
 interface Props {
     params: { no: string };
@@ -29,6 +31,30 @@ useEffect(() => {
     }
     }
 }, [])
+    
+    if (no === '1') return (
+        <div className='mt-20   z-50 absolute left-0 w-full'><Card className='p-0 mx-auto 'style={{width:'100%',maxWidth:'420px', }}>
+        
+        <CldVideoPlayer
+  width='1620'
+  height='1080'
+  src='https://res.cloudinary.com/dlutiw9i4/video/upload/v1731143057/VID-20241103-WA0066_k4pxhx.mp4'
+    
+
+></CldVideoPlayer> 
+
+        <Heading>{modal.title} </Heading>
+        {modal.tools?.map((tool) => (
+            <Badge className='me-2'> {tool}</Badge>
+        ))}
+  
+<ExpandableText description={modal.description}></ExpandableText>
+
+</Card>
+</div>
+
+    )
+
     
   return (
     <div className='mt-20   z-50 absolute left-0 w-full'><Card className='p-0 mx-auto 'style={{width:'100%',maxWidth:'420px', }}>

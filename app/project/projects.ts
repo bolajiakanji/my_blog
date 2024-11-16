@@ -17,7 +17,9 @@ const projects: Project[] = [
     {
         no: 1,
         category: 'mobile-app',
-        imageUrls: [''],
+        imageUrls: [
+            'https://res.cloudinary.com/dlutiw9i4/image/upload/v1730347305/IMG-20241018-WA0206_iyyeye.jpg'
+        ],
         sourceCode: '',
         link: '',
         title: 'my game hub',
@@ -25,7 +27,8 @@ const projects: Project[] = [
         tools: [
             'react native',
             'expo'
-        ]
+        ],
+        videoUrl: 'https://res.cloudinary.com/dlutiw9i4/video/upload/v1731143057/VID-20241103-WA0066_k4pxhx.mp4'
     },
     {
         no: 2,

@@ -8,6 +8,7 @@ import Image, { StaticImageData } from "next/image";
 import { truncatePropDef } from "@radix-ui/themes/src/props/truncate.prop.js";
 import { CldImage } from 'next-cloudinary'
 import { Badge, Box } from "@radix-ui/themes";
+import int from '../public/images/IMG-20241024-WA0019.jpg'
 
 
 
@@ -169,17 +170,17 @@ export default function SimpleSlider({ tools }: {tools: string[]}) {
   var settings = {
     dots: false,
     infinite: true,
-    speed: 8000,
-    slidesToShow: 2,
+    speed: 3000,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    cssEase: 'linear',
-    autoplaySpeed: 1,
-    prevArrow: <Prev />,
+    fade: true,
+    
+    
     swipeToSlide: true,
     pauseOnHover: true,
     focusOnSelect: false,
-    arrows: false
+    
   
       
       
@@ -187,12 +188,60 @@ export default function SimpleSlider({ tools }: {tools: string[]}) {
   };
   console.log(tools)
   return (
-    <Slider {...settings} className="  relative ">
+    <Slider {...settings} className="  relative h-52 " >
+      <div className="">
+      <Image
+     
+     src={int}
+     
+                      alt="Description of my "
+                      width={300}
+                  height={170}
+                  style={{
+                    objectFit: "cover",
+                       
+                      
+                      overflow: 'hidden',
+                      borderRadius: '10px',
+
+                    width: '100%',
+                    
+                    
+                    
+                    
+                      
+                       
+                       
+                    }}
+       
+        ></Image>
+        </div>
+
       {tools.map((tool) => (
-        <Box key={tool}  className=" text-center ">
-          <span className="inline-block w-2 h-2 me-2 bg-blue-800 " style={{borderRadius: '50%'}}></span>
-          <Badge >{tool}</Badge>
-        </Box>
+        <CldImage
+     
+          src={tool}
+        
+                         alt="Loading other images ..."
+                         width='300'
+                     height='170'
+                     style={{
+                       objectFit: "cover",
+                          
+                         
+                         overflow: 'hidden',
+                         borderRadius: '10px',
+   
+                       width: '100%',
+                       
+                       
+                       
+                         
+                          
+                          
+                       }}
+          
+                   ></CldImage>
       ))} 
          </Slider>
   );
