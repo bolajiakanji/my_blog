@@ -36,6 +36,7 @@ const MyProject = () => {
 
   return (
     <Box className="mt-20   z-50 absolute left-0 w-full">
+      <Box className="flex gap-2 overflow-scroll mx-3">
       <Button
         onClick={() =>
           handleOnclick()
@@ -77,7 +78,8 @@ const MyProject = () => {
         }
       >
        Nextjs 
-      </Button>
+        </Button>
+        </Box>
 
       <Box className="relative">
         <Grid
