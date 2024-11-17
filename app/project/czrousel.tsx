@@ -1,7 +1,7 @@
 'use client'
 
 
-import React from "react";
+import React, { useState } from "react";
 import Slider from 'react-slick';
 import { Carousel } from "react-responsive-carousel";
 import Image, { StaticImageData } from "next/image";
@@ -166,11 +166,14 @@ bo
   )
 }
 
-export default function SimpleSlider({ tools }: {tools: string[]}) {
+export default function SimpleSlider({ tools }: { tools: string[] }) {
+  const [count, setCount] = useState(0)
+  
+  const tot = tools.length + 1
   var settings = {
     dots: false,
     infinite: true,
-    speed: 3000,
+    speed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -179,17 +182,22 @@ export default function SimpleSlider({ tools }: {tools: string[]}) {
     
     swipeToSlide: true,
     pauseOnHover: true,
-    focusOnSelect: false,
+    
+    beforeChange: (c: number, n: number) => {
+      setCount(n + 1)
+    }
     
   
       
       
     
-  };
+  }
   console.log(tools)
   return (
-    <Slider {...settings} className="  relative h-52 " >
-      <div className="">
+    <div className="relative ">
+      
+      <Slider {...settings} className="  relative overflow-hidden h-28 " >
+      <div className=" ">
       <Image
      
      src={int}
@@ -202,9 +210,10 @@ export default function SimpleSlider({ tools }: {tools: string[]}) {
                        
                       
                       overflow: 'hidden',
-                      borderRadius: '10px',
+                      
 
                     width: '100%',
+                    
                     
                     
                     
@@ -212,27 +221,37 @@ export default function SimpleSlider({ tools }: {tools: string[]}) {
                       
                        
                        
-                    }}
+            }}
+            className="h-28"
        
-        ></Image>
-        </div>
+          ></Image>
+          </div>
+        
 
-      {tools.map((tool) => (
-        <CldImage
+        {tools.map((tool) => (
+          <div className="  h-28 w-full ">
+            <CldImage
      
           src={tool}
         
                          alt="Loading other images ..."
-                         width='300'
-                     height='170'
+             // width='500'
+              //height='500'   
+              fill={true} 
+          className=""    
                      style={{
-                       objectFit: "cover",
+                       
                           
                          
                          overflow: 'hidden',
                          borderRadius: '10px',
    
-                       width: '100%',
+                       
+                       objectFit: 'cover',
+                       marginBottom: '0px',
+                       paddingBottom: '0px'
+                       
+                       
                        
                        
                        
@@ -242,7 +261,12 @@ export default function SimpleSlider({ tools }: {tools: string[]}) {
                        }}
           
                    ></CldImage>
+            </div>
+
       ))} 
-         </Slider>
+    </Slider>
+      <div className="bg-red-700">{count}/{tot}</div>
+    </div>
+
   );
 }

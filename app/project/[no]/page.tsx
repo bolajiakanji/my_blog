@@ -73,7 +73,7 @@ src="https://res.cloudinary.com/dlutiw9i4/image/upload/v1730347305/IMG-20241018-
          
         
         overflow: 'hidden',
-        borderRadius: '10px',
+        
 
       width: '100%',
       height: '150px'
