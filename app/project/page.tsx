@@ -27,18 +27,56 @@ interface Modal extends Project {
 const MyProject = () => {
   const [projects, setProject] = useState<Project[]>(pro);
 
-  const handleOnclick = (category: string) => {
-    setProject((pre) => pre.filter((epre) => epre.category.includes(category)));
+  const handleOnclick = (category?: string) => {
+    setProject(() => {
+      if (!category) return pro
+     return pro.filter((epre) => epre.category.includes(category))
+    });
   };
 
   return (
     <Box className="mt-20   z-50 absolute left-0 w-full">
       <Button
         onClick={() =>
+          handleOnclick()
+        }
+      >
+        All
+      </Button>
+      <Button
+        onClick={() =>
           handleOnclick('frontend')
         }
       >
-        frontend
+        Frontend
+      </Button>
+      <Button
+        onClick={() =>
+          handleOnclick('backend')
+        }
+      >
+        Backend
+      </Button>
+      <Button
+        onClick={() =>
+          handleOnclick('fullstack')
+        }
+      >
+        Fullstack
+      </Button>
+      <Button
+        onClick={() =>
+          handleOnclick('mobile-app')
+        }
+      >
+       Mobile-app 
+      </Button>
+      <Button
+        onClick={() =>
+          handleOnclick('nextjs')
+        }
+      >
+       Nextjs 
       </Button>
 
       <Box className="relative">
