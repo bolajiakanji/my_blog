@@ -19,6 +19,7 @@ import Image from "next/image";
 import SimpleSlider from "./czrousel";
 import Link from "next/link";
 import sty from "../public/images/IMG-20241024-WA0019.jpg";
+import FilteringButtons from "./FilteringButtons";
 
 interface Modal extends Project {
   visible: boolean;
@@ -26,9 +27,11 @@ interface Modal extends Project {
 
 const MyProject = () => {
   const [projects, setProject] = useState<Project[]>(pro);
+  const [render, setRender] = useState('');
 
-  const handleOnclick = (category?: string) => {
+  const handleOnclick = (category: string | '') => {
     setProject(() => {
+      setRender(category)
       if (!category) return pro
      return pro.filter((epre) => epre.category.includes(category))
     });
@@ -36,49 +39,8 @@ const MyProject = () => {
 
   return (
     <Box className="mt-20   z-50 absolute left-0 w-full">
-      <Box className="flex gap-2 overflow-scroll mx-3">
-      <Button
-        onClick={() =>
-          handleOnclick()
-        }
-      >
-        All
-      </Button>
-      <Button
-        onClick={() =>
-          handleOnclick('frontend')
-        }
-      >
-        Frontend
-      </Button>
-      <Button
-        onClick={() =>
-          handleOnclick('backend')
-        }
-      >
-        Backend
-      </Button>
-      <Button
-        onClick={() =>
-          handleOnclick('fullstack')
-        }
-      >
-        Fullstack
-      </Button>
-      <Button
-        onClick={() =>
-          handleOnclick('mobile-app')
-        }
-      >
-       Mobile-app 
-      </Button>
-      <Button
-        onClick={() =>
-          handleOnclick('nextjs')
-        }
-      >
-       Nextjs 
-        </Button>
+      <Box className="flex  gap-2 overflow-x-auto  mx-3">
+        <FilteringButtons handleOnclick={handleOnclick} render={render} count={projects.length} />
         </Box>
 
       <Box className="relative">
