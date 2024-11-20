@@ -21,6 +21,7 @@ import Link from "next/link";
 import sty from "../public/images/IMG-20241024-WA0019.jpg";
 import FilteringButtons from "./FilteringButtons";
 
+
 interface Modal extends Project {
   visible: boolean;
 }
@@ -44,29 +45,32 @@ const MyProject = () => {
         </Box>
 
       <Box className="relative">
-        <Grid
-          columns={{ initial: "1", sm: "2", md: "3" }}
-          display="grid"
-          gap="3"
+        <Flex
+          //columns={{ initial: "1", sm: "2", md: "3" }}
+          
+          gap="7"
           justify="center"
-          className=" p-2  mx-0  w-full "
-          style={{ display: "grid" }}
+          className="   flex-wrap  "
+          
         >
           {projects.map((project, index) => {
             if (project.category === "mobile-app") {
               return (
-                <Link
-                  href={`/project/${index + 1}`}
-                  className=" overflow-hidden "
-                  key={project.no}
-                >
+                
                   <Card
-                    className="p-0 mx-auto "
-                    style={{ width: "100%", maxWidth: "420px" }}
-                  >
+                    className={`p-0 sm:max-w-96  md:max-w-80 md:mx-0 lg:max-w-96` }
+                    style={{width:'100%' }}
+                    key={project.no}
+
+                >
+                  <Link
+                  href={`/project/${index + 1}`}
+                  
+                >
                     <div className="ralative " style={{ width: "100%" }}>
                       <SimpleSlider tools={project.imageUrls} />
                     </div>
+                    </Link>
 
                     <Heading as="h3" size="6">
                       {project.title}
@@ -83,20 +87,22 @@ const MyProject = () => {
                       <Box></Box>
                     </Flex>
                   </Card>
-                </Link>
+                
               );
             }
 
             return (
-              <Link
-                href={`/project/${index + 1}`}
-                className=" overflow-hidden "
+              
+                <Card
+                  className={`p-0 sm:max-w-96 md:max-w-80 md:mx-0 lg:max-w-96 ` }
+                style={{  width:'100%' }}
                 key={project.no}
               >
-                <Card
-                  className="p-0 mx-auto overflow-hidden "
-                  style={{ width: "100%", maxWidth: "420px" }}
-                >
+                <Link
+                href={`/project/${index + 1}`}
+                
+                
+              >
                   <CldImage
                     src="https://res.cloudinary.com/dlutiw9i4/image/upload/v1730347305/IMG-20241018-WA0206_iyyeye.jpg"
                     alt="Description of my image"
@@ -111,6 +117,7 @@ const MyProject = () => {
                       height: "170px",
                     }}
                   ></CldImage>
+                  </Link>
 
                   <Heading as="h3" size="6">
                     {project.title}
@@ -127,10 +134,10 @@ const MyProject = () => {
                     <Box></Box>
                   </Flex>
                 </Card>
-              </Link>
+              
             );
           })}
-        </Grid>
+        </Flex>
       </Box>
     </Box>
   );

@@ -1,13 +1,13 @@
 'use client'
 
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Slider from 'react-slick';
 import { Carousel } from "react-responsive-carousel";
 import Image, { StaticImageData } from "next/image";
 import { truncatePropDef } from "@radix-ui/themes/src/props/truncate.prop.js";
 import { CldImage } from 'next-cloudinary'
-import { Badge, Box } from "@radix-ui/themes";
+import { Badge, Box, Button, IconButton, Text } from "@radix-ui/themes";
 import int from '../public/images/IMG-20241024-WA0019.jpg'
 
 
@@ -167,16 +167,17 @@ bo
 }
 
 export default function SimpleSlider({ tools }: { tools: string[] }) {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(1)
+  let sliderRef = useRef(null as Slider | null)
   
   const tot = tools.length + 1
   var settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     fade: true,
     
     
@@ -194,10 +195,14 @@ export default function SimpleSlider({ tools }: { tools: string[] }) {
   }
   console.log(tools)
   return (
-    <div className="relative ">
+    <div className="relative  ">
       
-      <Slider {...settings} className="  relative overflow-hidden h-28 " >
-      <div className=" ">
+      <Slider {...settings} className="    h-32 mx-5 mb-3 "
+      //   ref={slider => {
+      //   sliderRef = slider;
+      // }}  
+      >
+      <div className="h-28 ">
       <Image
      
      src={int}
@@ -265,7 +270,8 @@ export default function SimpleSlider({ tools }: { tools: string[] }) {
 
       ))} 
     </Slider>
-      <div className="bg-red-700">{count}/{tot}</div>
+      <Text as="span" size='1' color="gray" className="absolute  top-2 right-3">{count}/{tot}</Text>
+      <IconButton className="absolute top-1/2 right-1/2 " />
     </div>
 
   );
