@@ -55,17 +55,22 @@ export default function SimpleSlider({ tools }: { tools: string[] }) {
       <div
         style={{
           padding: "0px",
-          display: "inline-block",
+          display: "flex",
+          
+          // position: 'absolute',
+          bottom: '-3px',
+          width:'auto',
           margin: "0px auto",
-          backgroundColor: '',
-         // position: 'absolute',
-          bottom: '-3px'
+          
+        
+          left: '50%',
+          
           
 
         }}
-        className=" bg-orange-500"
+        
       >
-        <ul style={{ margin: "0px", padding: "0px" }}> {dots} </ul>
+        <ul style={{ margin: "0px", padding: "0px", position: 'relative', left: '-50%' }} onClick={(e)=>{e.stopPropagation()}}> {dots} </ul>
       </div>
     ),
     customPaging: (i: number) => (
@@ -129,14 +134,16 @@ export default function SimpleSlider({ tools }: { tools: string[] }) {
       <Text
         as="span"
         style={{ borderRadius: '50%' }}
-        className=" text-xs absolute text-white bg-black p-1   top-2 right-2"
+        className=" text-xs absolute text-white bg-gray-600 p-1   top-2 right-2"
       >
         {count}/{tot}
       </Text>
-      <IconButton className="absolute top-1/2 left-1/2 " />
-      <Box className="absolute top-1/2 left-1  bg-black text-center " onClick={next}>
+      <Box className="absolute top-1/2 left-1/2">
+        <IconButton className="relative  -left-1/2 -top-1/2 " />
+        </Box>
+      <Box className="absolute top-1/2 left-1   bg-gray-600 text-center rounded-full" onClick={(e) => { next(); e.stopPropagation()}}>
         <ChevronLeft className="text-white  text-center" /></Box>
-      <Box className="absolute top-1/2 right-1 bg-black" onClick={previous}>
+      <Box className="absolute top-1/2 right-1  bg-gray-600 rounded-full" onClick={(e) => { previous(); e.stopPropagation() }}>
         <ChevronRight className="text-white" /></Box>
     </div>
   );
