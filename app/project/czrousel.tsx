@@ -134,8 +134,10 @@ export default function SimpleSlider({ tools }: { tools: string[] }) {
         {count}/{tot}
       </Text>
       <IconButton className="absolute top-1/2 left-1/2 " />
-      <Box className="absolute top-1/2 left-1 w-9 h-9 bg-black " onClick={next}><ChevronLeft className="text-white"/></Box>
-      <Box className="absolute top-1/2 right-1 w-9 h-9"  onClick={previous}><ChevronRight /></Box>
+      <Box className="absolute top-1/2 left-1  bg-black text-center " onClick={next}>
+        <ChevronLeft className="text-white  text-center" /></Box>
+      <Box className="absolute top-1/2 right-1 bg-black" onClick={previous}>
+        <ChevronRight className="text-white" /></Box>
     </div>
   );
 }
