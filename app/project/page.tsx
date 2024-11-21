@@ -63,14 +63,14 @@ const MyProject = () => {
                     key={project.no}
 
                 >
-                  <Link
-                  href={`/project/${index + 1}`}
                   
-                >
+                  {/* href={`/project/${index + 1}`}
+                  
+                > */}
                     <div className="ralative " style={{ width: "100%" }}>
                       <SimpleSlider tools={project.imageUrls} />
                     </div>
-                    </Link>
+                    
 
                     <Heading as="h3" size="6">
                       {project.title}
@@ -114,7 +114,7 @@ const MyProject = () => {
                       overflow: "hidden",
 
                       width: "100%",
-                      height: "170px",
+                      height: "180px",
                     }}
                   ></CldImage>
                   </Link>
