@@ -24,9 +24,9 @@ const page = ({ params: { no} }: Props) => {
     }
   }, []);
 
-  
+  if (no[0] === '1')
     return (
-      <div className="mt-20   z-50 absolute left-0 w-full">
+      <div className="mt-20 px-3  z-50 absolute left-0 w-full">
         <Card
           className="p-0 mx-auto "
           style={{ width: "100%", maxWidth: "420px" }}
@@ -51,7 +51,7 @@ const page = ({ params: { no} }: Props) => {
     );
 
   return (
-    <div className="mt-20   z-50 absolute left-0 w-full">
+    <div className="mt-20 px-3  z-50 absolute left-0 w-full">
       <Card
         className="p-0 mx-auto "
         style={{ width: "100%", maxWidth: "420px" }}

@@ -72,13 +72,14 @@ export default function SimpleSlider({ tools, sNumber }: Props) {
         }}
         
       >
-        <ul style={{ margin: "0px", padding: "0px", position: 'relative', left: '-50%' }} onClick={(e)=>{e.stopPropagation()}}> {dots} </ul>
+        <ul style={{ margin: "0px", padding: "0px", position: 'relative', left: '-50%' }}
+          onClick={(e) => { e.stopPropagation() }}> {dots} </ul>
       </div>
     ),
     customPaging: (i: number) => (
       <span
         className={`${
-          i + 1 === count ? "bg-yellow-500" : "bg-gray-600"
+          i + 1 === count ? "bg-accentColor" : "bg-black"
         } mx-0 px-0`}
         style={{
           display: "inline-block",
@@ -143,27 +144,31 @@ export default function SimpleSlider({ tools, sNumber }: Props) {
       <Text
         as="span"
         style={{ borderRadius: '50%' }}
-        className=" text-xs absolute text-white bg-gray-600 p-1   top-2 right-2"
+        className=" text-xs scale-75 absolute text-white bg-black p-1   top-2 right-2"
       >
         {count}/{tot}
       </Text>
       
       <Box className="absolute top-1/2 left-1/2">
-        <IconButton size='3' className="relative  -left-1/2 -top-1/2 rounded-full " > 
+        <IconButton variant='classic' size='3' className="opacity-75 relative top-1/2 -left-1/2  rounded-full " > 
       <Link href={`/project/${sNumber}/dont`}>
-          <PlayIcon width='22' height='22'/>
+          <PlayIcon width='22' height='22' className="text-white opacity-100 "/>
         </Link>
         </IconButton> 
         </Box>
-      <Box className="absolute top-1/2 left-1 bg-gray-600 rounded-full hover:scale-x-125 "
+      <IconButton
+        size='1'
+        className="absolute scale-75 top-1/2 left-1 bg-gray-600 rounded-full hover:scale-90 "
         onClick={(e) => { next(); e.stopPropagation() }}
       >
-        <ChevronLeftIcon width='18' height='18' className="text-white " />
-      </Box>
-      <Box className="absolute top-1/2 right-1  bg-gray-600 rounded-full hover:scale-x-125"
+        <ChevronLeftIcon width='22' height='22' className="text-white " />
+      </IconButton>
+      <IconButton
+        size='1'
+        className="absolute scale-75 top-1/2 right-1  bg-gray-600 rounded-full hover:scale-90"
         onClick={(e) => { previous(); e.stopPropagation() }}>
-        <ChevronRightIcon width='18' height='18' className="text-white" />
-      </Box>
+        <ChevronRightIcon width='22' height='22' className="text-white" />
+      </IconButton>
     </div>
   );
 }
