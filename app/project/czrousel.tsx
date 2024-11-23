@@ -6,9 +6,10 @@ import { Carousel } from "react-responsive-carousel";
 import Image, { StaticImageData } from "next/image";
 import { truncatePropDef } from "@radix-ui/themes/src/props/truncate.prop.js";
 import { CldImage } from "next-cloudinary";
-import { Badge, Box, Button, IconButton, Text } from "@radix-ui/themes";
+import { Badge, Box, Button, IconButton, Link, Text } from "@radix-ui/themes";
 import int from "../public/images/IMG-20241024-WA0019.jpg";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+
+import { ChevronLeftIcon, ChevronRightIcon, PlayIcon } from "@radix-ui/react-icons";
 
 function Prev(props: React.ComponentProps<"div">) {
   const { className, style, onClick } = props;
@@ -22,11 +23,12 @@ function Prev(props: React.ComponentProps<"div">) {
     </div>
   );
 }
-interface Ok {
-  sliderRef: Slider | null;
+interface Props {
+  tools: string[];
+  sNumber: number
 }
 
-export default function SimpleSlider({ tools }: { tools: string[] }) {
+export default function SimpleSlider({ tools, sNumber }: Props) {
   const [count, setCount] = useState(1);
   let sliderRef = useRef<Slider>(null);
   const next = () => {
@@ -93,8 +95,11 @@ export default function SimpleSlider({ tools }: { tools: string[] }) {
   console.log(tools);
   return (
     <div className="relative  ">
+      
       <Slider ref={sliderRef} {...settings} className="   h-44  ">
         <div className="h-44 ">
+        <Link href={`/project/${sNumber}`}>
+
           <Image
             src={int}
             alt="Description of my "
@@ -108,11 +113,14 @@ export default function SimpleSlider({ tools }: { tools: string[] }) {
               width: "100%",
             }}
             
-          ></Image>
+            />
+            </Link>
         </div>
 
         {tools.map((tool) => (
+
           <div className="  h-44 w-full ">
+            <Link href={`/project/${sNumber}`}>
             <CldImage
               src={tool}
               alt="Loading other images ..."
@@ -127,7 +135,8 @@ export default function SimpleSlider({ tools }: { tools: string[] }) {
                 objectFit: "cover",
                 
               }}
-            ></CldImage>
+              ></CldImage>
+              </Link>
           </div>
         ))}
       </Slider>
@@ -138,13 +147,23 @@ export default function SimpleSlider({ tools }: { tools: string[] }) {
       >
         {count}/{tot}
       </Text>
+      
       <Box className="absolute top-1/2 left-1/2">
-        <IconButton className="relative  -left-1/2 -top-1/2 " />
+        <IconButton size='3' className="relative  -left-1/2 -top-1/2 rounded-full " > 
+      <Link href={`/project/${sNumber}/dont`}>
+          <PlayIcon width='22' height='22'/>
+        </Link>
+        </IconButton> 
         </Box>
-      <Box className="absolute top-1/2 left-1   bg-gray-600 text-center rounded-full" onClick={(e) => { next(); e.stopPropagation()}}>
-        <ChevronLeft className="text-white  text-center" /></Box>
-      <Box className="absolute top-1/2 right-1  bg-gray-600 rounded-full" onClick={(e) => { previous(); e.stopPropagation() }}>
-        <ChevronRight className="text-white" /></Box>
+      <Box className="absolute top-1/2 left-1 bg-gray-600 rounded-full hover:scale-x-125 "
+        onClick={(e) => { next(); e.stopPropagation() }}
+      >
+        <ChevronLeftIcon width='18' height='18' className="text-white " />
+      </Box>
+      <Box className="absolute top-1/2 right-1  bg-gray-600 rounded-full hover:scale-x-125"
+        onClick={(e) => { previous(); e.stopPropagation() }}>
+        <ChevronRightIcon width='18' height='18' className="text-white" />
+      </Box>
     </div>
   );
 }

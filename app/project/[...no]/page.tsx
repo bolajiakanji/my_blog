@@ -11,20 +11,20 @@ import SimpleSlider from "../czrousel";
 import "next-cloudinary/dist/cld-video-player.css";
 
 interface Props {
-  params: { no: string };
+  params: { no: string[] };
 }
 
-const page = ({ params: { no } }: Props) => {
+const page = ({ params: { no} }: Props) => {
   const [modal, setModal] = useState({} as Project);
   useEffect(() => {
     for (const x of pro) {
-      if (x.no === parseInt(no)) {
+      if (x.no === parseInt(no[0])) {
         setModal(x);
       }
     }
   }, []);
 
-  if (no === "1")
+  
     return (
       <div className="mt-20   z-50 absolute left-0 w-full">
         <Card
@@ -33,9 +33,12 @@ const page = ({ params: { no } }: Props) => {
         >
           <CldVideoPlayer
             width="1620"
-            height="1080"
+                    height="1080"
+                    
+                
             src="https://res.cloudinary.com/dlutiw9i4/video/upload/v1731143057/VID-20241103-WA0066_k4pxhx.mp4"
-          ></CldVideoPlayer>
+          autoplay={!no[1] ? true : false }
+                ></CldVideoPlayer>
 
           <Heading>{modal.title} </Heading>
           {modal.tools?.map((tool) => (

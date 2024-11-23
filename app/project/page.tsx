@@ -53,22 +53,19 @@ const MyProject = () => {
           className="   flex-wrap  "
           
         >
-          {projects.map((project, index) => {
+          {projects.map((project) => {
             if (project.category === "mobile-app") {
               return (
                 
                   <Card
-                    className={`p-0 sm:max-w-96  md:max-w-80 md:mx-0 lg:max-w-96` }
+                    className={`p-0 mx-3 sm:max-w-96  md:max-w-80 md:mx-0 lg:max-w-96` }
                     style={{width:'100%' }}
                     key={project.no}
 
                 >
                   
-                  {/* href={`/project/${index + 1}`}
-                  
-                > */}
                     <div className="ralative " style={{ width: "100%" }}>
-                      <SimpleSlider tools={project.imageUrls} />
+                      <SimpleSlider tools={project.imageUrls} sNumber={project.no} />
                     </div>
                     
 
@@ -94,12 +91,12 @@ const MyProject = () => {
             return (
               
                 <Card
-                  className={`p-0 sm:max-w-96 md:max-w-80 md:mx-0 lg:max-w-96 ` }
+                  className={`p-0 mx-3 sm:max-w-96 md:max-w-80 md:mx-0 lg:max-w-96 ` }
                 style={{  width:'100%' }}
                 key={project.no}
               >
                 <Link
-                href={`/project/${index + 1}`}
+                href={`/project/${project.no}`}
                 
                 
               >
