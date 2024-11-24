@@ -1,5 +1,5 @@
 'use client'
-import React, { ForwardRefRenderFunction, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Box } from '@radix-ui/themes';
 
 const MyName = () => {

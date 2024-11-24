@@ -5,12 +5,10 @@ import { useTheme } from "next-themes";
 import React, {
   ForwardRefRenderFunction,
   PropsWithChildren,
-  useEffect,
   useRef,
   useState,
 } from "react";
 import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
-import { Link, } from "./components";
 import MyName from "./components/MyName";
 import NextLink from 'next/link'
 

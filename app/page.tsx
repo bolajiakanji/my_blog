@@ -1,8 +1,7 @@
 "use client";
 
-import { Box, Text, Flex, Button } from "@radix-ui/themes";
+import { Box, Text, Button } from "@radix-ui/themes";
 import useAnimatingWords from "./hooks/useAnimatingWords";
-import MyName from "./components/MyName";
 import Image from "next/image";
 import background from "./public/images/IMG_20241025_084608_312-removebg-preview_5-removebg-preview (2).png";
 import ExpandableText from "./components/ExpandableText";
@@ -18,7 +17,7 @@ const description = `I'm skilled in buid
 ing fast, scalable, and
 optimised full-fledged web applications with an advancedseamless functionalities. I also develop super-fastand search engine friendly application with NEXT.js like web application you're on.`;
 
-const kb = 'jfjd\nhdjksyujksshdks'
+// const kb = 'jfjd\nhdjksyujksshdks'
 
 export default function Home() {
   const { wordletters, wordy } = useAnimatingWords(skills);

@@ -2,11 +2,9 @@
 
 import React, { useRef, useState } from "react";
 import Slider from "react-slick";
-import { Carousel } from "react-responsive-carousel";
-import Image, { StaticImageData } from "next/image";
-import { truncatePropDef } from "@radix-ui/themes/src/props/truncate.prop.js";
+import Image from "next/image";
 import { CldImage } from "next-cloudinary";
-import { Badge, Box, Button, IconButton, Link, Text } from "@radix-ui/themes";
+import { Box, IconButton, Link, Text } from "@radix-ui/themes";
 import int from "../public/images/IMG-20241024-WA0019.jpg";
 
 import { ChevronLeftIcon, ChevronRightIcon, PlayIcon } from "@radix-ui/react-icons";

@@ -1,5 +1,5 @@
 'use client'
-import React, { ForwardRefRenderFunction, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Box } from '@radix-ui/themes';
 
 const MyCurve = () => {
@@ -17,7 +17,7 @@ const MyCurve = () => {
           width="1000"
                 height="60"
                 
-          style={{display:'block', background: 'orange', hight: '100',width: '100%',overflowX:'hidden', border: "2px solid  red", zIndex: 30 }}
+          style={{display:'block', background: 'orange',width: '100%',overflowX:'hidden', border: "2px solid  red", zIndex: 30 }}
         />
       </Box>
     );

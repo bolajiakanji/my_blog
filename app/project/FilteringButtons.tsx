@@ -22,7 +22,7 @@ const FilteringButtons = ({ handleOnclick, render, count }: Props) => {
         <Button
           variant={obj.value === render ? "solid" : "surface"}
               onClick={() => handleOnclick(obj.value)}
-              className="mb-2"
+              className="mb-2 rounded-full"
         >
               {`${obj.label} ${obj.value === render ? `(${count})` : ''}`}
         </Button>

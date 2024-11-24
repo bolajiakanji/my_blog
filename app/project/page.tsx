@@ -3,28 +3,24 @@
 import {
   Badge,
   Box,
-  Button,
   Card,
   Flex,
-  Grid,
   Heading,
 } from "@radix-ui/themes";
 import React, { useState } from "react";
 import pro, { Project } from "./projects";
-import { CldImage, CldVideoPlayer } from "next-cloudinary";
+import { CldImage } from "next-cloudinary";
 import ExpandableText from "./ExpandableText";
 import "next-cloudinary/dist/cld-video-player.css";
-import Image from "next/image";
 
 import SimpleSlider from "./czrousel";
 import Link from "next/link";
-import sty from "../public/images/IMG-20241024-WA0019.jpg";
 import FilteringButtons from "./FilteringButtons";
 
 
-interface Modal extends Project {
-  visible: boolean;
-}
+// interface Modal extends Project {
+//   visible: boolean;
+// }
 
 const MyProject = () => {
   const [projects, setProject] = useState<Project[]>(pro);
@@ -68,21 +64,25 @@ const MyProject = () => {
                       <SimpleSlider tools={project.imageUrls} sNumber={project.no} />
                     </div>
                     
-
-                    <Heading as="h3" size="6">
+<Box className="mt-7 mx-5 ">
+                    <Heading as="h3" className="my-2 text-black dark:text-white " >
                       {project.title}
                     </Heading>
-                    {project.tools?.map((tool) => (
-                      <Badge className="me-2"> {tool}</Badge>
-                    ))}
 
                     <ExpandableText
                       description={project.description}
-                    ></ExpandableText>
+                      limit={40}
+                      ></ExpandableText>
+                        <Box className="mt-7">
+                    {project.tools?.map((tool) => (
+                        <Badge  className="me-2"> {tool}</Badge>
+                      ))}
+                      </Box>
                     <Flex>
                       <Box></Box>
                       <Box></Box>
                     </Flex>
+                    </Box>
                   </Card>
                 
               );
@@ -123,7 +123,8 @@ const MyProject = () => {
                     <Badge className="me-2"> {tool}</Badge>
                   ))}
 
-                  <ExpandableText
+                <ExpandableText 
+                  limit={20}
                     description={project.description}
                   ></ExpandableText>
                   <Flex>

@@ -3,11 +3,10 @@
 import React, { useEffect, useState } from "react";
 import pro, { Project } from "../projects";
 
-import { Card, Text, Heading, Badge } from "@radix-ui/themes";
+import { Card, Heading, Badge } from "@radix-ui/themes";
 
 import { CldImage, CldVideoPlayer } from "next-cloudinary";
 import ExpandableText from "../ExpandableText";
-import SimpleSlider from "../czrousel";
 import "next-cloudinary/dist/cld-video-player.css";
 
 interface Props {
@@ -45,7 +44,7 @@ const page = ({ params: { no} }: Props) => {
             <Badge className="me-2"> {tool}</Badge>
           ))}
 
-          <ExpandableText description={modal.description}></ExpandableText>
+          <ExpandableText description={modal.description} limit={20}></ExpandableText>
         </Card>
       </div>
     );
@@ -76,7 +75,7 @@ const page = ({ params: { no} }: Props) => {
           <Badge className="me-2"> {tool}</Badge>
         ))}
 
-        <ExpandableText description={modal.description}></ExpandableText>
+        <ExpandableText description={modal.description} limit={20}></ExpandableText>
       </Card>
     </div>
   );
