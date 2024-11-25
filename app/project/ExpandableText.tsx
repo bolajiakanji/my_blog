@@ -12,14 +12,14 @@ const ExpandableText = ({ description, limit }: Props) => {
 
   if (!description) return null;
 
-  let renderText =
+  const renderText =
     description.length <= limit
       ? description
       : !expanded
       ? description.slice(0, limit) + " ..."
       : `${description} `;
 
-  let btn = !expanded ? "Read more" : "Show less";
+  const btn = !expanded ? "Read more" : "Show less";
 
   return (
     <>

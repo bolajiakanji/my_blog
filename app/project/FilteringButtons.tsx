@@ -19,7 +19,8 @@ const FilteringButtons = ({ handleOnclick, render, count }: Props) => {
   return (
     <>
       {objs.map((obj) => (
-        <Button
+          <Button
+              key={obj.label}
           variant={obj.value === render ? "solid" : "surface"}
               onClick={() => handleOnclick(obj.value)}
               className="mb-2 rounded-full"

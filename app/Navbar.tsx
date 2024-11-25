@@ -110,10 +110,8 @@ const Menu = ({ display, setDisplay, element }: MenuProps) => {
   const eventHandler = (e: MouseEvent) => {
     if (!element) return;
     const node = e.target as Node;
-    if (element.contains(node)) null;
-    else {
-      setDisplay("hidden");
-    }
+    if (!element.contains(node)) setDisplay("hidden");
+  
     document.removeEventListener("click", eventHandler);
   };
 

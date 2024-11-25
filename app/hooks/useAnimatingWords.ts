@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 
 const useAnimatingWords = (wordArrays: string[]) => {
   const wordCount = useRef(0);
-  let wordy = wordCount.current
+  const wordy = wordCount.current
   const [word, setWord] = useState<string>(wordArrays[wordCount.current]);
   const [wordletters, setWordLetters] = useState<string[]>([]);
   const [letterCount, setCount] = useState<number>(1);
@@ -31,7 +31,7 @@ const useAnimatingWords = (wordArrays: string[]) => {
         if (index + 1 !== letterCount) return;
 
         setWordLetters((eachLetter) => {
-          let newarray = [...eachLetter];
+          const newarray = [...eachLetter];
           newarray.push(letter);
           return newarray;
         });
@@ -44,7 +44,7 @@ const useAnimatingWords = (wordArrays: string[]) => {
       clearInterval(interval);
       clearTimeout(reset);
     };
-  }, [letterCount, word]);
+  }, [letterCount, word, wordArrays]);
   return {
     word,
     wordletters,

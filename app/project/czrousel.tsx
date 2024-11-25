@@ -9,18 +9,6 @@ import int from "../public/images/IMG-20241024-WA0019.jpg";
 
 import { ChevronLeftIcon, ChevronRightIcon, PlayIcon } from "@radix-ui/react-icons";
 
-function Prev(props: React.ComponentProps<"div">) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} dark:bg-green-600`}
-      style={{ ...style, display: "block", backgroundColor: "red" }}
-      onClick={onClick}
-    >
-      bo
-    </div>
-  );
-}
 interface Props {
   tools: string[];
   sNumber: number
@@ -28,7 +16,7 @@ interface Props {
 
 export default function SimpleSlider({ tools, sNumber }: Props) {
   const [count, setCount] = useState(1);
-  let sliderRef = useRef<Slider>(null);
+  const sliderRef = useRef<Slider>(null);
   const next = () => {
     sliderRef.current?.slickNext();
   };
@@ -37,7 +25,7 @@ export default function SimpleSlider({ tools, sNumber }: Props) {
   };
 
   const tot = tools.length + 1;
-  var settings = {
+  const settings = {
     dots: true,
     infinite: true,
     speed: 1000,
@@ -118,7 +106,7 @@ export default function SimpleSlider({ tools, sNumber }: Props) {
 
         {tools.map((tool) => (
 
-          <div className="  h-44 w-full ">
+          <div key={tool} className="  h-44 w-full ">
             <Link href={`/project/${sNumber}`}>
             <CldImage
               src={tool}

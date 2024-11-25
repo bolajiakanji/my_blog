@@ -75,7 +75,7 @@ const MyProject = () => {
                       ></ExpandableText>
                         <Box className="mt-7">
                     {project.tools?.map((tool) => (
-                        <Badge  className="me-2"> {tool}</Badge>
+                        <Badge key={tool}  className="me-2"> {tool}</Badge>
                       ))}
                       </Box>
                     <Flex>
@@ -120,7 +120,7 @@ const MyProject = () => {
                     {project.title}
                   </Heading>
                   {project.tools?.map((tool) => (
-                    <Badge className="me-2"> {tool}</Badge>
+                    <Badge key={tool} className="me-2"> {tool}</Badge>
                   ))}
 
                 <ExpandableText 

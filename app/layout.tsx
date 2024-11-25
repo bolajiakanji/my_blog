@@ -11,13 +11,13 @@ import { ThemeProvider } from "./ThemeProvider";
 import Navbar from "./Navbar";
 
 
-import { Theme, Container, Flex, Box } from "@radix-ui/themes";
+import { Theme, Container } from "@radix-ui/themes";
 
-const roboto = Roboto({
-  subsets: ['latin'],
-  variable: '--font-roboto',
-  weight: ['400', '500']
-})
+// const roboto = Roboto({
+//   subsets: ['latin'],
+//   variable: '--font-roboto',
+//   weight: ['400', '500']
+// })
 
 const poppins = localFont({
   src: "./fonts/poppins-regular-webfont.woff2",

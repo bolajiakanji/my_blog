@@ -13,7 +13,7 @@ interface Props {
   params: { no: string[] };
 }
 
-const page = ({ params: { no} }: Props) => {
+const Page = ({ params: { no} }: Props) => {
   const [modal, setModal] = useState({} as Project);
   useEffect(() => {
     for (const x of pro) {
@@ -21,7 +21,7 @@ const page = ({ params: { no} }: Props) => {
         setModal(x);
       }
     }
-  }, []);
+  }, [no]);
 
   if (no[0] === '1')
     return (
@@ -41,7 +41,7 @@ const page = ({ params: { no} }: Props) => {
 
           <Heading>{modal.title} </Heading>
           {modal.tools?.map((tool) => (
-            <Badge className="me-2"> {tool}</Badge>
+            <Badge key={tool} className="me-2"> {tool}</Badge>
           ))}
 
           <ExpandableText description={modal.description} limit={20}></ExpandableText>
@@ -72,7 +72,7 @@ const page = ({ params: { no} }: Props) => {
 
         <Heading>{modal.title} </Heading>
         {modal.tools?.map((tool) => (
-          <Badge className="me-2"> {tool}</Badge>
+          <Badge key={tool} className="me-2"> {tool}</Badge>
         ))}
 
         <ExpandableText description={modal.description} limit={20}></ExpandableText>
@@ -81,4 +81,4 @@ const page = ({ params: { no} }: Props) => {
   );
 };
 
-export default page;
+export default Page;

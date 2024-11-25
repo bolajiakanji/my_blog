@@ -27,7 +27,7 @@ const MyName = () => {
 const createCanvas = (element: HTMLCanvasElement | null) => {
     const ctx = element?.getContext("2d");
     if (!ctx) return;
-    var grd = ctx.createLinearGradient(0, 0, 100, 0);
+    const grd = ctx.createLinearGradient(0, 0, 100, 0);
     grd.addColorStop(0, "#e93d82");
     grd.addColorStop(0.5, "#3DD68C");
     grd.addColorStop(1, "#0090FF");

@@ -97,7 +97,7 @@ const MyDescription = ({
           style={{ fontWeight: "bolder" }}
           className="ms-2 text-lg md:text-2xl "
         >
-          ABD'GOFFAR BOLAJI LUKMAN
+          ABD-GOFFAR BOLAJI LUKMAN
         </Text>
       </Text>
 
