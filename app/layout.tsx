@@ -1,17 +1,17 @@
-
-
 import type { Metadata } from "next";
 import "./globals.css";
-import './token.css'
-
+import "./token.css";
 
 import localFont from "next/font/local";
 //import { Roboto } from 'next/font/google'
 import { ThemeProvider } from "./ThemeProvider";
 import Navbar from "./Navbar";
 
-
 import { Theme, Container } from "@radix-ui/themes";
+
+import MenuToggleProvider from "./components/MenuToggleProvider";
+
+import AppWrapper from "./components/AppWrapper";
 
 // const roboto = Roboto({
 //   subsets: ['latin'],
@@ -22,7 +22,6 @@ import { Theme, Container } from "@radix-ui/themes";
 const poppins = localFont({
   src: "./fonts/poppins-regular-webfont.woff2",
   variable: "--font-poppins",
-  
 });
 
 export const metadata: Metadata = {
@@ -35,69 +34,116 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-
-
-
- 
   return (
-    <html lang="en" className="dark" suppressHydrationWarning >
-      
-      
-      <body
-        className={poppins.variable}
-      >
-        <ThemeProvider
-          attribute="class"
-          
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-          <Theme accentColor="crimson" panelBackground="solid"
-          
-          >
-            <div className="relative left-0 top-0">
-            <div style={{ width: '100%', height: '100vh' }}>
-              <div style={{
-                width: '100%', borderEndStartRadius:
-                  '50%', borderEndEndRadius: '50%',
-                height: '20vh', zIndex:'9', 
-              }} className="dark:bg-black fixed">
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className={poppins.variable}>
+        <ThemeProvider attribute="class" disableTransitionOnChange>
+          <Theme accentColor="crimson" panelBackground="solid" radius="full">
+            <MenuToggleProvider>
+              <div className="relative left-0 top-0 w-full h-screen">
+                
+                  <div
+                    style={{
+                      width: "100%",
+                      borderEndStartRadius: "50%",
+                      borderEndEndRadius: "50%",
+                      height: "20vh",
+                      zIndex: "1",
+                    }}
+                    className="dark:bg-black fixed"
+                  ></div>
+                  <div
+                    className="dark:bg-black"
+                    style={{
+                      position: "fixed",
+                      height: "25vh",
+                      zIndex: "2",
+                      width: "100%",
+                      bottom: "0",
+                      left: "0",
+                    }}
+                  ></div>
 
-              </div>
-              <div className="dark:bg-black" style={{ position: 'fixed', height: '25vh', zIndex: '5',width:'100%',bottom:'0',left: '0'}}></div>
+                  <div
+                    style={{
+                      position: "fixed",
+                      top: "0",
+                      left: "0",
+                      height: "100vh",
+                      zIndex: "3",
+                      width: "100%",
+                    }}
+                  ></div>
 
-              <div style={{
-                position: 'fixed', top: '0', left: '0', height: '100vh',zIndex: '6',width: '100%'
-    
-               }} >
-                <div className="dark:bg-bg_color fixed" style={{ marginBottom: '0px', marginTop:'45vh', width: '50%', zIndex:"4", borderBottomLeftRadius:'50%', borderBottomRightRadius: '50%', height:'40vh'}}></div>
-                <div className="dark:bg-black " style={{width:'55%',position:"fixed" , bottom: '0',right:'0',  float:'right', height:'35vh', borderTopLeftRadius:'50%', borderTopRightRadius:'50%'}} ></div>
-              </div>
-              <div>
-                <div style={{ position: 'absolute', left: '0', top: '0',zIndex:'12',fontSize: '1.rem', backgroundColor: '#010314',  }} className="w-full ">
-                  <div className="relative">
-                    <Navbar />
-            <Container style={{width: '100%'}} 
-      >
-              
-                    <main  >{children}</main>
+                    <div
+                      className="dark:bg-bg_color fixed"
+                      style={{
+                        marginBottom: "0px",
+                        marginTop: "45vh",
+                        width: "50%",
+                        zIndex: "4",
+                        borderBottomLeftRadius: "50%",
+                        borderBottomRightRadius: "50%",
+                        height: "40vh",
+                      }}
+                    ></div>
+                    <div
+                      className="dark:bg-black "
+                      style={{
+                        width: "55%",
+                        position: "fixed",
+                        bottom: "0",
+                        right: "0",
+                        float: "right",
+                        height: "35vh",
+                        borderTopLeftRadius: "50%",
+                        borderTopRightRadius: "50%",
+                        zIndex: '5'
+                      }}
+                    ></div>
+                  
+                  <div>
+                    <div
+                      style={{
+                        position: "fixed",
+                        left: "0",
+                        top: "0",
+                        zIndex: "7",
+                        fontSize: "1.rem",
+                        backgroundColor: "#01031",
+                      }}
+                      className="w-full "
+                    ></div>
+                  </div>
+
+                  
+
+
+                      <div >
+
+                        <AppWrapper>
+                        <Navbar />
+                          
+                          <div className="bg-blue-800 z-10 w-full"> ssssssssssss</div>
+                        <Container style={{ width: "100%", position: 'relative', zIndex: '8' }}
+                    className="relative  w-full">
+                          {children}
+                        </Container>
+                          
+                        
+                          </AppWrapper>
+                      </div>
+                    </div>
+                  
                 
               
-                    </Container>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-              </div>
-              </Theme>
-              </ThemeProvider>
-
-        
+            </MenuToggleProvider>
+          </Theme>
+        </ThemeProvider>
       </body>
     </html>
   );
 }
-{/* px-6 md:px-8 */}
+{
+  /* px-6 md:px-8 */
+}

@@ -6,6 +6,7 @@ import {
   Card,
   Flex,
   Heading,
+  Text,
 } from "@radix-ui/themes";
 import React, { useState } from "react";
 import pro, { Project } from "./projects";
@@ -35,7 +36,7 @@ const MyProject = () => {
   };
 
   return (
-    <Box className="mt-20   z-50 absolute left-0 w-full">
+    <Box className="mt-20 ">
       <Box className="flex  gap-2 overflow-x-auto  mx-3">
         <FilteringButtons handleOnclick={handleOnclick} render={render} count={projects.length} />
         </Box>
@@ -68,7 +69,6 @@ const MyProject = () => {
                     <Heading as="h3" className="my-2 text-black dark:text-white " >
                       {project.title}
                     </Heading>
-
                     <ExpandableText
                       description={project.description}
                       limit={40}
@@ -122,6 +122,8 @@ const MyProject = () => {
                   {project.tools?.map((tool) => (
                     <Badge key={tool} className="me-2"> {tool}</Badge>
                   ))}
+                    <Text>{project.no }</Text>
+                    
 
                 <ExpandableText 
                   limit={20}

@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <Box
-      className="mt-5  z-50 absolute  w-full left-0"
+      className="mt-5  "
       style={{ zIndex: "15" }}
     >
       <Box className="flex  flex-col md:flex-row  justify-center   md:mx-12 md:gap-8  ">

@@ -5,27 +5,28 @@ import { useTheme } from "next-themes";
 import React, {
   ForwardRefRenderFunction,
   PropsWithChildren,
+  useContext,
   useRef,
   useState,
 } from "react";
 import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
 import MyName from "./components/MyName";
-import NextLink from 'next/link'
+import NextLink from "next/link";
+import MenuToggle from "./context/Wrapper";
 
 const Navbar = () => {
   const [display, setDisplay] = useState("hidden");
   const ref = useRef<HTMLDivElement>(null);
   const element = ref.current;
-  
 
   return (
     <Flex
       justify="between"
       className="fixed w-full py-3 sm:px-5 px-3 mb-4 overflow-hidden bg-white dark:bg-black "
-      style={{zIndex: '500'}}
+      style={{ zIndex: "500" }}
     >
       <Box className="relative">
-        <MyName  />
+        <MyName />
       </Box>
       <NavLink display={display} ref={ref} />
       <Flex className="gap-2  md:gap-10 relative">
@@ -40,15 +41,13 @@ interface Display {
   display: string;
 }
 
-
 const ListItem = ({ children }: PropsWithChildren) => {
   return (
     <li className="font-bold">
-      <NextLink href="#" >{children}</NextLink>
+      <NextLink href="#">{children}</NextLink>
     </li>
   );
 };
-
 
 const NavLinkForwardRef: ForwardRefRenderFunction<HTMLDivElement, Display> = (
   { display },
@@ -57,7 +56,7 @@ const NavLinkForwardRef: ForwardRefRenderFunction<HTMLDivElement, Display> = (
   return (
     <Box ref={ref}>
       <ul
-        className={`text-lg fixed bg-gray-300 dark:bg-black md:bg-inherit  flex mx-auto gap-y-5 flex-col top-16 px-4 
+        className={` fixed transition-all duration-1000 bg-gray-300 dark:bg-black md:bg-inherit  flex mx-auto gap-y-5 flex-col top-16 px-4 
           left-0 w-full text-center 
           ${display} md:flex md:flex-row md:gap-14 lg:gap-20 md:static`}
       >
@@ -78,7 +77,7 @@ const ThemeToggle = () => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger className="z-40">
-        <Button variant="solid">
+        <Button variant="solid" radius="medium">
           <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>
@@ -105,13 +104,17 @@ interface MenuProps extends Display {
 }
 
 const Menu = ({ display, setDisplay, element }: MenuProps) => {
+  const { setOpen } = useContext(MenuToggle);
   const close_1 = display === "flex" ? { translate: "-0px 8px" } : {};
   const close_3 = display === "flex" ? { translate: "1px -7px" } : {};
   const eventHandler = (e: MouseEvent) => {
     if (!element) return;
     const node = e.target as Node;
-    if (!element.contains(node)) setDisplay("hidden");
-  
+    if (!element.contains(node)) {
+      setOpen(false);
+      setDisplay("hidden");
+    }
+
     document.removeEventListener("click", eventHandler);
   };
 
@@ -119,15 +122,22 @@ const Menu = ({ display, setDisplay, element }: MenuProps) => {
     e.stopPropagation();
 
     if (display === "hidden") {
+      
       setDisplay("flex");
-      return document.addEventListener("click", eventHandler);
+      setOpen(true);
+      document.addEventListener("click", eventHandler);
+      return
+    } else {
+      setOpen(false);
+      setDisplay("hidden");
+      return
     }
-    return setDisplay("hidden");
   };
 
   return (
     <Button
       variant="outline"
+      radius="medium"
       onClick={(e) => handleOnclick(e)}
       className="   md:hidden flex flex-col gap-1 p-1 "
     >
@@ -136,8 +146,8 @@ const Menu = ({ display, setDisplay, element }: MenuProps) => {
         style={close_1}
         className={`w-7 h-1 dark:bg-white bg-black light:bg-black 
           cursor-pointer transition-all duration-500 ${
-          display === "flex" && "-rotate-45 "
-        } `}
+            display === "flex" && "-rotate-45 "
+          } `}
       ></Box>
       <Box
         as="span"
@@ -155,6 +165,5 @@ const Menu = ({ display, setDisplay, element }: MenuProps) => {
     </Button>
   );
 };
-
 
 export default Navbar;
