@@ -21,7 +21,7 @@ element?.addEventListener('touchmove',handleEvent,  )
 
         }
         return remove
-    }, [])
+    }, [isOpen])
 
     const handleScroll = () => {
         element?.scrollTo(0, 0)
