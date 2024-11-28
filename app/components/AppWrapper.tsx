@@ -12,10 +12,10 @@ const AppWrapper = ({ children }: PropsWithChildren) => {
     
     useEffect(() => {
         if (isOpen) {
-element?.addEventListener('scroll', handleScroll,  )
-element?.addEventListener('scroll',handleEvent, )
-element?.addEventListener('wheel',handleEvent,  )
-element?.addEventListener('touchmove',handleEvent,  )
+//element?.addEventListener('scroll', handleScroll  )
+element?.addEventListener('scroll',handleEvent )
+element?.addEventListener('wheel',handleEvent  )
+element?.addEventListener('touchmove',handleEvent  )
         } else {
       remove()  
 
@@ -31,10 +31,10 @@ element?.addEventListener('touchmove',handleEvent,  )
         e.stopPropagation()
     }
     const remove = () => {
-        element?.removeEventListener('scroll', handleScroll,  )
-        window.removeEventListener('scroll',handleEvent, )
-        window.removeEventListener('wheel',handleEvent, )
-        window.removeEventListener('touchmove',handleEvent,  ) 
+        //element?.removeEventListener('scroll', handleScroll  )
+        element?.removeEventListener('scroll',handleEvent )
+        element?.removeEventListener('wheel',handleEvent)
+        element?.removeEventListener('touchmove',handleEvent  ) 
   }
 
     return (
