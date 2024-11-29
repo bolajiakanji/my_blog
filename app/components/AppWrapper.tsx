@@ -12,10 +12,10 @@ const AppWrapper = ({ children }: PropsWithChildren) => {
     
     useEffect(() => {
         if (isOpen) {
-//element?.addEventListener('scroll', handleScroll  )
-element?.addEventListener('scroll',handleEvent )
-element?.addEventListener('wheel',handleEvent  )
-element?.addEventListener('touchmove',handleEvent  )
+          element?.addEventListener('scroll',handleEvent )
+          element?.addEventListener('wheel',handleEvent  )
+          element?.addEventListener('touchmove',handleEvent  )
+          element?.addEventListener('scroll', handleScroll  )
         } else {
       remove()  
 
@@ -23,15 +23,15 @@ element?.addEventListener('touchmove',handleEvent  )
         return remove
     }, [isOpen])
 
-    // const handleScroll = () => {
-    //     element?.scrollTo(0, 0)
-    // }
+     const handleScroll = () => {
+         element?.scrollTo(0, 0)
+     }
     const handleEvent = ( e: Event)=> {
         e.preventDefault()
-        e.stopPropagation()
+        
     }
     const remove = () => {
-        //element?.removeEventListener('scroll', handleScroll  )
+        element?.removeEventListener('scroll', handleScroll  )
         element?.removeEventListener('scroll',handleEvent )
         element?.removeEventListener('wheel',handleEvent)
         element?.removeEventListener('touchmove',handleEvent  ) 
@@ -42,7 +42,7 @@ element?.addEventListener('touchmove',handleEvent  )
     <div
       style={{  }}
       className={` z-50 w-full ${
-        isOpen ? "  " : " "
+        isOpen ? "w-full overflow-hidden  " : "overflow-auto "
       }`}
     >
       {children}
