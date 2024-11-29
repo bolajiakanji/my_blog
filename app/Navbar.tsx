@@ -124,7 +124,7 @@ const Menu = ({ display, setDisplay, element }: MenuProps) => {
     document.removeEventListener("click", eventHandler);
   };
 
-  const handleOnclick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+  const handleOnclick = () => {
     
 
     if (display === "hidden") {
@@ -144,7 +144,7 @@ const Menu = ({ display, setDisplay, element }: MenuProps) => {
     <Button
       variant="outline"
       radius="medium"
-      onClick={(e) => handleOnclick(e)}
+      onClick={() => handleOnclick()}
       className="   md:hidden flex flex-col gap-1 p-1 "
     >
       <Box
