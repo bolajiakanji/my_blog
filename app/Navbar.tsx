@@ -6,6 +6,7 @@ import React, {
   ForwardRefRenderFunction,
   PropsWithChildren,
   useContext,
+  useEffect,
   useRef,
   useState,
 } from "react";
@@ -17,7 +18,11 @@ import MenuToggle from "./context/Wrapper";
 const Navbar = () => {
   const [display, setDisplay] = useState("hidden");
   const ref = useRef<HTMLDivElement>(null);
-  const element = ref.current;
+  
+  const [element, setElement] = useState<HTMLDivElement | null>(null)
+  useEffect(() => {
+  setElement(ref.current)
+})
 
   return (
     <Flex
@@ -107,30 +112,31 @@ const Menu = ({ display, setDisplay, element }: MenuProps) => {
   const { setOpen } = useContext(MenuToggle);
   const close_1 = display === "flex" ? { translate: "-0px 8px" } : {};
   const close_3 = display === "flex" ? { translate: "1px -7px" } : {};
+  
   const eventHandler = (e: MouseEvent) => {
     if (!element) return;
     const node = e.target as Node;
     if (!element.contains(node)) {
-      setOpen(false);
       setDisplay("hidden");
+      setOpen(false);
     }
 
     document.removeEventListener("click", eventHandler);
   };
 
   const handleOnclick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-    e.stopPropagation();
+    
 
     if (display === "hidden") {
       
       setDisplay("flex");
       setOpen(true);
-      document.addEventListener("click", eventHandler);
-      return
+      return document.addEventListener("click", eventHandler);
+      
     } else {
-      setOpen(false);
       setDisplay("hidden");
-      return
+      setOpen(false);
+      
     }
   };
 

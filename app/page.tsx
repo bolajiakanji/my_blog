@@ -26,7 +26,7 @@ export default function Home() {
     { 0: "#e93d82", 1: "#3DD68C", 2: "#0090FF" },
   ];
   const colors = color[0][wordy];
-  console.log(colors);
+  
 
   return (
     <Box
