@@ -9,8 +9,8 @@ const Overlay = () => {
   if (isOpen) {
     return (
       <div
-        style={{ backdropFilter: "blur(8px)" }}
-        className="  top-0 left-0 w-full h-screen bg-green-800  "
+        style={{ backdropFilter: "blur(7px)" }}
+        className="absolute z-40  top-0 left-0 w-full h-full bg-transparent  "
       ></div>
     );
   }

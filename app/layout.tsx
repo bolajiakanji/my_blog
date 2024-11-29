@@ -12,6 +12,7 @@ import { Theme, Container } from "@radix-ui/themes";
 import MenuToggleProvider from "./components/MenuToggleProvider";
 
 import AppWrapper from "./components/AppWrapper";
+import Overlay from "./components/Overlay";
 
 // const roboto = Roboto({
 //   subsets: ['latin'],
@@ -124,13 +125,13 @@ export default function RootLayout({
                         <AppWrapper>
                         <Navbar />
                           
-                          <div className="bg-blue-800 z-10 w-full"> ssssssssssss</div>
+                          
                         <Container style={{ width: "100%", position: 'relative', zIndex: '8' }}
                     className="relative  w-full">
                           {children}
                         </Container>
                           
-                        
+                        <Overlay />
                           </AppWrapper>
                       </div>
                     </div>
