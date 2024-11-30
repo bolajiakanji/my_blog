@@ -8,7 +8,7 @@ import {
   Heading,
   Text,
 } from "@radix-ui/themes";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import pro, { Project } from "./projects";
 import { CldImage } from "next-cloudinary";
 import ExpandableText from "./ExpandableText";
@@ -18,6 +18,9 @@ import SimpleSlider from "./czrousel";
 import Link from "next/link";
 import FilteringButtons from "./FilteringButtons";
 import ProjectOverlay from "./ProjectOverlay";
+import ProjectPageWrapper from "./ProjectPageWrapper";
+import ProjectWrapper from "../context/projectWrapper";
+
 
 
 // interface Modal extends Project {
@@ -29,6 +32,8 @@ const MyProject = () => {
   const [projects, setProject] = useState<Project[]>(pro);
   const [render, setRender] = useState('');
   const [overlay, setOverlay] = useState<Overlay>([]);
+  const {setOverlayOpen } = useContext(ProjectWrapper)
+
   
 
   const handleOnclick = (category: string | '') => {
@@ -40,7 +45,7 @@ const MyProject = () => {
   };
 
   return (
-    <Box className="mt-20 relative">
+    <ProjectPageWrapper>
       <Box className="flex  gap-2 overflow-x-auto  mx-3">
         <FilteringButtons handleOnclick={handleOnclick} render={render} count={projects.length} />
         </Box>
@@ -77,7 +82,7 @@ const MyProject = () => {
                       description={project.description}
                       limit={40}
                     ></ExpandableText>
-                    <Text onClick={() => setOverlay([project, 'autoplay'])} >ok</Text>
+                    <Text onClick={() => { setOverlay([project, 'autoplay']), setOverlayOpen(true) }} >ok</Text>
                         <Box className="mt-7">
                     {project.tools?.map((tool) => (
                         <Badge key={tool}  className="me-2"> {tool}</Badge>
@@ -127,7 +132,7 @@ const MyProject = () => {
                   {project.tools?.map((tool) => (
                     <Badge key={tool} className="me-2"> {tool}</Badge>
                   ))}
-                    <Text onClick={() => setOverlay([project])}>{project.no }</Text>
+                <Text onClick={() => { setOverlay([project]), setOverlayOpen(true) }}>{project.no }</Text>
                     
 
                 <ExpandableText 
@@ -147,7 +152,7 @@ const MyProject = () => {
       <Box >
         <ProjectOverlay overlayProject={overlay} setOverlay={setOverlay} />
         </Box>
-    </Box>
+    </ProjectPageWrapper>
   );
 };
 

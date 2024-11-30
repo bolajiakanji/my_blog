@@ -1,9 +1,12 @@
-import React, { SetStateAction } from 'react'
-import { Project } from './projects';
+'use client'
+
+import React, { SetStateAction, useContext } from 'react'
+
 import { Badge, Box, Card, Heading } from '@radix-ui/themes';
 import { Overlay } from './page';
 import { CldImage, CldVideoPlayer } from 'next-cloudinary';
 import ExpandableText from './ExpandableText';
+import ProjectWrapper from '../context/projectWrapper';
 
 interface Props  {
     overlayProject: Overlay;
@@ -12,15 +15,16 @@ interface Props  {
 }
 
 const ProjectOverlay = ({ overlayProject, setOverlay }: Props) => {
-    
+    const {setOverlayOpen } = useContext(ProjectWrapper)
 
     if (!overlayProject.length) return null
     
     if (overlayProject[0]?.category === 'mobile-app') {
+        
         return (
-            <Box className='absolute w-full left-0 top-0 backdrop-blur-xl z-40 '>
+            <Box className='absolute w-full left-0 top-0 backdrop-blur-xl z-40 h-full '>
                 <Box className='relative' >
-                    <Box onClick={() => setOverlay([])} className='absolute top-3 left-3 z-10 text-xl text-white p-3 rounded-full bg-black'>X</Box>
+                    <Box onClick={() => { setOverlay([]), setOverlayOpen(false)}} className='absolute top-3 left-3 z-10 text-xl text-white p-3 rounded-full bg-black'>X</Box>
           <Box className='w-full mx-auto md:w-65%'>
 
             <Card
@@ -48,11 +52,12 @@ const ProjectOverlay = ({ overlayProject, setOverlay }: Props) => {
                 </Box>
                 </Box>
        ) 
-    }
+    } else {
+        
   return (
-      <Box className='absolute w-full left-0 top-0 backdrop-blur-xl z-40 '>
+      <Box className='absolute w-full left-0 top-0 backdrop-blur-xl z-40 h-full '>
           <Box className='relative'>
-          <Box onClick={() => setOverlay([])} className='absolute top-3 left-3 text-xl text-white rounded-full p-3 bg-black'>X</Box>
+              <Box onClick={() => { setOverlay([]), setOverlayOpen(false) }} className='absolute top-3 left-3 text-xl text-white rounded-full p-3 bg-black'>X</Box>
 
           <Box className='w-full mx-auto md:w-65%'>
           <Card
@@ -85,7 +90,7 @@ const ProjectOverlay = ({ overlayProject, setOverlay }: Props) => {
               </Box>
           
     </Box>
-  )
+  )}
 }
 
 export default ProjectOverlay

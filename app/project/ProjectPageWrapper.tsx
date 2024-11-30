@@ -1,17 +1,15 @@
-"use client";
-import React, { PropsWithChildren, useContext, useEffect, useRef, } from "react";
-import MenuToggle from "../context/Wrapper";
+'use client'
+import React, { PropsWithChildren, useContext, useEffect, useRef } from 'react'
+import ProjectWrapper from '../context/projectWrapper'
 
+const ProjectPageWrapper = ({ children }: PropsWithChildren) => {
+   const {isOverlayOpen } = useContext(ProjectWrapper)
 
-
-
-const AppWrapper = ({ children }: PropsWithChildren) => {
-    const { isOpen } = useContext(MenuToggle);
     const ref = useRef<HTMLDivElement>(null)
     const element = ref.current
     
     useEffect(() => {
-        if (isOpen) {
+        if (isOverlayOpen) {
           element?.addEventListener('scroll',handleEvent )
           element?.addEventListener('wheel',handleEvent  )
           element?.addEventListener('touchmove',handleEvent  )
@@ -21,7 +19,7 @@ const AppWrapper = ({ children }: PropsWithChildren) => {
 
         }
         return remove
-    }, [isOpen])
+    }, [isOverlayOpen])
 
      const handleScroll = () => {
          element?.scrollTo(0, 0)
@@ -37,18 +35,11 @@ const AppWrapper = ({ children }: PropsWithChildren) => {
         element?.removeEventListener('touchmove',handleEvent  ) 
   }
 
-    return (
-      <div ref={ref} className="relative"  >
-    <div
-      
-      className={` z-50 w-full ${
-        isOpen ? "w-full overflow-hidden  " : "overflow-auto "
+  return (
+    <div ref={ref} className={` z-50 w-full  mt-20 relative  ${isOverlayOpen ? "w-full overflow-hidden  " : "overflow-auto "
       }`}
-    >
-      {children}
-            </div>
-            </div>
-  );
-};
+>{children}</div>
+  )
+}
 
-export default AppWrapper;
+export default ProjectPageWrapper

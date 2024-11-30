@@ -13,6 +13,7 @@ import MenuToggleProvider from "./components/MenuToggleProvider";
 
 import AppWrapper from "./components/AppWrapper";
 import Overlay from "./components/Overlay";
+import ProjectWrapperProvider from "./components/ProjectOverlayProvider";
 
 // const roboto = Roboto({
 //   subsets: ['latin'],
@@ -125,11 +126,12 @@ export default function RootLayout({
                         <AppWrapper>
                         <Navbar />
                           
-                          
+                        <ProjectWrapperProvider>  
                         <Container style={{ width: "100%", position: 'relative', zIndex: '8' }}
                     className="relative  w-full">
                           {children}
-                        </Container>
+                      </Container>
+                      </ProjectWrapperProvider>
                           
                         <Overlay />
                           </AppWrapper>
