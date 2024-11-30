@@ -34,7 +34,7 @@ const MyProject = () => {
   const [overlay, setOverlay] = useState<Overlay>([]);
   const {setOverlayOpen } = useContext(ProjectWrapper)
 
-  
+  const handleTextClick = (project: Project) => { setOverlay([project, 'autoplay']), setOverlayOpen(true) }
 
   const handleOnclick = (category: string | '') => {
     setProject(() => {
@@ -82,7 +82,7 @@ const MyProject = () => {
                       description={project.description}
                       limit={40}
                     ></ExpandableText>
-                    <Text onClick={() => { setOverlay([project, 'autoplay']), setOverlayOpen(true) }} >ok</Text>
+                    <Text as="p" onClick={()=>handleTextClick(project)} >ok</Text>
                         <Box className="mt-7">
                     {project.tools?.map((tool) => (
                         <Badge key={tool}  className="me-2"> {tool}</Badge>
