@@ -17,15 +17,19 @@ import "next-cloudinary/dist/cld-video-player.css";
 import SimpleSlider from "./czrousel";
 import Link from "next/link";
 import FilteringButtons from "./FilteringButtons";
+import ProjectOverlay from "./ProjectOverlay";
 
 
 // interface Modal extends Project {
 //   visible: boolean;
 // }
+export type Overlay = [Project, string?] | []
 
 const MyProject = () => {
   const [projects, setProject] = useState<Project[]>(pro);
   const [render, setRender] = useState('');
+  const [overlay, setOverlay] = useState<Overlay>([]);
+  
 
   const handleOnclick = (category: string | '') => {
     setProject(() => {
@@ -36,7 +40,7 @@ const MyProject = () => {
   };
 
   return (
-    <Box className="mt-20 ">
+    <Box className="mt-20 relative">
       <Box className="flex  gap-2 overflow-x-auto  mx-3">
         <FilteringButtons handleOnclick={handleOnclick} render={render} count={projects.length} />
         </Box>
@@ -72,7 +76,8 @@ const MyProject = () => {
                     <ExpandableText
                       description={project.description}
                       limit={40}
-                      ></ExpandableText>
+                    ></ExpandableText>
+                    <Text onClick={() => setOverlay([project, 'autoplay'])} >ok</Text>
                         <Box className="mt-7">
                     {project.tools?.map((tool) => (
                         <Badge key={tool}  className="me-2"> {tool}</Badge>
@@ -122,7 +127,7 @@ const MyProject = () => {
                   {project.tools?.map((tool) => (
                     <Badge key={tool} className="me-2"> {tool}</Badge>
                   ))}
-                    <Text>{project.no }</Text>
+                    <Text onClick={() => setOverlay([project])}>{project.no }</Text>
                     
 
                 <ExpandableText 
@@ -138,7 +143,10 @@ const MyProject = () => {
             );
           })}
         </Flex>
-      </Box>
+      </Box >
+      <Box >
+        <ProjectOverlay overlayProject={overlay} setOverlay={setOverlay} />
+        </Box>
     </Box>
   );
 };

@@ -3,7 +3,7 @@ import { Text } from "@radix-ui/themes";
 import { useState } from "react";
 
 interface Props {
-  description: string;
+  description: string | undefined;
   limit: number;
 }
 
