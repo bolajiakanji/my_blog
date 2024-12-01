@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import "./token.css";
+import "./globals.css";
 
 import localFont from "next/font/local";
 //import { Roboto } from 'next/font/google'
@@ -42,103 +42,104 @@ export default function RootLayout({
         <ThemeProvider attribute="class" disableTransitionOnChange>
           <Theme accentColor="crimson" panelBackground="solid" radius="full">
             <MenuToggleProvider>
-              <div className="relative left-0 top-0 w-full h-screen">
+              <div className="relative left-0 top-0 w-full h-full">
+                <div className="fixed">
+                <div
+                  style={{
+                    width: "100%",
+                    borderEndStartRadius: "50%",
+                    borderEndEndRadius: "50%",
+                    height: "20vh",
+                    zIndex: "1",
+                  }}
+                  className="dark:bg-black fixed"
+                ></div>
+                <div
+                  className="dark:bg-black fixed"
+                  style={{
+                    position: "fixed",
+                    height: "25vh",
+                    zIndex: "2",
+                    width: "100%",
+                    bottom: "0",
+                    left: "0",
+                  }}
+                ></div>
+
+                <div
+                  style={{
+                    position: "fixed",
+                    top: "0",
+                    left: "0",
+                    height: "100vh",
+                    zIndex: "3",
+                    width: "100%",
+                  }}
+                ></div>
+
+                <div
+                  className="dark:bg-bg_color fixed"
+                  style={{
+                    marginBottom: "0px",
+                    marginTop: "45vh",
+                    width: "50%",
+                    zIndex: "4",
+                    borderBottomLeftRadius: "50%",
+                    borderBottomRightRadius: "50%",
+                    height: "40vh",
+                  }}
+                ></div>
+                <div
+                  className="dark:bg-black "
+                  style={{
+                    width: "55%",
+                    position: "fixed",
+                    bottom: "0",
+                    right: "0",
+                    float: "right",
+                    height: "35vh",
+                    borderTopLeftRadius: "50%",
+                    borderTopRightRadius: "50%",
+                    zIndex: "5",
+                  }}
+                ></div>
+
                 
                   <div
                     style={{
-                      width: "100%",
-                      borderEndStartRadius: "50%",
-                      borderEndEndRadius: "50%",
-                      height: "20vh",
-                      zIndex: "1",
-                    }}
-                    className="dark:bg-black fixed"
-                  ></div>
-                  <div
-                    className="dark:bg-black"
-                    style={{
                       position: "fixed",
-                      height: "25vh",
-                      zIndex: "2",
-                      width: "100%",
-                      bottom: "0",
                       left: "0",
-                    }}
-                  ></div>
-
-                  <div
-                    style={{
-                      position: "fixed",
                       top: "0",
-                      left: "0",
-                      height: "100vh",
-                      zIndex: "3",
-                      width: "100%",
+                      zIndex: "7",
+                      fontSize: "1.rem",
+                      backgroundColor: "#01031",
                     }}
-                  ></div>
-
-                    <div
-                      className="dark:bg-bg_color fixed"
-                      style={{
-                        marginBottom: "0px",
-                        marginTop: "45vh",
-                        width: "50%",
-                        zIndex: "4",
-                        borderBottomLeftRadius: "50%",
-                        borderBottomRightRadius: "50%",
-                        height: "40vh",
-                      }}
-                    ></div>
-                    <div
-                      className="dark:bg-black "
-                      style={{
-                        width: "55%",
-                        position: "fixed",
-                        bottom: "0",
-                        right: "0",
-                        float: "right",
-                        height: "35vh",
-                        borderTopLeftRadius: "50%",
-                        borderTopRightRadius: "50%",
-                        zIndex: '5'
-                      }}
-                    ></div>
-                  
-                  <div>
-                    <div
-                      style={{
-                        position: "fixed",
-                        left: "0",
-                        top: "0",
-                        zIndex: "7",
-                        fontSize: "1.rem",
-                        backgroundColor: "#01031",
-                      }}
-                      className="w-full "
-                    ></div>
-                  </div>
-
-                  
-
-
-                      <div >
-
-                        <AppWrapper>
-                        <Navbar />
-                          
-                        <ProjectWrapperProvider>  
-                        <Container style={{ width: "100%", position: 'relative', zIndex: '8' }}
-                    className="relative  w-full">
-                          {children}
-                      </Container>
-                      </ProjectWrapperProvider>
-                          
-                        <Overlay />
-                          </AppWrapper>
-                      </div>
-                    </div>
-                  
+                    className="w-full "
+                ></div>
+                </div>
+                </div>
                 
+
+                <div className="absolute top-0 left-0 w-full">
+                  <AppWrapper>
+                    <Navbar />
+
+                    <ProjectWrapperProvider>
+                      <Container
+                        style={{
+                          width: "100%",
+                          position: "relative",
+                          zIndex: "8",
+                        }}
+                        className="relative  w-full"
+                      >
+                        {children}
+                      </Container>
+                    </ProjectWrapperProvider>
+
+                    <Overlay />
+                  </AppWrapper>
+                </div>
               
             </MenuToggleProvider>
           </Theme>

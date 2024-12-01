@@ -22,7 +22,7 @@ const ProjectOverlay = ({ overlayProject, setOverlay }: Props) => {
     if (overlayProject[0]?.category === 'mobile-app') {
         
         return (
-            <Box className='fixed w-full left-0 top-3 backdrop-blur-md z-50 h-full '>
+            <Box className='fixed w-full left-0 top-3 dark:bg-black bg-white dark:bg-opacity-80 bg-opacity-80 backdrop-blur-md  z-50 h-full '>
                 <Box className='relative' >
               <span
                 onClick={() => { setOverlay([]), setOverlayOpen(false) }}
@@ -57,11 +57,11 @@ const ProjectOverlay = ({ overlayProject, setOverlay }: Props) => {
     } else {
         
   return (
-      <Box className='fixed w-full left-0 top-3 backdrop-blur-lg z-50 h-full '>
+      <Box className='fixed w-full left-0 top-3 dark:bg-black bg-white bg-opacity-80 backdrop-blur-md z-50 h-full '>
           <Box className='relative'>
         <span 
           onClick={() => { setOverlay([]), setOverlayOpen(false) }}
-          className=' z-50 mt-10 inline-block  text-xl text-white rounded-full p-3 bg-black'>X</span>
+          className=' z-50 mt-10 inline-block md:ms-36  text-xl text-white rounded-full p-3 bg-black'>X</span>
 
           <Box className='w-full mx-auto md:w-65%'>
           <Card
