@@ -151,10 +151,10 @@ const MyProject = () => {
           })}
         </Flex>
       </Box >
-      </ProjectPageWrapper>
       <Box >
         <ProjectOverlay overlayProject={overlay} setOverlay={setOverlay} />
         </Box>
+      </ProjectPageWrapper>
       </Box>
   );
 };
