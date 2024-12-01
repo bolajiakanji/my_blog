@@ -22,13 +22,15 @@ const ProjectOverlay = ({ overlayProject, setOverlay }: Props) => {
     if (overlayProject[0]?.category === 'mobile-app') {
         
         return (
-            <Box className='absolute w-full left-0 top-0 backdrop-blur-xl z-40 h-full '>
+            <Box className='fixed w-full left-0 top-3 backdrop-blur-md z-50 h-full '>
                 <Box className='relative' >
-                    <Box onClick={() => { setOverlay([]), setOverlayOpen(false)}} className='absolute top-3 left-3 z-10 text-xl text-white p-3 rounded-full bg-black'>X</Box>
+              <span
+                onClick={() => { setOverlay([]), setOverlayOpen(false) }}
+                className='mt-10 inline-block z-50 text-xl text-white p-3 rounded-full bg-black'>X</span>
           <Box className='w-full mx-auto md:w-65%'>
 
             <Card
-            className="p-0 mx-auto "
+            className="p-0 mx-auto mt-3"
             style={{ width: "100%", maxWidth: "420px" }}
           >
             <CldVideoPlayer
@@ -55,13 +57,15 @@ const ProjectOverlay = ({ overlayProject, setOverlay }: Props) => {
     } else {
         
   return (
-      <Box className='absolute w-full left-0 top-0 backdrop-blur-xl z-40 h-full '>
+      <Box className='fixed w-full left-0 top-3 backdrop-blur-lg z-50 h-full '>
           <Box className='relative'>
-              <Box onClick={() => { setOverlay([]), setOverlayOpen(false) }} className='absolute top-3 left-3 text-xl text-white rounded-full p-3 bg-black'>X</Box>
+        <span 
+          onClick={() => { setOverlay([]), setOverlayOpen(false) }}
+          className=' z-50 mt-10 inline-block  text-xl text-white rounded-full p-3 bg-black'>X</span>
 
           <Box className='w-full mx-auto md:w-65%'>
           <Card
-        className="p-0 mx-auto "
+        className="p-0 mx-auto mt-3 "
         style={{ width: "100%", maxWidth: "420px" }}
       >
         <CldImage

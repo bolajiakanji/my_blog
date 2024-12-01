@@ -45,6 +45,8 @@ const MyProject = () => {
   };
 
   return (
+    <Box className="relative">
+      
     <ProjectPageWrapper>
       <Box className="flex  gap-2 overflow-x-auto  mx-3">
         <FilteringButtons handleOnclick={handleOnclick} render={render} count={projects.length} />
@@ -149,10 +151,11 @@ const MyProject = () => {
           })}
         </Flex>
       </Box >
+      </ProjectPageWrapper>
       <Box >
         <ProjectOverlay overlayProject={overlay} setOverlay={setOverlay} />
         </Box>
-    </ProjectPageWrapper>
+      </Box>
   );
 };
 
