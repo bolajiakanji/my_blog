@@ -5,6 +5,7 @@ import useAnimatingWords from "./hooks/useAnimatingWords";
 import Image from "next/image";
 import background from "./public/images/IMG_20241025_084608_312-removebg-preview_5-removebg-preview (2).png";
 import ExpandableText from "./components/ExpandableText";
+import MyProject from "./project/MyProject";
 
 const skills: string[] = [
   "MERN FULLSTACK DEVELOPER",
@@ -47,6 +48,7 @@ export default function Home() {
           </Box>
         </Box>
       </Box>
+      <MyProject />
     </Box>
   );
 }
