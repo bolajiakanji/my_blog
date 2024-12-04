@@ -1,15 +1,21 @@
 'use client'
-import React, { PropsWithChildren, useContext, useEffect, useRef } from 'react'
+import React, { PropsWithChildren, useContext, useEffect, useRef, useState } from 'react'
 import ProjectWrapper from '../context/projectWrapper'
+import ClientBounding from '../context/clientBounding'
 
 const ProjectPageWrapper = ({ children }: PropsWithChildren) => {
-   const {isOverlayOpen } = useContext(ProjectWrapper)
+  const { isOverlayOpen } = useContext(ProjectWrapper)
+  const  [element, setElement] = useState<HTMLDivElement | null>(null)
+  const {currentBoundingClient, setCurrentBoundingClient  } = useContext(ClientBounding)
+  
 
     const ref = useRef<HTMLDivElement>(null)
-    const element = ref.current
+    
     
     useEffect(() => {
-        if (isOverlayOpen) {
+      setElement(ref.current)
+      console.log(ref.current + 'number')
+      if (isOverlayOpen) {
           element?.addEventListener('scroll',handleEvent )
           element?.addEventListener('wheel',handleEvent  )
           element?.addEventListener('touchmove',handleEvent  )
@@ -20,6 +26,32 @@ const ProjectPageWrapper = ({ children }: PropsWithChildren) => {
         }
         return remove
     }, [isOverlayOpen])
+  useEffect(() => {
+    
+    setElement(ref.current)
+
+
+    document.addEventListener('scroll', handleBoundingScroll)
+    
+    // return () => {
+    //   document.removeEventListener('scroll', handleBoundingScroll)
+  })
+  const handleBoundingScroll = () => {
+    
+
+    const bounding = element?.getBoundingClientRect().top
+    
+    if (bounding && !(bounding <= 30)) {
+      
+        console.log(bounding + 'mybond')
+        setCurrentBoundingClient('project')
+      } 
+      
+    else {
+      console.log(bounding + 'unde')
+      }
+  }
+
 
      const handleScroll = () => {
          element?.scrollTo(0, 0)
