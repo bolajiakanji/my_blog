@@ -44,8 +44,8 @@ export default function RootLayout({
           <Theme accentColor="crimson" panelBackground="solid" radius="full">
             <MenuToggleProvider>
               <div className="relative left-0 top-0 w-full h-full">
-                <div className="bg-bg_color w-full  fixed h-screen"></div>
-                <div className="fixed">
+                
+                <div className=" dark:bg-bg_color w-full  fixed h-screen">
                 <div
                   style={{
                     width: "100%",

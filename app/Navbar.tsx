@@ -14,20 +14,22 @@ import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
 import MyName from "./components/MyName";
 import NextLink from "next/link";
 import MenuToggle from "./context/Wrapper";
+import ClientBounding from "./context/clientBounding";
 
 const Navbar = () => {
   const [display, setDisplay] = useState("hidden");
   const ref = useRef<HTMLDivElement>(null);
-  
-  const [element, setElement] = useState<HTMLDivElement | null>(null)
+  const { currentBoundingClient } = useContext(ClientBounding);
+
+  const [element, setElement] = useState<HTMLDivElement | null>(null);
   useEffect(() => {
-  setElement(ref.current)
-})
+    setElement(ref.current);
+  });
 
   return (
     <Flex
       justify="between"
-      className="fixed w-full py-3 sm:px-5 px-3 mb-4 overflow-hidden bg-white dark:bg-black "
+      className="fixed  w-full py-3 sm:px-5 px-3 mb-4 overflow-hidden bg-white dark:bg-black "
       style={{ zIndex: "500" }}
     >
       <Box className="relative">
@@ -45,10 +47,18 @@ const Navbar = () => {
 interface Display {
   display: string;
 }
+interface ListProps {
+  currentBoundingClient?: string;
+  children: React.ReactNode;
+}
 
-const ListItem = ({ children }: PropsWithChildren) => {
+const ListItem = ({ children, currentBoundingClient }: ListProps) => {
   return (
-    <li className="font-bold">
+    <li
+      className={`font-bold ${
+        currentBoundingClient ? "bg-green-700" : "bg-yellow-700"
+      } `}
+    >
       <NextLink href="#">{children}</NextLink>
     </li>
   );
@@ -58,16 +68,18 @@ const NavLinkForwardRef: ForwardRefRenderFunction<HTMLDivElement, Display> = (
   { display },
   ref
 ) => {
+  const { currentBoundingClient } = useContext(ClientBounding);
+
   return (
     <Box ref={ref}>
       <ul
         className={` fixed transition-all duration-1000 bg-gray-300 dark:bg-black md:bg-inherit  flex mx-auto gap-y-5 flex-col top-16 px-4 
-          left-0 w-full text-center 
+          left-0 w-full text-center  
           ${display} md:flex md:flex-row md:gap-14 lg:gap-20 md:static`}
       >
-        <ListItem>Home</ListItem>
-        <ListItem>About</ListItem>
-        <ListItem>Services</ListItem>
+        <ListItem currentBoundingClient={currentBoundingClient}>Home</ListItem>
+        <ListItem currentBoundingClient={currentBoundingClient}>About</ListItem>
+        <ListItem>Project</ListItem>
         <ListItem>Contact</ListItem>
       </ul>
     </Box>
@@ -112,7 +124,7 @@ const Menu = ({ display, setDisplay, element }: MenuProps) => {
   const { setOpen } = useContext(MenuToggle);
   const close_1 = display === "flex" ? { translate: "-0px 8px" } : {};
   const close_3 = display === "flex" ? { translate: "1px -7px" } : {};
-  
+
   const eventHandler = (e: MouseEvent) => {
     if (!element) return;
     const node = e.target as Node;
@@ -125,18 +137,13 @@ const Menu = ({ display, setDisplay, element }: MenuProps) => {
   };
 
   const handleOnclick = () => {
-    
-
     if (display === "hidden") {
-      
       setDisplay("flex");
       setOpen(true);
       return document.addEventListener("click", eventHandler);
-      
     } else {
       setDisplay("hidden");
       setOpen(false);
-      
     }
   };
 
