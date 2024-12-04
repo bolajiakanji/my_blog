@@ -14,6 +14,7 @@ import MenuToggleProvider from "./components/MenuToggleProvider";
 import AppWrapper from "./components/AppWrapper";
 import Overlay from "./components/Overlay";
 import ProjectWrapperProvider from "./components/ProjectOverlayProvider";
+import ClientboundingProvider from "./components/ClientBoundingProvider";
 
 // const roboto = Roboto({
 //   subsets: ['latin'],
@@ -122,8 +123,10 @@ export default function RootLayout({
                 
 
                 <div className="absolute top-0 left-0 w-full">
-                  <AppWrapper>
-                    <Navbar />
+                <AppWrapper>
+                  
+                  <ClientboundingProvider>
+                  <Navbar />
 
                     <ProjectWrapperProvider>
                       
@@ -132,6 +135,7 @@ export default function RootLayout({
                     </ProjectWrapperProvider>
 
                     <Overlay />
+                    </ClientboundingProvider>
                   </AppWrapper>
                 </div>
               
