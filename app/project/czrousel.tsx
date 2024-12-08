@@ -79,7 +79,7 @@ export default function SimpleSlider({ tools, sNumber }: Props) {
       setCount(n + 1);
     },
   };
-  console.log(tools);
+  
   return (
     <div className="relative  ">
       

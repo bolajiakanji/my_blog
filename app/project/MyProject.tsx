@@ -45,7 +45,7 @@ const MyProject = () => {
   };
 
   return (
-    <Box className="relative">
+    
       
     <ProjectPageWrapper>
       <Box className="flex  gap-2 overflow-x-auto  mx-3">
@@ -155,7 +155,7 @@ const MyProject = () => {
         <ProjectOverlay overlayProject={overlay} setOverlay={setOverlay} />
         </Box>
       </ProjectPageWrapper>
-      </Box>
+  
   );
 };
 

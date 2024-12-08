@@ -1,8 +1,12 @@
 import React from 'react'
+import AboutMeWrapper from './AboutMeWrapper'
+import { Box } from '@radix-ui/themes'
 
 const AboutMe = () => {
   return (
-    <div className='h-screen bg-slate-700'>AboutMe</div>
+      <AboutMeWrapper >
+          <Box>Aboutme</Box>
+      </AboutMeWrapper>
   )
 }
 

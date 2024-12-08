@@ -14,7 +14,7 @@ const useAnimatingWords = (wordArrays: string[]) => {
         clearInterval(interval);
         wordCount.current++;
 
-        console.log(wordCount.current);
+        
         if (wordCount.current >= wordArrays.length) wordCount.current = 0;
         wordCount.current = wordCount.current;
         reset = setTimeout(() => {

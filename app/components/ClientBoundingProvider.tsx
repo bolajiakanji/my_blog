@@ -5,7 +5,7 @@ import ClientBounding from "../context/clientBounding";
 import { Box } from "@radix-ui/themes";
 
 const ClientboundingProvider = ({ children }: PropsWithChildren) => {
-  const [currentBoundingClient, setCurrentBoundingClient] = useState('');
+  const [currentBoundingClient, setCurrentBoundingClient] = useState('home');
   return (
       <ClientBounding.Provider value={{ currentBoundingClient, setCurrentBoundingClient }}>
           

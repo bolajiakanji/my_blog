@@ -7,6 +7,8 @@ import background from "./public/images/IMG_20241025_084608_312-removebg-preview
 import ExpandableText from "./components/ExpandableText";
 import MyProject from "./project/MyProject";
 import AboutMe from "./components/AboutMe";
+import Cerificatition from "./components/Cerificatition";
+import HomeWrapper from "./components/Home";
 
 const skills: string[] = [
   "MERN FULLSTACK DEVELOPER",
@@ -34,7 +36,8 @@ export default function Home() {
     <Box
       className="mt-5  "
       style={{ zIndex: "15" }}
-    >
+      >
+      <HomeWrapper>
       <Box className="flex  flex-col md:flex-row  justify-center   md:mx-12 md:gap-8  ">
         <Box className="md:w-md_w  lg:w-2/5  ">
           <MyImage />
@@ -48,9 +51,11 @@ export default function Home() {
             <DescriptionDetails />
           </Box>
         </Box>
-      </Box>
+        </Box>
+        </HomeWrapper>
       <AboutMe />
       <MyProject />
+      <Cerificatition />
     </Box>
   );
 }

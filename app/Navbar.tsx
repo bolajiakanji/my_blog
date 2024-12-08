@@ -15,11 +15,24 @@ import MyName from "./components/MyName";
 import NextLink from "next/link";
 import MenuToggle from "./context/Wrapper";
 import ClientBounding from "./context/clientBounding";
+import Link from "next/link";
+
+const nav_links: { label: string; value: string }[] = [
+  { label: "home", value: "Home" },
+  { label: "about-me", value: "About Me" },
+  { label: "project", value: "Project" },
+  { label: "certification", value: "Certification" },
+];
 
 const Navbar = () => {
   const [display, setDisplay] = useState("hidden");
   const ref = useRef<HTMLDivElement>(null);
+  const home = useRef<HTMLDivElement>(null);
+  const project = useRef<HTMLDivElement>(null);
+  const aboutMe = useRef<HTMLDivElement>(null);
+  const certfication = useRef<HTMLDivElement>(null);
   const { currentBoundingClient } = useContext(ClientBounding);
+  
 
   const [element, setElement] = useState<HTMLDivElement | null>(null);
   useEffect(() => {
@@ -35,7 +48,7 @@ const Navbar = () => {
       <Box className="relative">
         <MyName />
       </Box>
-      <NavLink display={display} ref={ref} />
+      <NavLink display={display} ref={ref} setDisplay={setDisplay} />
       <Flex className="gap-2  md:gap-10 relative">
         <ThemeToggle />
         <Menu display={display} setDisplay={setDisplay} element={element} />
@@ -45,27 +58,55 @@ const Navbar = () => {
 };
 
 interface Display {
-  display: string;
+  display?: string;
+  setDisplay: (display: string) => void;
+
 }
-interface ListProps {
-  currentBoundingClient?: string;
-  children: React.ReactNode;
+interface ListProps extends Display{
+  currentBoundingClient: string;
+   
 }
 
-const ListItem = ({ children, currentBoundingClient }: ListProps) => {
-  return (
+const ListItem = ({ currentBoundingClient, setDisplay }: ListProps) => {
+  const { setCurrentBoundingClient } = useContext(ClientBounding);
+
+  const { setOpen }= useContext(MenuToggle)
+  return(
+  nav_links.map((navLink) => (
     <li
-      className={`font-bold ${
-        currentBoundingClient ? "bg-green-700" : "bg-yellow-700"
-      } `}
-    >
-      <NextLink href="#">{children}</NextLink>
+      className={`font-bold text-center pb-1 px-4 md:py-2 md:my-2 ${
+        currentBoundingClient === navLink.label
+          ? "border-b-2 border-b-accentColor "
+          : ""
+      }`}
+    
+      
+        onClick={() => {
+          setDisplay('hidden'); setOpen(false);
+          const ele = document.getElementById(navLink.label)
+          ele?.scrollIntoView({
+            behavior: 'smooth'
+          })
+          setTimeout(() => {
+            setCurrentBoundingClient(navLink.label)
+            
+          }, 1000);
+         }}
+      >{navLink.value}
     </li>
-  );
+  )));
+
+  // <li
+  //   className={`font-bold ${
+  //     currentBoundingClient ? "bg-green-700" : "bg-yellow-700"
+  //   } `}
+  // >
+  //   <NextLink href="#">{children}</NextLink>
+  // </li>
 };
 
 const NavLinkForwardRef: ForwardRefRenderFunction<HTMLDivElement, Display> = (
-  { display },
+  { display, setDisplay },
   ref
 ) => {
   const { currentBoundingClient } = useContext(ClientBounding);
@@ -75,12 +116,9 @@ const NavLinkForwardRef: ForwardRefRenderFunction<HTMLDivElement, Display> = (
       <ul
         className={` fixed transition-all duration-1000 bg-gray-300 dark:bg-black md:bg-inherit  flex mx-auto gap-y-5 flex-col top-16 px-4 
           left-0 w-full text-center  
-          ${display} md:flex md:flex-row md:gap-14 lg:gap-20 md:static`}
+          ${display} md:flex md:flex-row md:gap-14 lg:gap-10 md:static`}
       >
-        <ListItem currentBoundingClient={currentBoundingClient}>Home</ListItem>
-        <ListItem currentBoundingClient={currentBoundingClient}>About</ListItem>
-        <ListItem>Project</ListItem>
-        <ListItem>Contact</ListItem>
+        <ListItem currentBoundingClient={currentBoundingClient} setDisplay={setDisplay} />
       </ul>
     </Box>
   );
@@ -116,7 +154,6 @@ const ThemeToggle = () => {
 };
 
 interface MenuProps extends Display {
-  setDisplay: (display: string) => void;
   element: HTMLDivElement | null;
 }
 

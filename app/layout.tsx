@@ -127,8 +127,8 @@ export default function RootLayout({
                   
                   <ClientboundingProvider>
                   <Navbar />
-
                     <ProjectWrapperProvider>
+
                       
                        <main>{children}</main>
                       

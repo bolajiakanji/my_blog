@@ -26,7 +26,8 @@ const AppWrapper = ({ children }: PropsWithChildren) => {
      const handleScroll = () => {
          element?.scrollTo(0, 0)
      }
-    const handleEvent = ( e: Event)=> {
+  const handleEvent = (e: Event) => {
+      
         e.preventDefault()
         
     }
