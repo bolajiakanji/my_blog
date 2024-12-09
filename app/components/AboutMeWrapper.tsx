@@ -21,10 +21,10 @@ const AboutMeWrapper = ({ children }: PropsWithChildren) => {
     return () => document.removeEventListener("scroll", handleBoundingScroll);
   });
   const handleBoundingScroll = () => {
-    const bounding = element?.getBoundingClientRect().top;
+    const bounding = element?.getBoundingClientRect().top ;
 
-    if (bounding && (bounding < -10)) {
-      console.log('about-me')
+    if (bounding && (bounding < 30  )) {
+      console.log(bounding)
       setCurrentBoundingClient("about-me");
     }
   };

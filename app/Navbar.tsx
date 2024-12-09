@@ -22,15 +22,14 @@ const nav_links: { label: string; value: string }[] = [
   { label: "about-me", value: "About Me" },
   { label: "project", value: "Project" },
   { label: "certification", value: "Certification" },
+  { label: "contact", value: "Contact" },
+  
 ];
 
 const Navbar = () => {
   const [display, setDisplay] = useState("hidden");
   const ref = useRef<HTMLDivElement>(null);
-  const home = useRef<HTMLDivElement>(null);
-  const project = useRef<HTMLDivElement>(null);
-  const aboutMe = useRef<HTMLDivElement>(null);
-  const certfication = useRef<HTMLDivElement>(null);
+  
   const { currentBoundingClient } = useContext(ClientBounding);
   
 
@@ -76,16 +75,20 @@ const ListItem = ({ currentBoundingClient, setDisplay }: ListProps) => {
     <li
       className={`font-bold text-center pb-1 px-4 md:py-2 md:my-2 ${
         currentBoundingClient === navLink.label
-          ? "border-b-2 border-b-accentColor "
+          ? "border-b-2 border-b-accentColor  "
           : ""
       }`}
     
       
         onClick={() => {
           setDisplay('hidden'); setOpen(false);
+          console.log(currentBoundingClient)
           const ele = document.getElementById(navLink.label)
           ele?.scrollIntoView({
-            behavior: 'smooth'
+            
+            behavior: 'smooth',
+            block: 'center',
+
           })
           setTimeout(() => {
             setCurrentBoundingClient(navLink.label)
@@ -114,9 +117,9 @@ const NavLinkForwardRef: ForwardRefRenderFunction<HTMLDivElement, Display> = (
   return (
     <Box ref={ref}>
       <ul
-        className={` fixed transition-all duration-1000 bg-gray-300 dark:bg-black md:bg-inherit  flex mx-auto gap-y-5 flex-col top-16 px-4 
+        className={` fixed transition-all duration-1000 pe-5 md:me-0 bg-gray-300 dark:bg-black md:bg-inherit  flex mx-auto gap-y-3 flex-col top-16 px-4 
           left-0 w-full text-center  
-          ${display} md:flex md:flex-row md:gap-14 lg:gap-10 md:static`}
+          ${display} md:flex md:flex-row md:gap-0 lg:gap-10 md:static`}
       >
         <ListItem currentBoundingClient={currentBoundingClient} setDisplay={setDisplay} />
       </ul>

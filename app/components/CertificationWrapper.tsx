@@ -24,7 +24,7 @@ const CertificatitionWrapper = ({ children }: PropsWithChildren) => {
   const handleBoundingScroll = () => {
     const bounding = element?.getBoundingClientRect().top;
 
-    if (bounding && (bounding < -10)) {
+    if (bounding && (bounding < 200)) {
       console.log('certification')
       setCurrentBoundingClient("certification");
     }

@@ -23,8 +23,8 @@ const HomeWrapper = ({ children }: PropsWithChildren) => {
   const handleBoundingScroll = () => {
     const bounding = element?.getBoundingClientRect().top;
 
-      if (bounding && (bounding < -10)) {
-        console.log('home')
+      if (bounding && (bounding < 30 && bounding > -500)) {
+        console.log(bounding)
       setCurrentBoundingClient("home");
     }
   };

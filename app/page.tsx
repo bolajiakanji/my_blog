@@ -161,7 +161,7 @@ const DescriptionDetails = () => {
           Hire me{" "}
         </Button>
       </Box>
-      <Box className="flex justify-center mt-7 md:mt-96 animate-bounce h-5 md:h-9 ">
+      <Box className="flex justify-center mt-7 md:mt-20 animate-bounce h-5 md:h-9 ">
         <Box
           className="h-1 w-4  rotate-45 translate-x-2"
           style={{ backgroundColor: "crimson" }}

@@ -40,8 +40,8 @@ const ProjectPageWrapper = ({ children }: PropsWithChildren) => {
   const handleBoundingScroll = () => {
     const bounding = element?.getBoundingClientRect().top;
 
-    if (bounding && (bounding < 0)) {
-      console.log('projectwrap')
+    if (bounding && (bounding < 200)) {
+      
 
       setCurrentBoundingClient("project");
     }
