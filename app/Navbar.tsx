@@ -11,7 +11,7 @@ import React, {
   useState,
 } from "react";
 import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
-import MyName from "./components/MyName";
+import MyName from "./components/navbar/MyName";
 import NextLink from "next/link";
 import MenuToggle from "./context/Wrapper";
 import ClientBounding from "./context/clientBounding";
