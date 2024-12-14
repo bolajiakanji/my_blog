@@ -5,7 +5,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 //import { Roboto } from 'next/font/google'
 import { ThemeProvider } from "./ThemeProvider";
-import Navbar from "./Navbar";
+
 
 import { Theme } from "@radix-ui/themes";
 
@@ -15,7 +15,7 @@ import AppWrapper from "./components/AppWrapper";
 import Overlay from "./components/Overlay";
 import ProjectWrapperProvider from "./components/ProjectOverlayProvider";
 import ClientboundingProvider from "./components/ClientBoundingProvider";
-import { AppBackground } from "./components";
+import { AppBackground, Navbar } from "./components";
 
 // const roboto = Roboto({
 //   subsets: ['latin'],
@@ -64,6 +64,4 @@ export default function RootLayout({
     </html>
   );
 }
-{
-  /* px-6 md:px-8 */
-}
+{}

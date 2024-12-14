@@ -7,7 +7,6 @@ interface Wrap {
     setOverlayOpen: React.Dispatch<SetStateAction<boolean>>
 }
 
-
 const ProjectWrapper = React.createContext<Wrap>({} as Wrap )
 
 export default ProjectWrapper

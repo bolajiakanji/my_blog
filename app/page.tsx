@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <Box
-      className="mt-5  "
+      className="mt-5 relative "
       style={{ zIndex: "15" }}
       >
       <HomeWrapper>
@@ -88,7 +88,7 @@ const MyDescription = ({
 }) => {
   return (
     <Box
-      style={{ zIndex: "50", top: "36vh" }}
+      style={{ zIndex: "30", top: "36vh" }}
       className="dark:bg-id_bg  h-12 sm:mt-6   md:mt-24 lg:mt-36 md-mx-0 
     absolute md:static left-0 w-full z-50 dark:shadow-bs bg-id_bgw shadow-whi md:w-full    "
     >

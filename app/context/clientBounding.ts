@@ -7,7 +7,6 @@ interface Wrap {
     setCurrentBoundingClient: React.Dispatch<SetStateAction<string>>
 }
 
-
 const ClientBounding = React.createContext<Wrap>({} as Wrap)
 
 export default ClientBounding

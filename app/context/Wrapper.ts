@@ -2,12 +2,11 @@
 
 import React, { SetStateAction } from "react"
 
-interface Wrap {
+interface MenuTogglingType {
     isOpen: boolean;
     setOpen: React.Dispatch<SetStateAction<boolean>>
 }
 
+const MenuToggling = React.createContext<MenuTogglingType>({} as MenuTogglingType )
 
-const MenuToggle = React.createContext<Wrap>({} as Wrap )
-
-export default MenuToggle
+export default MenuToggling

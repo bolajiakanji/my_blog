@@ -10,7 +10,7 @@ const Overlay = () => {
     return (
       <div
         style={{ backdropFilter: "blur(7px)" }}
-        className="absolute z-50  top-0 left-0 w-full h-full bg-transparent  "
+        className="absolute z-40 bg-green-700 top-0 left-0 w-full h-full bg-transparent  "
       ></div>
     );
   }
