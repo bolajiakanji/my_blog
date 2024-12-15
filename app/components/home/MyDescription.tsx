@@ -19,7 +19,7 @@ const MyDescription = () => {
   return (
     <Box className="mt-4 md:mt-32 lg:mt-36 w-full md:w-full">
       
-      <Text as="span" className=" md:text-xl text-center block mx-4 md:mx-0">
+      <Text as="span" className=" md:text-xl text-center block mx-4 md:me-4">
         Hi! My name is
         <Text color="gray" className="ms-2 text-lg md:text-2xl">
           ABD-GOFFAR BOLAJI LUKMAN

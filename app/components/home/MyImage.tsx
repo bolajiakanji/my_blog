@@ -6,11 +6,11 @@ import { Box } from '@radix-ui/themes';
 
 const MyImage = () => {
   return (
-    <Box className="mx-auto z-20 w-width_image md:w-full">
+    <Box className="mx-auto lg:mb-7 z-20 w-width_image md:w-full">
       <Image
         src={imageUrl}
         alt=""
-        className="object-cover w-full mt-14 border-b-8 rounded-50% border-purple-800 md:lg:h-he md:h-96"
+        className="object-cover w-full mt-14 border-b-8 rounded-50% border-purple-800 lg:h-he md:h-96"
       />
     </Box>
   )

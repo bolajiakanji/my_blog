@@ -30,7 +30,7 @@ const HomeWrapper = ({ children }: PropsWithChildren) => {
   };
 
   return (
-    <div ref={ref} id="home" className="mt-5 z-20 relative h-screen">
+    <div ref={ref} id="home" className="mt-5 z-20 relative portrait:h-screen landscape::h-full lg:h-screen">
       {children}
     </div>
   );
