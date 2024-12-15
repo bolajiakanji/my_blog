@@ -10,7 +10,7 @@ const MyImage = () => {
       <Image
         src={imageUrl}
         alt=""
-        className="object-cover w-full mt-11 border-b-8 rounded-50% border-purple-800 md:lg:h-he md:h-96"
+        className="object-cover w-full mt-14 border-b-8 rounded-50% border-purple-800 md:lg:h-he md:h-96"
       />
     </Box>
   )

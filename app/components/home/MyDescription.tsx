@@ -17,7 +17,8 @@ const MyDescription = () => {
   const colors = color[0][wordy];
 
   return (
-    <Box className="dark:bg-id_bg h-12 sm:mt-6 md:mt-24 lg:mt-36 md-mx-0 md:static left-0 w-full dark:shadow-bs bg-id_bgw shadow-whi md:w-full">
+    <Box className="mt-4 md:mt-32 lg:mt-36 w-full md:w-full">
+      
       <Text as="span" className=" md:text-xl text-center block mx-4 md:mx-0">
         Hi! My name is
         <Text color="gray" className="ms-2 text-lg md:text-2xl">
@@ -31,7 +32,7 @@ const MyDescription = () => {
       <Text
         as="p"
         style={{color: colors}}
-        className={`text-xl h-16 md:text-2xl text-center ${`text-${colors}`} whitespace-normal transition-all duration-1000`}
+        className={`text-xl h-10 md:text-2xl text-center ${`text-${colors}`} whitespace-normal transition-all duration-1000`}
         dangerouslySetInnerHTML={{ __html: `${wordletters.join("")}` }}
       ></Text>
     </Box>

@@ -7,15 +7,15 @@ import HomeWrapper from "./HomeWrapper";
 const Home = () => {
   return (
     <HomeWrapper>
-      <Box className="flex  flex-col md:flex-row justify-center md:mx-12 md:gap-8  ">
-        <Box className="md:w-md_w lg:w-2/5  ">
+      <Box className="flex flex-col md:flex-row justify-center md:ms-5 md:me-2 md:gap-2">
+        <Box className="md:w-46% lg:w-2/5">
           <MyImage />
         </Box>
-        <Box className="md:w-l_w lg:w-3/5    ">
-          <Box className="md:mb-20">
+        <Box className="md:w-54% lg:w-3/5">
+          <Box className="md:mb-3">
             <MyDescription />
           </Box>
-          <Box className="md:mt-28 lg:mt-10 mt-4.5rem sm:mt-28  ">
+          <Box className="lg:mt-10   ">
             <DescriptionDetails />
           </Box>
         </Box>
