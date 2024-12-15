@@ -1,7 +1,7 @@
 "use client";
 
-import useMenuToggling from "@/hooks/menuToggling";
-import useNavbarWrapper from "@/hooks/navbarWrapper";
+import useMenuToggling from "@/app/hooks/menuToggling";
+import useNavbarWrapper from "@/app/hooks/navbarWrapper";
 import { Box, Button } from "@radix-ui/themes";
 
 const Menu = () => {

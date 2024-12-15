@@ -1,8 +1,10 @@
+"use client";
+
 import { useRef, useState, useEffect } from "react";
 
 const useAnimatingWords = (wordArrays: string[]) => {
   const wordCount = useRef(0);
-  const wordy = wordCount.current
+  const wordy = wordCount.current;
   const [word, setWord] = useState<string>(wordArrays[wordCount.current]);
   const [wordletters, setWordLetters] = useState<string[]>([]);
   const [letterCount, setCount] = useState<number>(1);
@@ -14,7 +16,6 @@ const useAnimatingWords = (wordArrays: string[]) => {
         clearInterval(interval);
         wordCount.current++;
 
-        
         if (wordCount.current >= wordArrays.length) wordCount.current = 0;
         wordCount.current = wordCount.current;
         reset = setTimeout(() => {
@@ -49,8 +50,7 @@ const useAnimatingWords = (wordArrays: string[]) => {
     word,
     wordletters,
     letterCount,
-    wordy
-    
+    wordy,
   };
 };
 

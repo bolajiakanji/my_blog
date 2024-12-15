@@ -5,12 +5,8 @@ import "./globals.css";
 import localFont from "next/font/local";
 //import { Roboto } from 'next/font/google'
 import { ThemeProvider } from "./ThemeProvider";
-
-
 import { Theme } from "@radix-ui/themes";
-
 import MenuToggleProvider from "./components/MenuToggleProvider";
-
 import AppWrapper from "./components/AppWrapper";
 import Overlay from "./components/Overlay";
 import ProjectWrapperProvider from "./components/ProjectOverlayProvider";

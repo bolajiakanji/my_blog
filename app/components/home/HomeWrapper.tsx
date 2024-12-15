@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import ClientBounding from "../context/clientBounding";
+import ClientBounding from "../../context/clientBounding";
 
 const HomeWrapper = ({ children }: PropsWithChildren) => {
   const [element, setElement] = useState<HTMLDivElement | null>(null);
@@ -23,15 +23,14 @@ const HomeWrapper = ({ children }: PropsWithChildren) => {
   const handleBoundingScroll = () => {
     const bounding = element?.getBoundingClientRect().top;
 
-      if (bounding && (bounding < 30 && bounding > -500)) {
-        console.log(bounding)
+    if (bounding && bounding < 30 && bounding > -500) {
+      console.log(bounding);
       setCurrentBoundingClient("home");
     }
   };
 
   return (
-    <div ref={ref} id="home"   
-    style={{ zIndex: "15" }}>
+    <div ref={ref} id="home" className="mt-5 relative z-20 h-screen">
       {children}
     </div>
   );

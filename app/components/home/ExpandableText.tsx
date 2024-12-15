@@ -1,4 +1,5 @@
-'use client'
+"use client";
+
 import { Text } from "@radix-ui/themes";
 import { useState } from "react";
 
@@ -11,28 +12,27 @@ const ExpandableText = ({ description }: Props) => {
 
   if (!description) return null;
 
-  const limit = 60;
+  const limit = 80;
 
   const renderText =
     description.length <= limit
       ? description
       : !expanded
-      ? description.slice(0, 83) + " ..."
+      ? description.slice(0, limit) + " ..."
       : description;
 
-  const btn = !expanded ? "Read more" : "Show less";
+  const btn = !expanded ? "Read more" : " Show less";
 
   return (
     <>
-      <Text
-        as='span' className="whitespace-pre-wrap">{renderText}</Text>
+      <Text as="span" className="whitespace-pre-wrap">
+        {renderText}
+      </Text>
       {description.length >= limit && (
         <Text
           onClick={() => setExpanded(!expanded)}
-          color="gray"
           size='1'
-          
-          
+          color="gray"
         >
           {btn}
         </Text>

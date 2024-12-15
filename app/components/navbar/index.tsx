@@ -11,7 +11,7 @@ const Navbar = () => {
     <NavbarWrapperProvider>
       <Flex
         justify="between"
-        className="fixed w-full py-3 z-50 sm:px-5 px-3 mb-4 overflow-hidden bg-white dark:bg-black"
+        className="fixed w-full py-3 z-70 sm:px-5 px-3 mb-4 overflow-hidden bg-white dark:bg-black"
       >
         <Box className="relative">
           <MyNameLogo />

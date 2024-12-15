@@ -4,7 +4,7 @@ import { Box } from "@radix-ui/themes";
 import ListItems from "./ListItems";
 import { useEffect, useRef } from "react";
 import React from "react";
-import useNavbarWrapper from "@/hooks/navbarWrapper";
+import useNavbarWrapper from "@/app/hooks/navbarWrapper";
 
 const NavLink = () => {
   const { display, setDisplay, setElement } = useNavbarWrapper();

@@ -1,6 +1,6 @@
 import Display from "@/app/entities/Display";
-import useClientBounding from "../../../hooks/clientBounding";
-import useMenuToggling from "@/hooks/menuToggling";
+import useClientBounding from "../../hooks/clientBounding";
+import useMenuToggling from "@/app/hooks/menuToggling";
 
 interface NavLink {
   label: string;
