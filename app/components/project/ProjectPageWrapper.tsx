@@ -1,4 +1,5 @@
 "use client";
+
 import React, {
   PropsWithChildren,
   useContext,
@@ -6,14 +7,13 @@ import React, {
   useRef,
   useState,
 } from "react";
-import ProjectWrapper from "../context/projectWrapper";
-import ClientBounding from "../context/clientBounding";
+import ClientBounding from "../../context/clientBounding";
+import useProjectWrapper from "@/app/hooks/projectWrapper";
 
 const ProjectPageWrapper = ({ children }: PropsWithChildren) => {
-  const { isOverlayOpen } = useContext(ProjectWrapper);
+  const { isOverlayOpen } = useProjectWrapper();
   const [element, setElement] = useState<HTMLDivElement | null>(null);
-  const { currentBoundingClient, setCurrentBoundingClient } =
-    useContext(ClientBounding);
+  const { setCurrentBoundingClient } = useContext(ClientBounding);
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -40,9 +40,7 @@ const ProjectPageWrapper = ({ children }: PropsWithChildren) => {
   const handleBoundingScroll = () => {
     const bounding = element?.getBoundingClientRect().top;
 
-    if (bounding && (bounding < 200)) {
-      
-
+    if (bounding && bounding < 200) {
       setCurrentBoundingClient("project");
     }
   };
@@ -50,6 +48,7 @@ const ProjectPageWrapper = ({ children }: PropsWithChildren) => {
   const handleScroll = () => {
     element?.scrollTo(0, 0);
   };
+  
   const handleEvent = (e: Event) => {
     e.preventDefault();
   };
@@ -64,8 +63,7 @@ const ProjectPageWrapper = ({ children }: PropsWithChildren) => {
     <div
       ref={ref}
       id="project"
-      className={` z-50 w-full  mt-20 relative  ${
-        isOverlayOpen ? "w-full overflow-hidden  " : "overflow-auto "
+      className={`z-50 w-full mt-20 relative ${isOverlayOpen ? "w-full overflow-hidden " : "overflow-auto "
       }`}
     >
       {children}

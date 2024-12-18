@@ -1,12 +1,11 @@
 "use client";
 
 import React, { SetStateAction, useContext } from "react";
-
 import { Badge, Box, Card, Heading } from "@radix-ui/themes";
-import { Overlay } from "./MyProject";
+import { Overlay } from "../../project/MyProject";
 import { CldImage, CldVideoPlayer } from "next-cloudinary";
-import ExpandableText from "./ExpandableText";
-import ProjectWrapper from "../context/projectWrapper";
+import ExpandableText from "../../project/ExpandableText";
+import ProjectWrapper from "../../context/projectWrapper";
 
 interface Props {
   overlayProject: Overlay;

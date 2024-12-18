@@ -1,4 +1,4 @@
-import MenuToggling from "@/app/context/Wrapper"
+import MenuToggling from "@/app/context/menuWrapper"
 import { useContext } from "react"
 
 const useMenuToggling = () => useContext(MenuToggling)

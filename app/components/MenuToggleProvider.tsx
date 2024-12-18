@@ -1,6 +1,6 @@
 "use client";
 import React, { PropsWithChildren, useState } from "react";
-import MenuToggle from "../context/Wrapper";
+import MenuToggle from "../context/menuWrapper";
 
 const MenuToggleProvider = ({ children }: PropsWithChildren) => {
   const [isOpen, setOpen] = useState(false);

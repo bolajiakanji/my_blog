@@ -32,6 +32,7 @@ const config: Config = {
 			  '25vh': '25vh',
 			  '40vh': '40vh',
 			  '35vh': '35vh',
+			  180: '180px'
 			  
 
 		  },

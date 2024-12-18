@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useContext } from "react";
-import MenuToggle from "../context/Wrapper";
+import MenuToggle from "../context/menuWrapper";
 
 const Overlay = () => {
   const { isOpen } = useContext(MenuToggle);
