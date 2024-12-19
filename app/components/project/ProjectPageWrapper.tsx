@@ -48,7 +48,7 @@ const ProjectPageWrapper = ({ children }: PropsWithChildren) => {
   const handleScroll = () => {
     element?.scrollTo(0, 0);
   };
-  
+
   const handleEvent = (e: Event) => {
     e.preventDefault();
   };
@@ -63,7 +63,7 @@ const ProjectPageWrapper = ({ children }: PropsWithChildren) => {
     <div
       ref={ref}
       id="project"
-      className={`z-50 w-full mt-20 relative ${isOverlayOpen ? "w-full overflow-hidden " : "overflow-auto "
+      className={`z-30 w-full mt-20 relative ${isOverlayOpen ? "w-full overflow-hidden " : "overflow-auto "
       }`}
     >
       {children}

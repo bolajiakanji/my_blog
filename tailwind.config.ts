@@ -25,6 +25,7 @@ const config: Config = {
 		  margin: {
 			  '4.5rem': '4.5rem',
 			  '45vh': '45vh',
+			  '20%': '20%',
 		  },
 		  height: {
 			  he: '30rem',
