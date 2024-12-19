@@ -45,7 +45,11 @@ export default function MobileAppCarousel({ tools, sNumber }: Props) {
     pauseOnHover: true,
     appendDots: (dots: React.ReactNode) => (
       <Box
-        className="flex p-0 w-auto my-auto -bottom-1 left-1/2"
+        style={{
+          bottom: "-3px",
+          width: "auto",
+          left: "50%",
+        }}
       >
         <ul
           className="m-0 p-0 relative -left-1/2"
@@ -61,7 +65,9 @@ export default function MobileAppCarousel({ tools, sNumber }: Props) {
     customPaging: (i: number) => (
       <Box
         as="span"
-        className={`inline-block rounded-50% w-2 h-2 mx-0 px-0 ${i + 1 === count ? "bg-accentColor" : "bg-black"}`}
+        className={`inline-block rounded-50% w-2 h-2 mx-0 px-0 ${
+          i + 1 === count ? "bg-accentColor" : "bg-black"
+        }`}
       ></Box>
     ),
     beforeChange: (c: number, n: number) => {
@@ -70,9 +76,9 @@ export default function MobileAppCarousel({ tools, sNumber }: Props) {
   };
 
   return (
-    <div className="relative  ">
+    <Box className="relative  ">
       <Slider ref={sliderRef} {...settings} className="h-44  ">
-        <div className="h-44 ">
+        <Box className="h-44 ">
           <Link href={`/project/${sNumber}`}>
             <Image
               src={imageUrl}
@@ -82,10 +88,10 @@ export default function MobileAppCarousel({ tools, sNumber }: Props) {
               className="object-cover overflow-hidden w-full"
             />
           </Link>
-        </div>
+        </Box>
 
         {tools.map((tool) => (
-          <div key={tool} className="  h-44 w-full ">
+          <Box key={tool} className="  h-44 w-full ">
             <Link href={`/project/${sNumber}`}>
               <CldImage
                 src={tool}
@@ -94,7 +100,7 @@ export default function MobileAppCarousel({ tools, sNumber }: Props) {
                 className="m-0 p-0 object-cover overflow-hidden"
               ></CldImage>
             </Link>
-          </div>
+          </Box>
         ))}
       </Slider>
       <Text
@@ -103,7 +109,7 @@ export default function MobileAppCarousel({ tools, sNumber }: Props) {
       >
         {count}/{tot}
       </Text>
-<Box className="absolute top-1/2 left-1/2">
+      <Box className="absolute top-1/2 left-1/2">
         <IconButton
           variant="classic"
           size="3"
@@ -138,6 +144,6 @@ export default function MobileAppCarousel({ tools, sNumber }: Props) {
       >
         <ChevronRightIcon width="22" height="22" className="text-white" />
       </IconButton>
-    </div>
+    </Box>
   );
 }
