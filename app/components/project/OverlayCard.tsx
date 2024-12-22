@@ -3,10 +3,10 @@ import React, { PropsWithChildren } from "react";
 
 const OverlayCard = ({ children }: PropsWithChildren) => {
   return (
-    <Box className="w-full mx-auto md:w-65%">
-      <Card className="p-0 mx-auto mt-3 " style={{ maxWidth: "420px" }}>
+    <Box className="w-full mx-auto ">
+      <Box className="p-0 mx-auto  md:mt-3 ">
         {children}
-      </Card>
+      </Box>
     </Box>
   );
 };

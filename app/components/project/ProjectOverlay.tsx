@@ -7,6 +7,8 @@ import ProjectDetails from "./ProjectDetails";
 import RemoveOverlay from "./RemoveOverlay";
 import Overlaywrapper from "./Overlaywrapper";
 import OverlayCard from "./OverlayCard";
+import OverlayDetails from "./OverlayDetails";
+import { Box } from "@radix-ui/themes";
 
 export interface SetOverlay {
   setOverlay: React.Dispatch<SetStateAction<Overlay>>;
@@ -30,7 +32,7 @@ const ProjectOverlay = ({ overlayProject, setOverlay }: Props) => {
             src="https://res.cloudinary.com/dlutiw9i4/video/upload/v1731143057/VID-20241103-WA0066_k4pxhx.mp4"
             autoplay={!overlayProject[1] ? true : false}
           ></CldVideoPlayer>
-          <ProjectDetails project={overlayProject[0]} />
+          <OverlayDetails project={overlayProject[0]} />
         </OverlayCard>
       </Overlaywrapper>
     );
@@ -39,15 +41,17 @@ const ProjectOverlay = ({ overlayProject, setOverlay }: Props) => {
       <Overlaywrapper>
         <RemoveOverlay setOverlay={setOverlay} />
         <OverlayCard>
+          <Box className="px-3">
           <CldImage
             src="https://res.cloudinary.com/dlutiw9i4/image/upload/v1730347305/IMG-20241018-WA0206_iyyeye.jpg"
             alt="Description of my image"
             width="300"
             height="400"
-            style={{ height: "150px" }}
-            className="object-cover overflow-hidden w-full h-"
-          ></CldImage>
-          <ProjectDetails project={overlayProject[0]} />
+            style={{ maxWidth: '420px', }}
+            className="object-cover overflow-hidden w-full rounded-t-xl mx-auto md:rounded-t-xl h-44 md:h-48"
+            ></CldImage>
+            </Box>
+          <OverlayDetails project={overlayProject[0]} />
         </OverlayCard>
       </Overlaywrapper>
     );

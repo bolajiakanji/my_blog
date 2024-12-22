@@ -10,7 +10,7 @@ interface Props {
   setOverlayOpen?: (isOverlayOpen: boolean) => void;
 }
 
-const ProjectDetails = ({ project, setOverlay, setOverlayOpen }: Props) => {
+const OverlayDetails = ({ project, setOverlay, setOverlayOpen }: Props) => {
   const handleTextClick = (project: Project) => {
     if (setOverlay && setOverlayOpen) {
       setOverlay([project, "autoplay"]);
@@ -19,7 +19,7 @@ const ProjectDetails = ({ project, setOverlay, setOverlayOpen }: Props) => {
   };
 
   return (
-    <Box className="mt-7 mx-5 ">
+    <Box className="mt-7 mx-4 ">
       <Heading as="h3" className="my-2 text-black dark:text-white ">
         {project.title}
       </Heading>
@@ -29,7 +29,6 @@ const ProjectDetails = ({ project, setOverlay, setOverlayOpen }: Props) => {
       ></ExpandableText>
       <Text as="p" onClick={() => handleTextClick(project)}>
               {project.no}
-
       </Text>
       <Box className="mt-7">
         {project.tools?.map((tool) => (
@@ -38,9 +37,9 @@ const ProjectDetails = ({ project, setOverlay, setOverlayOpen }: Props) => {
             {tool}
           </Badge>
         ))}
-      </Box>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolorem id amet repellendus, velit, asperiores labore non beatae modi soluta praesentium, recusandae tenetur aut sequi. Corrupti similique ab eveniet, mollitia rerum quasi voluptates aliquam. Quam, temporibus! Sed consequatur quod consectetur. Voluptate vitae cupiditate neque tempora quasi assumenda. Praesentium totam deleniti eos repellat. Eveniet error numquam delectus praesentium inventore aut quam, fuga vero pariatur tempore unde quasi officia illum? Ducimus, quis accusamus corrupti itaque vel esse eligendi aspernatur autem fugiat suscipit voluptates aliquam rem commodi necessitatibus dignissimos facere, obcaecati quisquam possimus quaerat architecto magnam? Sunt sit dignissimos exercitationem iste dolore odio.</p>      </Box>
     </Box>
   );
 };
 
-export default ProjectDetails;
+export default OverlayDetails;

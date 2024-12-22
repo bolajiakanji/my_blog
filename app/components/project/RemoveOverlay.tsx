@@ -17,11 +17,11 @@ const RemoveOverlay = ({ setOverlay }: Props) => {
         setOverlay([]);
         setOverlayOpen(false);
       }}
-      className="mt-16 pt-2 mb-3 md:mt-24 inline-block ms-5 rounded-full  md:ms-20% "
+      className="mt-16 pt-1 mb-1 md:mt-2 inline-block ms-2 md:ms-8 rounded-full "
     >
-      <IconButton size="2" variant="classic">
-        <ArrowLeftIcon width={25} height={25} />
-      </IconButton>
+      
+        <ArrowLeftIcon width={40} height={30} className="text-accentColor"/>
+      
     </Box>
   );
 };
