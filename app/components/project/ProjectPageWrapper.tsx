@@ -17,19 +17,19 @@ const ProjectPageWrapper = ({ children }: PropsWithChildren) => {
 
   const ref = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //   setElement(ref.current);
-  //   console.log(ref.current + "number");
-  //   if (isOverlayOpen) {
-  //     element?.addEventListener("scroll", handleEvent);
-  //     element?.addEventListener("wheel", handleEvent);
-  //     element?.addEventListener("touchmove", handleEvent);
-  //     element?.addEventListener("scroll", handleScroll);
-  //   } else {
-  //     remove();
-  //   }
-  //   return remove;
-  // }, [isOverlayOpen]);
+  useEffect(() => {
+    setElement(ref.current);
+    console.log(ref.current + "number");
+    if (isOverlayOpen) {
+      element?.addEventListener("scroll", handleEvent);
+      element?.addEventListener("wheel", handleEvent);
+      element?.addEventListener("touchmove", handleEvent);
+      element?.addEventListener("scroll", handleScroll);
+    } else {
+      remove();
+    }
+    return remove;
+  }, [isOverlayOpen]);
   useEffect(() => {
     setElement(ref.current);
 
