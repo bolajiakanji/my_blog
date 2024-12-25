@@ -9,6 +9,8 @@ import Overlaywrapper from "./Overlaywrapper";
 import OverlayCard from "./OverlayCard";
 import OverlayDetails from "./OverlayDetails";
 import { Box } from "@radix-ui/themes";
+import "next-cloudinary/dist/cld-video-player.css";
+
 
 export interface SetOverlay {
   setOverlay: React.Dispatch<SetStateAction<Overlay>>;
