@@ -22,6 +22,8 @@ const ProjectOverlay = ({ overlayProject, setOverlay }: Props) => {
   if (!overlayProject.length) return null;
 
   if (overlayProject[0]?.category === "mobile-app") {
+    document.querySelector('body')!.style.overflow='hidden'
+    document.querySelector('body')!.style.height='100vh'
     return (
       <Overlaywrapper>
         <RemoveOverlay setOverlay={setOverlay} />
