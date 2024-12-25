@@ -14,7 +14,9 @@ const ProjectDetails = ({ project, setOverlay, setOverlayOpen }: Props) => {
   const handleTextClick = (project: Project) => {
     if (setOverlay && setOverlayOpen) {
       setOverlay([project, "autoplay"]);
-      setOverlayOpen(true);
+        setOverlayOpen(true);
+        document.querySelector('body')!.style.overflow='hidden'
+    document.querySelector('body')!.style.height='100vh'
     }
   };
 

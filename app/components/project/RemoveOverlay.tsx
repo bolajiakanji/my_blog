@@ -15,7 +15,9 @@ const RemoveOverlay = ({ setOverlay }: Props) => {
       as="span"
       onClick={() => {
         setOverlay([]);
-        setOverlayOpen(false);
+          setOverlayOpen(false);
+          document.querySelector('body')!.style.overflow='inherit'
+    document.querySelector('body')!.style.height='100%'
       }}
       className="mt-16 pt-1 mb-1 md:mt-2 inline-block ms-2 md:ms-8 rounded-full "
     >
