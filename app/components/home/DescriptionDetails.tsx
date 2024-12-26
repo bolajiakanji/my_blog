@@ -24,7 +24,15 @@ const DescriptionDetails = () => {
       <div className=" w-76 overflow-hidden mx-auto">
         <Box className="   flex justify-between ">
           <Box className=" ms-5 ">
-            <Button variant="outline">View my project</Button>
+            <Button
+              onClick={(e) => {
+                const element = document.getElementById('project'); 
+                element?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: "start"
+                })
+              }}
+              variant="outline">View my project</Button>
           </Box>
           <Box className="me-14">
             <Button variant="surface" color="purple">
