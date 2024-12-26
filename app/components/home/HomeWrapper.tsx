@@ -1,4 +1,5 @@
 "use client";
+
 import React, {
   PropsWithChildren,
   useContext,
@@ -7,9 +8,12 @@ import React, {
   useState,
 } from "react";
 import ClientBounding from "../../context/clientBounding";
+import DescriptionProvider from "./DescriptionProvider";
+import useDescription from "@/app/hooks/myDescription";
 
 const HomeWrapper = ({ children }: PropsWithChildren) => {
   const [element, setElement] = useState<HTMLDivElement | null>(null);
+  const { isDescriptionFull } = useDescription();
   const { setCurrentBoundingClient } = useContext(ClientBounding);
 
   const ref = useRef<HTMLDivElement>(null);
@@ -30,7 +34,13 @@ const HomeWrapper = ({ children }: PropsWithChildren) => {
   };
 
   return (
-    <div ref={ref} id="home" className="mt-5 z-20 relative portrait:h-screen landscape::h-full lg:h-screen">
+    <div
+      ref={ref}
+      id="home"
+      className={`mt-5 z-20 relative ${
+        isDescriptionFull ? "portrait:h-screen" : "portrait:h-full"
+      } landscape:h-full lg:h-screen`}
+    >
       {children}
     </div>
   );

@@ -1,9 +1,11 @@
 import { Box, Button, Text } from "@radix-ui/themes";
 import ExpandableText from "./ExpandableText";
 
-const description = `I'm skilled in buiding fast, scalable, and optimised full-fledged web applications with an advancedseamless functionalities.
+const description = `I'm skilled in buiding fast, scalable, and optimised full-fledged web applications with an advanced seamless functionalities.
 
-I also develop super-fastand search engine friendly application with NEXT.js like web application you're on.`;
+I develop super-fast and search engine friendly application with NEXT.js. In fact, this web applictaion you're on is built with next.js.
+
+I also build an amazing mobile application for both iOS and Android with React native and Expo `;
 
 const DescriptionDetails = () => {
   return (
@@ -31,7 +33,7 @@ const DescriptionDetails = () => {
           </Box>
         </Box>
       </div>
-      <Box className="flex justify-center mt-7 md:mt-20 animate-bounce h-5 md:h-9 ">
+      <Box className="flex justify-center mt-7 md:mt-20 animate-bounce h-8 md:h-10 landscape:hidden ">
         <Box className="h-1 w-4  rotate-45 translate-x-2 bg-accentColor"></Box>
         <Box className="h-1 w-4 -rotate-45 bg-purple-600 "></Box>
       </Box>

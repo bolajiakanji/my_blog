@@ -12,6 +12,7 @@ import Overlay from "./components/Overlay";
 import ProjectWrapperProvider from "./components/ProjectOverlayProvider";
 import ClientboundingProvider from "./components/ClientBoundingProvider";
 import { AppBackground, Navbar } from "./components";
+import DescriptionProvider from "./components/home/DescriptionProvider";
 
 // const roboto = Roboto({
 //   subsets: ['latin'],
@@ -46,7 +47,9 @@ export default function RootLayout({
                   <ClientboundingProvider>
                     <Navbar />
                     <ProjectWrapperProvider>
-                      <main>{children}</main>
+                      <DescriptionProvider>                 
+                             <main>{children}</main>
+                             </DescriptionProvider>
                     </ProjectWrapperProvider>
 
                     <Overlay />

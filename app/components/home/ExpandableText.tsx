@@ -1,5 +1,6 @@
 "use client";
 
+import useDescription from "@/app/hooks/myDescription";
 import { Text } from "@radix-ui/themes";
 import { useState } from "react";
 
@@ -9,10 +10,11 @@ interface Props {
 
 const ExpandableText = ({ description }: Props) => {
   const [expanded, setExpanded] = useState(false);
+  const { setDescriptionFull } = useDescription();
 
   if (!description) return null;
 
-  const limit = 80;
+  const limit = 125;
 
   const renderText =
     description.length <= limit
@@ -30,8 +32,12 @@ const ExpandableText = ({ description }: Props) => {
       </Text>
       {description.length >= limit && (
         <Text
-          onClick={() => setExpanded(!expanded)}
-          size='1'
+          onClick={() => {
+            setExpanded(!expanded);
+            if (expanded) return setDescriptionFull(true);
+            return setDescriptionFull(false);
+          }}
+          size="1"
           color="gray"
         >
           {btn}
