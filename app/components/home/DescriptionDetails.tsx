@@ -25,7 +25,7 @@ const DescriptionDetails = () => {
         <Box className="   flex justify-between ">
           <Box className=" ms-5 ">
             <Button
-              onClick={(e) => {
+              onClick={() => {
                 const element = document.getElementById('project'); 
                 element?.scrollIntoView({
                   behavior: 'smooth',

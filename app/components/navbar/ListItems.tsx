@@ -29,7 +29,7 @@ const ListItems = ({ setDisplay }: Display) => {
         const element = document.getElementById(navLink.label);
         element?.scrollIntoView({
           behavior: "smooth",
-          block: element.id == 'project' ? 'start' : 'center' ,
+          block: element.id == "project" ? "start" : "center",
         });
         setTimeout(() => {
           setCurrentBoundingClient(navLink.label);
