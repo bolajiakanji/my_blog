@@ -20,7 +20,7 @@ const RemoveOverlay = ({ setOverlay }: Props) => {
           document.querySelector('body')!.style.overflow='inherit'
     document.querySelector('body')!.style.height='100%'
       }}
-      className="pt-16 fixed w-full pb-2 md:mt-2 inline-block ms-2 md:ms-8 dark:bg-black bg-white"
+      className="pt-20 md:pt-20 fixed w-full pb-2 md:mt-2 inline-block ms-2 md:ms-8 max-mmd:dark:bg-bg_color max-mmd:bg-white"
     >
       
         <ArrowLeftIcon width={40} height={30} className="text-accentColor"/>

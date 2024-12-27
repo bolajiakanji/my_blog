@@ -45,7 +45,7 @@ const ProjectOverlay = ({ overlayProject, setOverlay }: Props) => {
       <Overlaywrapper>
         <RemoveOverlay setOverlay={setOverlay} />
         <OverlayCard>
-          <Box className="px-3">
+          <Box className="px-3 pt-3">
           <CldImage
             src="https://res.cloudinary.com/dlutiw9i4/image/upload/v1730347305/IMG-20241018-WA0206_iyyeye.jpg"
             alt="Description of my image"
