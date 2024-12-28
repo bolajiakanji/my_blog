@@ -28,18 +28,17 @@ const HomeWrapper = ({ children }: PropsWithChildren) => {
     const bounding = element?.getBoundingClientRect().top;
 
     if (bounding && bounding < 30 && bounding > -500) {
-      console.log(bounding);
+      
       setCurrentBoundingClient("home");
     }
   };
-
+isDescriptionFull ? console.log('you'): console.log('me')
   return (
     <div
       ref={ref}
       id="home"
-      className={`mt-5 z-20 relative ${
-        isDescriptionFull ? "portrait:h-screen" : "portrait:h-full"
-      } landscape:h-full lg:h-screen`}
+      className={`mt-5 z-20 relative ${isDescriptionFull ? "portrait:h-full" : "portrait:h-screen"
+      } max-mmd:landscape:h-full h-screen `}
     >
       {children}
     </div>
