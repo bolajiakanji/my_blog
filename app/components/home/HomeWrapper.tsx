@@ -38,7 +38,7 @@ isDescriptionFull ? console.log('you'): console.log('me')
       ref={ref}
       id="home"
       className={`mt-5 z-20 relative ${isDescriptionFull ? "portrait:h-full" : "portrait:h-screen"
-      } max-mmd:landscape:h-full h-screen `}
+      } landscape:h-full md:landscape:h-screen`}
     >
       {children}
     </div>
