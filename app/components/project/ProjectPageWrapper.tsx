@@ -19,7 +19,7 @@ const ProjectPageWrapper = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     setElement(ref.current);
-    console.log(ref.current + "number");
+    
     if (isOverlayOpen) {
       element?.addEventListener("scroll", handleEvent);
       element?.addEventListener("wheel", handleEvent);

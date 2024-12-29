@@ -32,7 +32,7 @@ const HomeWrapper = ({ children }: PropsWithChildren) => {
       setCurrentBoundingClient("home");
     }
   };
-isDescriptionFull ? console.log('you'): console.log('me')
+
   return (
     <div
       ref={ref}
