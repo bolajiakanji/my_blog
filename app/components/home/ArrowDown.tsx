@@ -42,7 +42,7 @@ const ArrowDown = () => {
   return (
     <Box
       ref={ref}
-      className={`justify-center mt-7 md:mt-20 animate-bounce h-24 md:h-28 ${
+      className={`justify-center mt-12 md:mt-20 animate-bounce h-24 md:h-28 ${
         showArrow ? "flex md:landscape:flex" : "hidden md:landscape:hidden"
       } landscape:hidden  `}
     >

@@ -15,10 +15,10 @@ const RemoveOverlay = ({ setOverlay }: Props) => {
     <Box
       as="span"
       
-      className="pt-20 md:pt-20 fixed z-40 w-full pb-2 md:mt-2 inline-block ms-2 md:ms-8 max-mmd:dark:bg-bg_color max-mmd:bg-white"
+      className="pt-20 md:pt-20 fixed z-40 w-full pb-2 md:mt-2 inline-block ps-2 md:ps-8 max-mmd:dark:bg-bg_color max-mmd:bg-white"
     >
       
-          <ArrowLeftIcon width={40} height={30} className="text-accentColor ms-4" onClick={() => {
+          <ArrowLeftIcon width={40} height={30} className="text-accentColor ps-4" onClick={() => {
               setOverlay([]);
               setOverlayOpen(false);
               document.querySelector('body')!.style.overflow = 'inherit'
