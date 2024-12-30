@@ -20,15 +20,20 @@ const ArrowDown = () => {
 
   useEffect(() => {
     setElement(ref.current);
-      const bounding = element?.getBoundingClientRect().top;
-      console.log('herr')
+      const prevscroll = window.scrollY
+      window.onscroll = () => {
+          const currentscroll = window.scrollY
+          if ((prevscroll + 100) < currentscroll) {
+              setShowArrow(false)
+          } else { setShowArrow(true) }
+      }
 
-      document.addEventListener("scroll", () => {
-        handleScroll(bounding)
-    });
-
-    return () => document.removeEventListener("scroll", () => handleScroll(bounding))
-  });
+      
+  },[]);
+    
+    const handle = () => {
+        
+    }
 
     const handleScroll = (bounding:number | undefined) => {
         console.log('there')
@@ -37,9 +42,9 @@ const ArrowDown = () => {
             console.log('enter')
               console.log(bounding + 'oknow')
               console.log(element?.getBoundingClientRect().top + 'ok2')
-              const innerbound = element?.getBoundingClientRect().top
+              const innerbound = element?.offsetHeight
               
-            if ( innerbound &&  bounding && (bounding + 200) > (-1 * innerbound )) {
+            if (innerbound && (innerbound - bounding) < 200) {
                 console.log('metop')
                 setShowArrow(false)
             } else { 

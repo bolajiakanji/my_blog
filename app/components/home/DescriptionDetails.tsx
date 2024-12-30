@@ -10,7 +10,6 @@ I also build an amazing mobile application for both iOS and Android with React n
 
 const DescriptionDetails = () => {
   return (
-    
     <Box>
       <Box className="mx-5 mb-3 md:mb-6 ">
         <Text
@@ -28,13 +27,16 @@ const DescriptionDetails = () => {
           <Box className=" ms-5 ">
             <Button
               onClick={() => {
-                const element = document.getElementById('project'); 
+                const element = document.getElementById("project");
                 element?.scrollIntoView({
-                  behavior: 'smooth',
-                  block: "start"
-                })
+                  behavior: "smooth",
+                  block: "start",
+                });
               }}
-              variant="outline">View my project</Button>
+              variant="outline"
+            >
+              View my project
+            </Button>
           </Box>
           <Box className="me-14">
             <Button variant="surface" color="purple">
@@ -43,14 +45,17 @@ const DescriptionDetails = () => {
           </Box>
         </Box>
       </div>
-       {/* <Box className="flex justify-center mt-7 md:mt-20 animate-bounce h-8 md:h-10 md:landscape:block ">
+
+      {/* <Box className="flex justify-center mt-5 md:mt-8">
+        <Button>My Skill</Button>
+        </Box> */}
+      {/* <Box className="flex justify-center mt-7 md:mt-20 animate-bounce h-8 md:h-10 md:landscape:block ">
         <Box className="h-1 w-4  rotate-45 translate-x-2 bg-accentColor"></Box>
         <Box className="h-1 w-4 -rotate-45 bg-purple-600 "></Box>
       </Box>  */}
+<ArrowDown />
       
-        <ArrowDown /> 
-        </Box>
-    
+    </Box>
   );
 };
 
