@@ -37,8 +37,8 @@ const HomeWrapper = ({ children }: PropsWithChildren) => {
     <div
       ref={ref}
       id="home"
-      className={`mt-5 z-20 relative ${isDescriptionFull ? "portrait:h-full" : "portrait:h-screen"
-      } landscape:h-full md:landscape:h-screen`}
+      className={`mt-5 z-20 pb-5 relative ${!isDescriptionFull ? "portrait:h-full md:landscape:h-full" : "md:landscape:h-full portrait:h-screen"
+      } landscape:h-full lg:landscape:h-screen`}
     >
       {children}
     </div>

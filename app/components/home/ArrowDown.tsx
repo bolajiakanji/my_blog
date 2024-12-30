@@ -1,63 +1,37 @@
 "use client";
 
+import useDescription from "@/app/hooks/myDescription";
 import { Box } from "@radix-ui/themes";
 import React, { useEffect, useRef, useState } from "react";
 
 const ArrowDown = () => {
   const [element, setElement] = useState<HTMLDivElement | null>(null);
-  const [ini, setini] = useState(0);
-
   const [showArrow, setShowArrow] = useState(true);
-  const ref = useRef(null);
+    const ref = useRef(null);
+    const { isDescriptionFull } = useDescription();
 
-  let initialbounding: number;
 
-  // useEffect(() => {
-  //     setElement(ref.current);
-  //     setini(element?.getBoundingClientRect().top!)
-
-  // })
-
+  
   useEffect(() => {
     setElement(ref.current);
       const prevscroll = window.scrollY
-      window.onscroll = () => {
-          const currentscroll = window.scrollY
-          if ((prevscroll + 100) < currentscroll) {
-              setShowArrow(false)
-          } else { setShowArrow(true) }
+      if (!isDescriptionFull) {
+          window.onscroll = () => {
+              const currentscroll = window.scrollY
+              if ((prevscroll + 100) < currentscroll) {
+                  setShowArrow(false)
+              } else { setShowArrow(true) }
+          }
       }
 
       
-  },[]);
+  },[isDescriptionFull]);
     
-    const handle = () => {
-        
-    }
-
-    const handleScroll = (bounding:number | undefined) => {
-        console.log('there')
-
-          if (bounding) {
-            console.log('enter')
-              console.log(bounding + 'oknow')
-              console.log(element?.getBoundingClientRect().top + 'ok2')
-              const innerbound = element?.offsetHeight
-              
-            if (innerbound && (innerbound - bounding) < 200) {
-                console.log('metop')
-                setShowArrow(false)
-            } else { 
-                console.log('youtop')
-
-             setShowArrow(true)
-        };
-      }}
-    ;
+    
   return (
     <Box
       ref={ref}
-      className={`justify-center mt-7 md:mt-20 animate-bounce h-8 md:h-10 ${
+      className={`justify-center mt-7 md:mt-20 animate-bounce h-24 md:h-28 ${
         showArrow ? "flex md:landscape:flex" : "hidden md:landscape:hidden"
       } landscape:hidden  `}
     >

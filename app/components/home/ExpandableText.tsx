@@ -34,8 +34,8 @@ const ExpandableText = ({ description }: Props) => {
         <Text
           onClick={() => {
             setExpanded(!expanded);
-            if (expanded) return setDescriptionFull(false);
-            return setDescriptionFull(true);
+            if (expanded) return setDescriptionFull(true);
+            return setDescriptionFull(false);
           }}
           size="1"
           color="gray"
