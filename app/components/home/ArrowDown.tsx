@@ -25,7 +25,18 @@ const ArrowDown = () => {
       }
 
       
-  },[isDescriptionFull]);
+  }, []);
+    if (isDescriptionFull) return (
+        <Box
+      ref={ref}
+      className={`justify-center mt-7 md:mt-20 animate-bounce h-24 md:h-28 ${
+        showArrow ? "hidden lg:flex" : "hidden"
+      }   `}
+    >
+      <Box className="h-1 w-4  rotate-45 translate-x-2 bg-accentColor"></Box>
+      <Box className="h-1 w-4   -rotate-45 bg-purple-600 "></Box>
+    </Box>
+    )
     
     
   return (
