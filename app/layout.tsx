@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body className={poppins.variable}>
-        <ThemeProvider attribute="class" disableTransitionOnChange defaultTheme="dark" enableSystem={false}>
+        <ThemeProvider attribute="class" disableTransitionOnChange defaultTheme="dark" enableSystem={true}>
           <Theme accentColor="crimson" panelBackground="solid" radius="full">
             <MenuToggleProvider>
               <AppBackground />
