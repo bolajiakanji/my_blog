@@ -4,7 +4,7 @@ import ArrowDown from "./ArrowDown";
 
 const description = `I'm skilled in buiding fast, scalable, and optimised full-fledged web applications with an advanced seamless functionalities.
 
-I develop super-fast and search engine friendly application with NEXT.js. In fact, this web applictaion you're on is built with next.js.
+I develop super-fast and search-engine friendly application with NEXT.js. In fact, this web applictaion you're on is built with Next.js.
 
 I also build an amazing mobile application for both iOS and Android with React native and Expo `;
 

@@ -11,13 +11,13 @@ const Navbar = () => {
     <NavbarWrapperProvider>
       <Flex
         justify="between"
-        className="fixed w-full py-3 z-70 sm:px-5 px-3 mb-4 overflow-hidden bg-white dark:bg-black"
+        className="fixed w-full py-4 z-70 px-3 md:px-5 mb-4 overflow-hidden bg-white dark:bg-black"
       >
         <Box className="relative">
           <MyNameLogo />
         </Box>
         <NavLink />
-        <Flex className="gap-2 md:gap-10 relative">
+        <Flex className="gap-2 md:gap-10 relative md:pt-2 md:pe-7">
           <ThemeToggle />
           <Menu />
         </Flex>
