@@ -2,11 +2,13 @@
 
 import useMenuToggling from "@/app/hooks/menuToggling";
 import useNavbarWrapper from "@/app/hooks/navbarWrapper";
+import useProjectWrapper from "@/app/hooks/projectWrapper";
 import { Box, Button } from "@radix-ui/themes";
 
 const Menu = () => {
   const { display, setDisplay, element } = useNavbarWrapper();
-  const { setOpen } = useMenuToggling();
+    const { setOpen } = useMenuToggling();
+    const { setOverlayOpen } = useProjectWrapper()
 
   const close_1 = display === "flex" ? { translate: "-0px 8px" } : {};
   const close_3 = display === "flex" ? { translate: "1px -7px" } : {};
@@ -28,7 +30,8 @@ const Menu = () => {
       return document.addEventListener("click", handleEvent);
     } else {
       setDisplay("hidden");
-      setOpen(false);
+        setOpen(false);
+        setOverlayOpen(false)
     }
   };
 

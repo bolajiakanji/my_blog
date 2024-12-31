@@ -11,9 +11,9 @@ const Navbar = () => {
     <NavbarWrapperProvider>
       <Flex
         justify="between"
-        className="fixed w-full py-4 z-70 px-3 md:px-5 mb-4 overflow-hidden bg-white dark:bg-black"
+        className="fixed w-full py-3 z-70 px-3 md:px-5 mb-4 overflow-hidden bg-white dark:bg-black"
       >
-        <Box className="relative">
+        <Box className="relative md:pt-2">
           <MyNameLogo />
         </Box>
         <NavLink />

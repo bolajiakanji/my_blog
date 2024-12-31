@@ -1,6 +1,7 @@
 import Display from "@/app/entities/Display";
 import useClientBounding from "../../hooks/clientBounding";
 import useMenuToggling from "@/app/hooks/menuToggling";
+import useProjectWrapper from "@/app/hooks/projectWrapper";
 
 interface NavLink {
   label: string;
@@ -19,13 +20,15 @@ const ListItems = ({ setDisplay }: Display) => {
   const { setCurrentBoundingClient, currentBoundingClient } =
     useClientBounding();
   const { setOpen } = useMenuToggling();
+  const { setOverlayOpen } = useProjectWrapper();
 
   return nav_links.map((navLink) => (
     <li
       className={clientBoundingStyle(currentBoundingClient, navLink)}
       onClick={() => {
         setDisplay("hidden");
-        setOpen(false);
+          setOpen(false);
+          setOverlayOpen(false)
         const element = document.getElementById(navLink.label);
         element?.scrollIntoView({
           behavior: "smooth",

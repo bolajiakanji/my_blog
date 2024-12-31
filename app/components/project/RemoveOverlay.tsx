@@ -19,7 +19,7 @@ const RemoveOverlay = ({ setOverlay }: Props) => {
     >
       
           <ArrowLeftIcon width={40} height={30} className="text-accentColor ps-4" onClick={() => {
-              setOverlay([]);
+              
               setOverlayOpen(false);
               document.querySelector('body')!.style.overflow = 'inherit'
               document.querySelector('body')!.style.height = '100%'

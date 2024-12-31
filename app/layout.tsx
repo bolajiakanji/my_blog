@@ -45,8 +45,8 @@ export default function RootLayout({
               <div className="absolute top-0 left-0 w-full">
                 <AppWrapper>
                   <ClientboundingProvider>
-                    <Navbar />
                     <ProjectWrapperProvider>
+                    <Navbar />
                       <DescriptionProvider>                 
                              <main>{children}</main>
                              </DescriptionProvider>

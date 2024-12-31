@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <HomeWrapper>
       <Box className="flex flex-col md:flex-row justify-center md:ms-5 md:me-2 lg:mx-10 md:gap-2 lg:gap-8">
-        <Box className="md:w-46% lg:w-2/5">
+        <Box className="md:w-46% lg:w-2/5 mt-3">
           <MyImage />
         </Box>
         <Box className="md:w-54% lg:w-3/5">
