@@ -31,7 +31,7 @@ const CertificatitionWrapper = ({ children }: PropsWithChildren) => {
   };
 
   return (
-    <div ref={ref} id="certification" className=" bg-green-700">
+    <div ref={ref} id="certification" className=" ">
       {children}
     </div>
   );
