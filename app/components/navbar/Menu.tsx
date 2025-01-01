@@ -32,6 +32,8 @@ const Menu = () => {
       setDisplay("hidden");
         setOpen(false);
         setOverlayOpen(false)
+        document.querySelector('body')!.style.overflow = 'inherit'
+              document.querySelector('body')!.style.height = '100%'
     }
   };
 

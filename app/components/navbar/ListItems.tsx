@@ -29,6 +29,8 @@ const ListItems = ({ setDisplay }: Display) => {
         setDisplay("hidden");
           setOpen(false);
           setOverlayOpen(false)
+          document.querySelector('body')!.style.overflow = 'inherit'
+              document.querySelector('body')!.style.height = '100%'
         const element = document.getElementById(navLink.label);
         element?.scrollIntoView({
           behavior: "smooth",
