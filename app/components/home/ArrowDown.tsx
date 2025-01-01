@@ -12,6 +12,10 @@ const ArrowDown = () => {
 
   useEffect(() => {
     setElement(ref.current);
+    if (typeof window === undefined) {
+        return;
+    }
+      
     const prevscroll = window.scrollY;
     if (!isDescriptionFull) {
       window.onscroll = () => {
