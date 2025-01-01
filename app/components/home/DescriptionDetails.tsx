@@ -1,6 +1,13 @@
 import { Box, Button, Text } from "@radix-ui/themes";
 import ExpandableText from "./ExpandableText";
-import ArrowDown from "./ArrowDown";
+import dynamic from "next/dynamic";
+
+
+const ArrowDown = dynamic(
+  () => import('./ArrowDown'),
+  { ssr: false }
+)
+
 
 const description = `I'm skilled in buiding fast, scalable, and optimised full-fledged web applications with an advanced seamless functionalities.
 

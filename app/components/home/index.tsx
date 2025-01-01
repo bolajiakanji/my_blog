@@ -2,7 +2,15 @@ import { Box } from "@radix-ui/themes";
 import MyImage from "./MyImage";
 import MyDescription from "./MyDescription";
 import DescriptionDetails from "./DescriptionDetails";
-import HomeWrapper from "./HomeWrapper";
+import dynamic from "next/dynamic";
+
+
+
+const HomeWrapper = dynamic(
+  () => import('./HomeWrapper'),
+  { ssr: false }
+)
+
 
 const Home = () => {
   return (

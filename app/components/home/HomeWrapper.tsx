@@ -34,9 +34,7 @@ const HomeWrapper = ({ children }: PropsWithChildren) => {
       setCurrentBoundingClient("home");
     }
   };
-  if (typeof window === undefined) {
-    return;
-}
+  
   if (window.innerHeight < 610)
     return (
       <div
